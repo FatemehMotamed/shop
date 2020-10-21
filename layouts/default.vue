@@ -1,17 +1,29 @@
 <template>
-  <v-app>
+  <div>
 
-      <v-container>
-        <nuxt />
-      </v-container>
+       <headerpage></headerpage>
+        <Nuxt />
+<!--    <FooterPage></FooterPage>-->
 
-  </v-app>
+
+
+
+  </div>
 </template>
 
+
 <script>
+  import HeaderPage from "@/components/HeaderPage";
+
 export default {
-  data () {
-    return {}
-  }
+    components: {
+        headerpage:HeaderPage,
+    },
+
+
 }
 </script>
+
+<style>
+
+</style>
