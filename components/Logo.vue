@@ -1,79 +1,86 @@
 <template>
-  <div class="VueToNuxtLogo">
-    <div class="Triangle Triangle--two" />
-    <div class="Triangle Triangle--one" />
-    <div class="Triangle Triangle--three" />
-    <div class="Triangle Triangle--four" />
-  </div>
+ <div>
+
+    <v-container class="logo_box">
+      <v-row >
+        <v-col
+          cols="12"
+          md="2"
+          offset="1"
+        >
+        <v-text-field
+          label=""
+          placeholder="     جستجوی محصولات"
+          class="search_box dir"
+          dir="rtl"
+
+        >
+          <font-awesome-icon :icon="['fas', 'search']" slot="prepend" class="search_icon" />
+
+        </v-text-field>
+
+        </v-col>
+        <v-col
+      md="4"
+      offset="2">
+          <h2 class="brand">BRAND NAME</h2>
+          <hr />
+
+
+      </v-col>
+        <v-col
+      md="2"
+      offset="1">
+          <div class="mt-5 float-right">
+            <label class="mr-2">وارد شوید</label>
+            <font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" />
+          </div>
+      </v-col>
+      </v-row>
+
+    </v-container>
+
+ </div>
 </template>
 
-<style>
-.VueToNuxtLogo {
-  display: inline-block;
-  animation: turn 2s linear forwards 1s;
-  transform: rotateX(180deg);
-  position: relative;
-  overflow: hidden;
-  height: 180px;
-  width: 245px;
-}
+<script>
+    export default {
+        name: "Logo"
+    }
+</script>
 
-.Triangle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-}
+<style scoped>
 
-.Triangle--one {
-  border-left: 105px solid transparent;
-  border-right: 105px solid transparent;
-  border-bottom: 180px solid #41b883;
-}
-
-.Triangle--two {
-  top: 30px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 87.5px solid transparent;
-  border-right: 87.5px solid transparent;
-  border-bottom: 150px solid #3b8070;
-}
-
-.Triangle--three {
-  top: 60px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 70px solid transparent;
-  border-right: 70px solid transparent;
-  border-bottom: 120px solid #35495e;
-}
-
-.Triangle--four {
-  top: 120px;
-  left: 70px;
-  animation: godown 0.5s linear forwards 3s;
-  border-left: 35px solid transparent;
-  border-right: 35px solid transparent;
-  border-bottom: 60px solid #fff;
-}
-
-@keyframes turn {
-  100% {
-    transform: rotateX(0deg);
+    .search_box{
+    color: #47494e;
+    position: relative;
   }
+  .search_icon{
+    color:dimgrey;
+    position: absolute;
+    right: 0;
+  }
+
+  .v-text-field ::before {
+    border-color: black !important;
+  }
+
+  .v-text-field ::after {
+    border-color: blueviolet !important;
+  }
+.brand{
+text-align: center;
+
+}
+  hr{
+    margin-top: 5%;
+  }
+
+.logo_box{
+      position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
-@keyframes godown {
-  100% {
-    top: 180px;
-  }
-}
-
-@keyframes goright {
-  100% {
-    left: 70px;
-  }
-}
 </style>

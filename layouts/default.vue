@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app>
-       <menu-page class=""></menu-page>
+       <logo-page class=""></logo-page>
         <Nuxt />
 <!--    <FooterPage></FooterPage>-->
     </v-app>
@@ -14,11 +14,11 @@
 
 
 <script>
-  import MenuPage from "@/components/Menu";
+  import LogoPage from "@/components/Logo";
 
 export default {
     components: {
-        MenuPage:MenuPage,
+        LogoPage:LogoPage,
     },
 
 

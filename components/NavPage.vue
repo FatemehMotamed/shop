@@ -5,35 +5,12 @@
       <v-row >
         <v-col
           cols="12"
-          md="2"
-          offset="1"
+          md="12"
         >
-        <v-text-field
-          label=""
-          placeholder="     جستجوی محصولات"
-          class="search_box dir"
-          dir="rtl"
 
-        >
-          <font-awesome-icon :icon="['fas', 'search']" slot="prepend" class="search_icon" />
-
-        </v-text-field>
 
         </v-col>
-        <v-col
-      md="4"
-      offset="1">
-          <h2 class="brand">BRAND NAME</h2>
-          <hr />
 
-
-      </v-col>
-        <v-col
-      md="2"
-      offset="1">
-        <p>وارد شوید</p>
-
-      </v-col>
       </v-row>
 
     </v-container>
@@ -54,7 +31,7 @@
     position: relative;
   }
   .search_icon{
-    color:#DDDDDD;
+    color:dimgrey;
     position: absolute;
     right: 0;
   }
@@ -64,10 +41,11 @@
   }
 
   .v-text-field ::after {
-    border-color: orangered !important;
+    border-color: blueviolet !important;
   }
 .brand{
 text-align: center;
+
 }
   hr{
     margin-top: 5%;
