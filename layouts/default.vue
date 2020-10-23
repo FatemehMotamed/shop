@@ -1,9 +1,10 @@
 <template>
   <div>
-
-       <headerpage></headerpage>
+    <v-app>
+       <menu-page class=""></menu-page>
         <Nuxt />
 <!--    <FooterPage></FooterPage>-->
+    </v-app>
 
 
 
@@ -13,11 +14,11 @@
 
 
 <script>
-  import HeaderPage from "@/components/HeaderPage";
+  import MenuPage from "@/components/Menu";
 
 export default {
     components: {
-        headerpage:HeaderPage,
+        MenuPage:MenuPage,
     },
 
 

@@ -1,7 +1,7 @@
 <template>
-  <div>
-
-      <v-carousel class="main_box"
+      <div>
+    <v-app>
+      <v-carousel
     cycle
     height="700"
     hide-delimiter-background
@@ -16,9 +16,9 @@
           align="center"
           justify="center"
         >
-          <div class="txt">
+<!--          <div class="txt">-->
 
-          </div>
+<!--          </div>-->
           <div class="display-3">
             <v-img :src="slide.src"></v-img>
           </div>
@@ -26,15 +26,13 @@
     </v-carousel-item>
   </v-carousel>
 
-      <menu></menu>
-
+    </v-app>
   </div>
 </template>
 
 <script>
-
     export default {
-        name: "HeaderPage",
+        name: "Slide",
         data () {
       return {
         slides: [
@@ -52,14 +50,5 @@
 </script>
 
 <style scoped>
-  .main_box{
-    position: relative;
-  }
-  .txt{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
 
 </style>

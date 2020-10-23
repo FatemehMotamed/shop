@@ -1,17 +1,21 @@
 <template>
   <div>
+    <v-app>
+      <slide-page style="position: relative"></slide-page>
+    </v-app>
 
-    <h1>test</h1>
+
   </div>
 
 </template>
 
 <script>
 
-
+import SlidePage from "@/components/Slide";
 
 export default {
     components: {
+         SlidePage:SlidePage,
 
     }
 }
