@@ -1,13 +1,52 @@
 <template>
  <div>
 
-    <v-container class="menu_box">
+    <v-container>
       <v-row >
         <v-col
           cols="12"
           md="12"
         >
+                <div id="menu-wrapper">
 
+	<ul class="nav">
+		<li><a href="#">کارت هدیه</a></li>
+		<li>
+			<a href="#">برندها</a>
+			<div>
+				menu1
+			</div>
+		</li>
+		<li><a href="#">فروش ویژه</a></li>
+		<li>
+			<a href="#">زیبایی و سلامت</a>
+			<div>
+				menu2
+			</div>
+		</li>
+		<li>
+			<a href="#">بچه گانه</a>
+			<div>
+				menu3
+			</div>
+		</li>
+		<li>
+			<a href="#">زنانه</a>
+			<div>
+				menu4
+			</div>
+		</li>
+		<li>
+			<a href="#">مردانه</a>
+			<div>
+				menu5
+			</div>
+		</li>
+
+
+	</ul>
+
+</div>
 
         </v-col>
 
@@ -20,42 +59,140 @@
 
 <script>
     export default {
-        name: "Menu"
+        name: "NavPage"
     }
 </script>
 
 <style scoped>
-
-    .search_box{
-    color: #47494e;
-    position: relative;
-  }
-  .search_icon{
-    color:dimgrey;
-    position: absolute;
-    right: 0;
-  }
-
-  .v-text-field ::before {
-    border-color: black !important;
-  }
-
-  .v-text-field ::after {
-    border-color: blueviolet !important;
-  }
-.brand{
-text-align: center;
-
+  /* Reset */
+.nav,
+.nav a,
+.nav ul,
+.nav li,
+.nav div,
+.nav form,
+.nav input {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
 }
-  hr{
-    margin-top: 5%;
-  }
 
-.menu_box{
-      position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.nav a { text-decoration: none; }
+
+.nav li { list-style: none; }
+
+/* Menu Container */
+.nav {
+	display: inline-block;
+	position: relative;
+	cursor: default;
+	z-index: 500;
 }
+
+/* Menu List */
+.nav > li {
+	display: block;
+	float: left;
+}
+
+/* Menu Links */
+.nav > li > a {
+	position: relative;
+	display: block;
+	z-index: 510;
+	height: 54px;
+	padding: 0 20px;
+	line-height: 54px;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #fcfcfc;
+	text-shadow: 0 0 1px rgba(0,0,0,.35);
+
+	/*background: #372f2b;*/
+	color: black;
+	border-left: 0px solid #4b4441;
+	border-right: 0px solid #312a27;
+
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+.nav > li:hover > a {
+	/*background: #4b4441;*/
+	color: orangered;
+}
+
+.nav > li:first-child > a {
+	border-radius: 3px 0 0 3px;
+	border-left: none;
+}
+
+/* Menu Dropdown */
+.nav > li > div {
+	position: absolute;
+	display: block;
+	width: 100%;
+	top: 50px;
+	left: 0;
+
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+
+	background: #ffffff;
+	border-radius: 0 0 3px 3px;
+
+	-webkit-transition: all .3s ease .15s;
+	-moz-transition: all .3s ease .15s;
+	-o-transition: all .3s ease .15s;
+	-ms-transition: all .3s ease .15s;
+	transition: all .3s ease .15s;
+}
+
+.nav > li:hover > div {
+	opacity: 1;
+	visibility: visible;
+	overflow: visible;
+}
+
+/* Menu Content Styles */
+.nav .nav-column {
+	float: left;
+	width: 20%;
+	padding: 2.5%;
+}
+
+.nav .nav-column h3 {
+	margin: 20px 0 10px 0;
+	line-height: 18px;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: #372f2b;
+	text-transform: uppercase;
+}
+
+
+
+/*.nav .nav-column li a {*/
+/*	display: block;*/
+/*	line-height: 26px;*/
+
+/*	font-family: Helvetica, Arial, sans-serif;*/
+/*	font-weight: bold;*/
+/*	font-size: 13px;*/
+/*	color: #888888;*/
+/*}*/
+
+/*.nav .nav-column li a:hover { color: #666666; }*/
+
+
 
 </style>

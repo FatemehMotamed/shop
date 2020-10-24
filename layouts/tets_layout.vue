@@ -1,6 +1,6 @@
 <template>
   <div>
-
+        <nav-page></nav-page>
         <Nuxt />
 
 
@@ -11,8 +11,12 @@
 </template>
 
 <script>
+  import NavPage from "@/components/NavPage";
     export default {
-        name: "tets_layout"
+        name: "tets_layout",
+        components:{
+            NavPage:NavPage,
+        }
     }
 </script>
 
