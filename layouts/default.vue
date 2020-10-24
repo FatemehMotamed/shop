@@ -1,7 +1,8 @@
 <template>
   <div>
     <v-app>
-       <logo-page class=""></logo-page>
+       <logo-page></logo-page>
+        <nav-page class="nav_box"></nav-page>
         <Nuxt />
 <!--    <FooterPage></FooterPage>-->
     </v-app>
@@ -15,10 +16,12 @@
 
 <script>
   import LogoPage from "@/components/Logo";
+  import NavPage from "@/components/NavPage";
 
 export default {
     components: {
         LogoPage:LogoPage,
+        NavPage:NavPage,
     },
 
 
@@ -26,5 +29,10 @@ export default {
 </script>
 
 <style>
+  .nav_box{
+    position: absolute;
+    top: 15%;
+    left: 29%;
+  }
 
 </style>

@@ -64,7 +64,7 @@
 </script>
 
 <style scoped>
-  /* Reset */
+
 .nav,
 .nav a,
 .nav ul,
@@ -137,9 +137,11 @@
 .nav > li > div {
 	position: absolute;
 	display: block;
-	width: 100%;
+	width: 200%;
+  word-wrap: break-word;
 	top: 50px;
-	left: 0;
+	left: -55%;
+  text-align: right;
 
 	opacity: 0;
 	visibility: hidden;
