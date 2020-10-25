@@ -1,35 +1,27 @@
 <template>
-<div>
-  <v-app>
-       <v-card class="overflow-hidden">
+  <v-card class="overflow-hidden">
          <v-tabs align-with-title>
           <v-tab>Tab 1</v-tab>
           <v-tab>Tab 2</v-tab>
           <v-tab>Tab 3</v-tab>
         </v-tabs>
          <v-sheet
-      id="scrolling-techniques-4"
+      id="scrolling-techniques-5"
       class="overflow-y-auto"
       max-height="600"
     >
-      <v-container style="height: 1000px;"></v-container>
+
     </v-sheet>
 
       </v-card>
-
-  </v-app>
-</div>
 </template>
 
 <script>
     export default {
-        name: "test",
-        layout: "tets_layout",
-
+        name: "SubNav"
     }
 </script>
 
 <style scoped>
-
 
 </style>

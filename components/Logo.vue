@@ -6,7 +6,9 @@
         <v-col
           cols="12"
           md="2"
-          offset="1"
+          sm="2"
+          offset-md="1"
+          offset-sm="3"
         >
         <v-text-field
           label=""
@@ -22,7 +24,9 @@
         </v-col>
         <v-col
       md="4"
-      offset="2">
+      sm="3"
+      offset-md="2"
+      offset-sm="1">
           <h2 class="brand">BRAND NAME</h2>
           <hr />
 
@@ -30,7 +34,8 @@
       </v-col>
         <v-col
       md="2"
-      offset="1">
+      sm="2"
+      offset-md="1">
           <div class="mt-5 float-right">
             <label class="mr-2">وارد شوید</label>
             <font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" />
@@ -81,6 +86,7 @@ text-align: center;
     top: 0;
     left: 0;
     z-index: 1;
+  font-family: 'Markazi Text', serif;
 }
 
 </style>

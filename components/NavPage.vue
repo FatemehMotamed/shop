@@ -7,46 +7,45 @@
           cols="12"
           md="12"
         >
-                <div id="menu-wrapper">
+          <div id="menu-wrapper">
 
-	<ul class="nav">
-		<li><a href="#">کارت هدیه</a></li>
-		<li>
-			<a href="#">برندها</a>
-			<div>
-				menu1
-			</div>
-		</li>
-		<li><a href="#">فروش ویژه</a></li>
-		<li>
-			<a href="#">زیبایی و سلامت</a>
-			<div>
-				menu2
-			</div>
-		</li>
-		<li>
-			<a href="#">بچه گانه</a>
-			<div>
-				menu3
-			</div>
-		</li>
-		<li>
-			<a href="#">زنانه</a>
-			<div>
-				menu4
-			</div>
-		</li>
-		<li>
-			<a href="#">مردانه</a>
-			<div>
-				menu5
-			</div>
-		</li>
+	        <ul class="nav">
+            <li><a href="#">کارت هدیه</a></li>
+            <li>
+              <a href="#">برندها</a>
+              <div>
+                <sub-nav></sub-nav>
+              </div>
+            </li>
+            <li><a href="#">فروش ویژه</a></li>
+            <li>
+              <a href="#">زیبایی و سلامت</a>
+              <div>
+                <sub-nav></sub-nav>
+              </div>
+            </li>
+            <li>
+              <a href="#">بچه گانه</a>
+              <div>
+                <sub-nav></sub-nav>
+              </div>
+            </li>
+            <li>
+              <a href="#">زنانه</a>
+              <div>
+                <sub-nav></sub-nav>
+              </div>
+            </li>
+            <li>
+              <a href="#">مردانه</a>
+              <div>
+                <sub-nav></sub-nav>
+              </div>
+		        </li>
 
+          </ul>
 
-	</ul>
-
-</div>
+        </div>
 
         </v-col>
 
@@ -58,8 +57,12 @@
 </template>
 
 <script>
+  import SubNav from "@/components/SubNav";
     export default {
-        name: "NavPage"
+        name: "NavPage",
+        components:{
+            SubNav:SubNav,
+        }
     }
 </script>
 
@@ -88,6 +91,7 @@
 	position: relative;
 	cursor: default;
 	z-index: 500;
+
 }
 
 /* Menu List */
@@ -105,10 +109,9 @@
 	padding: 0 20px;
 	line-height: 54px;
 
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: 'Markazi Text', serif;
 	font-weight: bold;
-	font-size: 13px;
-	color: #fcfcfc;
+	font-size: 1.1vw;
 	text-shadow: 0 0 1px rgba(0,0,0,.35);
 
 	/*background: #372f2b;*/

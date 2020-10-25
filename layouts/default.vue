@@ -34,5 +34,8 @@ export default {
     top: 15%;
     left: 29%;
   }
+  html{
+    font-family: 'Markazi Text', serif;
+  }
 
 </style>
