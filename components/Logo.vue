@@ -12,7 +12,7 @@
         >
         <v-text-field
           label=""
-          placeholder="     جستجوی محصولات"
+          placeholder="        جستجوی محصولات"
           class="search_box dir"
           dir="rtl"
 
@@ -27,7 +27,7 @@
       sm="3"
       offset-md="2"
       offset-sm="1">
-          <h2 class="brand">BRAND NAME</h2>
+          <h1 class="brand">BRAND NAME</h1>
           <hr />
 
 

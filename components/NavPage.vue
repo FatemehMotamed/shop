@@ -110,7 +110,7 @@
 	line-height: 54px;
 
 	font-family: 'Markazi Text', serif;
-	font-weight: bold;
+	/*font-weight: bold;*/
 	font-size: 1.1vw;
 	text-shadow: 0 0 1px rgba(0,0,0,.35);
 
@@ -128,7 +128,10 @@
 
 .nav > li:hover > a {
 	/*background: #4b4441;*/
-	color: orangered;
+	/*color: orangered;*/
+  font-weight: bold;
+  font-size: 1.2vw;
+
 }
 
 .nav > li:first-child > a {
@@ -150,7 +153,7 @@
 	visibility: hidden;
 	overflow: hidden;
 
-	background: #ffffff;
+	background:transparent;
 	border-radius: 0 0 3px 3px;
 
 	-webkit-transition: all .3s ease .15s;
