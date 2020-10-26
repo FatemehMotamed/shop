@@ -46,6 +46,17 @@
         </v-col>
 
       </v-row>
+
+      <v-row>
+        <v-col cols="12" md="2" sm="2"><img src="https://www.digistyle.com/static/files/50a7c6fb.png"></v-col>
+        <v-col cols="12" md="2" sm="2"><img src="https://www.digistyle.com/static/files/50a7c6fb.png"></v-col>
+        <v-col cols="12" md="2" sm="2"><img src="https://www.digistyle.com/static/files/50a7c6fb.png"></v-col>
+        <v-col cols="12" md="5" sm="5">
+          <h3>فروشگاه اینترنتی مد و لباس دیجی‌استایل</h3>
+          <p class="mt-5">دیجی‌استایل، پس از تجربه‌ی موفق فروشگاه اینترنتی دیجی‌کالا به صورت تخصصی پا به عرصه مد، پوشاک و سبک زندگی گذاشت تا همان تجربه‌ی شیرین، در قالبی نو تکرار شود. در دیجی ‌استایل می‌توانید همه آنچه مرتبط با مد و پوشاک است؛ از انواع لباس، کیف و کفش تا محصولات آرایشی و بهداشتی، لوازم خانه و اکسسوری‌هایی مانند ساعت مچی و عینک آفتابی را با تخفیف ویژه در حراج ها، پیدا کنید و به سادگی</p>
+        </v-col>
+        <v-col cols="12" md="1" sm="1"></v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -57,6 +68,8 @@
 </script>
 
 <style scoped>
+
+
   .btn{
     background-color: black !important;
     color: #F5F5F5 !important;
@@ -65,6 +78,7 @@
   .box{
     font-family: 'Markazi Text', serif !important;
     font-size: 1.4vw;
+    background-color: #ECF0F1 !important;
 
   }
   .titr{
@@ -80,5 +94,11 @@
     font-size: 1.5vw;
     color: black !important;
 
+  }
+  .v-list{
+    background-color: #ECF0F1 !important;
+  }
+  p{
+    font-size:0.9em;
   }
 </style>
