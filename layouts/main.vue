@@ -2,8 +2,8 @@
   <div>
     <v-app>
        <logo-page></logo-page>
-        <nav-page class="nav_box2"></nav-page>
-
+        <nav-page class="nav_box"></nav-page>
+<!--      <header-page class="nav_box"></header-page>-->
         <Nuxt />
       <footer-page></footer-page>
     </v-app>
@@ -22,6 +22,7 @@
 
 
 export default {
+    name:'main',
     components: {
         LogoPage:LogoPage,
         NavPage:NavPage,
@@ -34,9 +35,13 @@ export default {
 </script>
 
 <style>
-.nav_box2{
-  margin-top: 8vw;
-  margin-left: 28vw;
-}
+  .nav_box{
+    position: absolute;
+    top: 15%;
+    left: 29%;
+  }
+  html{
+    font-family: 'Markazi Text', serif;
+  }
 
 </style>

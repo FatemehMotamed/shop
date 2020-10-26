@@ -42,33 +42,33 @@
         </v-tabs>
               <v-sheet max-height="600" >
                   <v-row>
-                    <v-col cols="12" md="1" ></v-col>
-                    <v-col cols="12" md="5">
+                    <v-col cols="12" md="1" sm="0"></v-col>
+                    <v-col cols="12" md="5" sm="5" >
                       <v-row>
-                        <v-col cols="12" md="12"><nuxt-link to="#" class="titr">برترین برندهای لباس مردانه</nuxt-link></v-col>
+                        <v-col cols="12" md="12" sm="12"><nuxt-link to="#" class="titr">برترین برندهای لباس مردانه</nuxt-link></v-col>
                       </v-row>
                       <v-row>
-                        <v-col cols="12" md="6"><img src="https://dkstatics-public.digikala.com/digistyle-mega-menu/6.png"></v-col>
-                        <v-col cols="12" md="6"><img src="https://dkstatics-public.digikala.com/digistyle-mega-menu/7.png"></v-col>
+                        <v-col cols="12" md="6" sm="6"><img src="https://dkstatics-public.digikala.com/digistyle-mega-menu/6.png"></v-col>
+                        <v-col cols="12" md="6" sm="6"><img src="https://dkstatics-public.digikala.com/digistyle-mega-menu/7.png"></v-col>
                       </v-row>
                       <v-row>
-                        <v-col cols="12" md="6"><img src="https://dkstatics-public.digikala.com/digistyle-mega-menu/8.png"></v-col>
-                        <v-col cols="12" md="6"><img src="https://dkstatics-public.digikala.com/digistyle-mega-menu/9.png"></v-col>
+                        <v-col cols="12" md="6" sm="6"><img src="https://dkstatics-public.digikala.com/digistyle-mega-menu/8.png"></v-col>
+                        <v-col cols="12" md="6" sm="6"><img src="https://dkstatics-public.digikala.com/digistyle-mega-menu/9.png"></v-col>
                       </v-row>
 
                     </v-col>
 
-                    <v-col cols="12" md="1" style="border-right: 1px solid lightgray;"></v-col>
+                    <v-col cols="12" md="1" sm="1" style="border-right: 1px solid lightgray;"></v-col>
 
-                    <v-col cols="12" md="5">
+                    <v-col cols="12" md="5" sm="5">
                       <v-row>
-                        <v-col cols="12" md="6">
+                        <v-col cols="12" md="6" sm="5">
                           <ul>
                             <li>&nbsp;</li>
                             <li v-for="item in items2"><nuxt-link to="#">{{ item }}</nuxt-link></li>
                           </ul>
                         </v-col>
-                        <v-col cols="12" md="6">
+                        <v-col cols="12" md="6" sm="5">
                           <nuxt-link to="#" class="titr" style="margin-right: 6vw;"><label> < </label><label>خرید لباس مردانه</label></nuxt-link>
                           <ul>
                     <li v-for="item in items"><nuxt-link to="#">{{ item }}</nuxt-link></li>

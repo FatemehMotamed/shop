@@ -3,7 +3,7 @@
     <v-app>
       <slide-page style="position: relative"></slide-page>
     </v-app>
-
+gggggggggggggggggggggggggggggg
 
   </div>
 
@@ -14,6 +14,7 @@
 import SlidePage from "@/components/Slide";
 
 export default {
+    layout:'main',
     components: {
          SlidePage:SlidePage,
 

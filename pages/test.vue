@@ -1,12 +1,21 @@
 <template>
-<div>
+  <div>
+    <v-app>
 
-</div>
+      <div>uuuuuuuuuuuuuuu</div>
+    </v-app>
+
+  </div>
 </template>
 
 <script>
+  import SlidePage from "@/components/Slide";
     export default {
         name: "test",
+        components: {
+         SlidePage:SlidePage,
+
+    }
 
     }
 </script>
