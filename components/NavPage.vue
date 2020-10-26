@@ -145,7 +145,7 @@
 	display: block;
 	width: 200%;
   word-wrap: break-word;
-	top: 50px;
+	top: 30px;
 	left: -55%;
   text-align: right;
 

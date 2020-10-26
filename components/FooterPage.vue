@@ -1,17 +1,13 @@
 <template>
-<div>
 
-</div>
 </template>
 
 <script>
     export default {
-        name: "test",
-
+        name: "FooterPage"
     }
 </script>
 
 <style scoped>
-
 
 </style>
