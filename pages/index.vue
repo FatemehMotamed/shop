@@ -70,9 +70,9 @@
 
       <v-container class="box4">
         <v-row dir="rtl">
-          <v-col cols="12" md="3" sm="3" class="mr-16"><img src="@/assets/image/7.png"></v-col>
-          <v-col cols="12" md="3" sm="3" class="mr-16"><img src="@/assets/image/8.png"></v-col>
-          <v-col cols="12" md="3" sm="3" class="mr-16"><img src="@/assets/image/9.png"></v-col>
+          <v-col cols="12" md="3" sm="3" class="mr-16"><img src="@/assets/image/7.PNG"></v-col>
+          <v-col cols="12" md="3" sm="3" class="mr-16"><img src="@/assets/image/8.PNG"></v-col>
+          <v-col cols="12" md="3" sm="3" class="mr-16"><img src="@/assets/image/9.PNG"></v-col>
         </v-row>
         <v-row dir="rtl">
           <v-col cols="12" md="3" sm="3" class="mr-16">
