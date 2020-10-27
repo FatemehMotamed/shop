@@ -37,7 +37,7 @@
       sm="2"
       offset-md="1">
           <div class="mt-5 float-right">
-            <label class="mr-2">وارد شوید</label>
+            <label class="mr-2"><nuxt-link to="/login">وارد شوید</nuxt-link></label>
             <font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" />
           </div>
       </v-col>
@@ -57,9 +57,10 @@
 <style scoped>
 
     .search_box{
-    color: #47494e;
+    color: #47494e !important;
     position: relative;
   }
+
   .search_icon{
     color:dimgrey;
     position: absolute;
@@ -88,5 +89,9 @@ text-align: center;
     z-index: 1;
   font-family: 'Markazi Text', serif;
 }
+  .logo_box a{
+    color: #47494e !important;
+    text-decoration: none;
+  }
 
 </style>

@@ -1,22 +1,22 @@
 <template>
   <div>
     <v-container class="main_box">
-      <v-row class="mt-10">
+      <v-row >
           <v-col cols="12" md="4" sm="4" offset-md="5" offset-sm="5">
-            <p class="ml-5">ورود یا ثبت‌نام</p>
+            <p class="ml-3">ورود یا ثبت‌نام</p>
           </v-col>
         </v-row>
       <v-row >
         <v-col cols="12" md="5" offset-sm="4" offset-md="4" >
-          <v-card class="card ml-n8">
-            <v-row class="pt-15">
+          <v-card class="card ml-n6">
+            <v-row class="pt-12">
               <v-text-field  label="شماره موبایل یا ایمیل" ></v-text-field>
-              <v-btn class="btn ml-10 mt-10">ادامه</v-btn>
+              <v-btn class="btn ml-8 mt-10">ادامه</v-btn>
             </v-row>
 
-            <v-row class="pt-15">
+            <v-row class="pt-5">
           <v-col class="txt" cols="12" offset-md="2" md="8" sm="12">
-            <p>با ورود و یا ثبت نام در دیجی‌استایل، شما شرایط و قوانین استفاده از تمام سرویس های سایت دیجی‌کالا و قوانین حریم خصوصی آن را می‌پذیرید. </p>
+            <p>با ورود و یا ثبت نام در دیجی‌استایل، شما شرایط و قوانین استفاده از تمام سرویس های سایت دیجی‌کالا و قوانین حریم خصوصی آن را می‌پذیرید </p>
         </v-col>
       </v-row>
 
@@ -24,6 +24,12 @@
         </v-col>
       </v-row>
 
+      <v-row>
+        <v-col cols="12" md="3" sm="3" offset-md="5" offset-sm="5">
+          <p class="footnote"> Login Powered by </p>
+          <img class="ml-4" src="https://www.digistyle.com/static/files/d4af64f8.svg">
+        </v-col>
+      </v-row>
 
     </v-container>
   </div>
@@ -48,7 +54,7 @@
     border-color: black !important;
     color: #7F828B !important;
      width: 25vw !important;
-      margin-left: 8vw !important;
+      margin-left: 5vw !important;
 
 
   }
@@ -57,19 +63,23 @@
     border-color: cadetblue !important;
     color: black !important;
      width: 25vw !important;
-      margin-left: 8vw !important;
+      margin-left: 5vw !important;
   }
   .card{
-    width: 40vw;
+    width: 32vw;
   }
   .btn{
     background-color: #d0d3d4 !important;
-    width: 30vw;
+    width: 28vw;
   }
 
   .txt p{
     text-align: center !important;
     font-size: 1.3vw;
   }
-
+.footnote{
+  font-size: 0.9em;
+  color: #7f828b;
+  margin-left: 2.1vw;
+}
 </style>
