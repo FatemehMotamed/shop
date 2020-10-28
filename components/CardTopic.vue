@@ -2,7 +2,7 @@
 
 
        <v-container>
-          <v-row class="mt-">
+          <v-row class="mt-10">
 
             <v-col cols="12" md="3" sm="3"></v-col>
             <v-col cols="12" md="2" sm="2"  v-for="item in items">
