@@ -1,9 +1,8 @@
 <template>
 
   <v-sheet
-    class="mx-auto"
+    class="mx-auto slide_group_box"
     elevation="8"
-    max-width="800"
   >
     <v-slide-group
       v-model="model"
@@ -18,7 +17,7 @@
           class="ma-4 slide_card"
           @click="toggle"
         >
-<!--          <img :src="item">-->
+          <img :src="item">
           <v-row
             class="fill-height"
             align="center"
@@ -62,6 +61,13 @@
                     'https://dkstatics-public.digikala.com/digikala-products/119228249.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
                     'https://dkstatics-public.digikala.com/digikala-products/120802249.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
                     'https://dkstatics-public.digikala.com/digikala-products/119049626.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/3350742.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/110842370.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117672045.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/120491191.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117680612.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/114283383.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117612307.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
                 ]
             }
         }
@@ -69,14 +75,23 @@
 </script>
 
 <style scoped>
+  .slide_group_box{
+    width: 90vw;
+  }
   .slide_card{
-             height:200px;
-          width:100px;
+    height:20vw;
+    width:15vw;
+  }
+
+  .slide_card :hover{
+    -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Safari 3-8 */
+  transform: scale(1.2);
   }
 
   .slide_card img{
-    width: 8vw;
-    height: 15vw;
+    width: 15vw;
+    height: 20vw;
   }
 
 </style>
