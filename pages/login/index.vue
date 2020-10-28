@@ -10,7 +10,7 @@
         <v-col cols="12" md="5" offset-sm="4" offset-md="4" >
           <v-card class="card ml-n6">
             <v-row class="pt-12">
-              <v-text-field  label="شماره موبایل یا ایمیل" ></v-text-field>
+              <v-text-field dir="rtl"  label="" placeholder="                    شماره موبایل یا ایمیل" ></v-text-field>
               <v-btn class="btn ml-8 mt-10">ادامه</v-btn>
             </v-row>
 
@@ -82,4 +82,5 @@
   color: #7f828b;
   margin-left: 2.1vw;
 }
+
 </style>

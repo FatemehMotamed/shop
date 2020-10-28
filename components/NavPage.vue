@@ -37,7 +37,7 @@
               </div>
             </li>
             <li>
-              <a href="#">مردانه</a>
+              <nuxt-link to="/products">مردانه</nuxt-link>
               <div>
                 <sub-nav></sub-nav>
               </div>
@@ -69,6 +69,7 @@
 <style scoped>
 
 .nav,
+.nav nuxt-link,
 .nav a,
 .nav ul,
 .nav li,
