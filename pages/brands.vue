@@ -1,4 +1,5 @@
 <template>
+
     <v-container fluid dir="rtl" >
       <v-row class="box">
         <v-col cols="12" md="2" sm="2">
@@ -22,39 +23,41 @@
         </v-col>
       </v-row>
 
-      <v-row>
-        <v-col cols="12" md="12 sm=12">
-
-          <v-card>
-            <v-tabs
-                  centered
-                  v-model="tab"
-                >
-            <v-tabs-slider></v-tabs-slider>
-
-             <v-tab :href="'#tab-'+index" v-for="(alphabet,index) in alphabets">
-                  {{ alphabet }}
-            </v-tab>
-
-    </v-tabs>
-
-            <v-tabs-items v-model="tab">
-      <v-tab-item
-        v-for="i in 3"
-        :key="i"
-        :value="'tab-' + i"
-      >
-        <v-card flat>
-          <v-card-text>{{ text }}</v-card-text>
-        </v-card>
-      </v-tab-item>
-    </v-tabs-items>
-          </v-card>
-
+       <v-row class="brand_box_sticky">
+        <v-col cols="12" md="12" sm="12">
+          <ul>
+            <li v-for="(alphabet,index) in alphabets"><a :href="'#'+index" >{{ alphabet }}</a></li>
+          </ul>
         </v-col>
       </v-row>
 
+      <v-row v-for="(alphabet,index) in alphabets"  :id="index" dir="rtl" >
+        <v-col  cols="12" md="1" sm="1">
+          {{ alphabet }}
+        </v-col>
+        <v-col  md="2" sm="2">
+          <p v-for="i in 10"><a>  {{i}} نام برند</a></p>
+        </v-col>
+        <v-col md="2" sm="2">
+          <p v-for="i in 10"><a>نام برند</a></p>
+        </v-col>
+        <v-col md="2" sm="2">
+          <p v-for="i in 10"><a>نام برند</a></p>
+        </v-col>
+        <v-col md="2" sm="2">
+          <p v-for="i in 10"><a>نام برند</a></p>
+        </v-col>
+        <v-col md="2" sm="2">
+          <p v-for="i in 10"><a>نام برند</a></p>
+        </v-col>
+        <v-col md="1" sm="1">
+
+        </v-col>
+
+      </v-row>
+
     </v-container>
+
 </template>
 
 <script>
@@ -69,8 +72,9 @@
                     'https://dkstatics-public.digikala.com/digikala-adservice-banners/1000024159.jpg?x-oss-process=image/quality,q_80',
                 ],
                 alphabets:[
+                    'برندهای ایرانی',
                     '0-9',
-                    'آ', 'ا', 'ب'
+                    'آ', 'ا', 'ب','پ','ت','ث','ج','چ','ح','خ','د','ذ','ر','ز','ؤ','س','ش','ص','ض','ط','ظ','غ','غ','ف','ق','ک','گ','ل','م','ن','و','ه','ی'
                 ],
                  tab: null,
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -112,4 +116,26 @@
     height: 12vw;
     margin-left: 0.5vw;
   }
+
+  .brand_box_sticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
+  .brand_box_sticky ul{
+    list-style-type: none;
+  }
+  .brand_box_sticky li{
+    display: inline;
+    margin-right: 1.8vw;
+  }
+  .brand_box_sticky a{
+    font-size: 1.5vw;
+
+    text-decoration: none;
+    color: #47494e!important;
+    font-weight: bold;
+  }
+
 </style>

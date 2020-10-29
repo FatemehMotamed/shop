@@ -10,9 +10,9 @@
           <div id="menu-wrapper">
 
 	        <ul class="nav">
-            <li><a href="#">کارت هدیه</a></li>
+            <li><nuxt-link to="/gifts">کارت هدیه</nuxt-link></li>
             <li>
-              <a href="#">برندها</a>
+              <nuxt-link to="/brands">برندها</nuxt-link>
               <div>
                 <sub-nav></sub-nav>
               </div>

@@ -2,18 +2,18 @@
   <div>
     <v-app>
 
-      <div>uuuuuuuuuuuuuuu</div>
+      <tab-group></tab-group>
     </v-app>
 
   </div>
 </template>
 
 <script>
-  import SlidePage from "@/components/Slide";
+  import TabGroup from "@/components/TabGroup";
     export default {
         name: "test",
         components: {
-         SlidePage:SlidePage,
+         TabGroup:TabGroup,
 
     }
 
