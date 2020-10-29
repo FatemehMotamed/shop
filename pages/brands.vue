@@ -23,20 +23,65 @@
         </v-col>
       </v-row>
 
+
        <v-row class="brand_box_sticky">
         <v-col cols="12" md="12" sm="12">
-          <ul>
-            <li v-for="(alphabet,index) in alphabets"><a :href="'#'+index" >{{ alphabet }}</a></li>
+          <label class="iran">برندهای ایرانی</label>
+          <ul class="ml-2">
+            <li v-for="(alphabet,index) in alphabets"><a :href="'#'+String(parseInt(index)-1)">{{ alphabet }}</a></li>
+          </ul>
+        </v-col>
+         <v-col cols="12" md="12" sm="12">
+          <label class="iran">برندهای بین المللی</label>
+          <ul class="ml-2">
+            <li style="margin-right: 2.35vw" v-for="(alphabet,index) in alphabets2"><a :href="'#e'+String(parseInt(index)-1)">{{ alphabet }}</a></li>
           </ul>
         </v-col>
       </v-row>
 
-      <v-row v-for="(alphabet,index) in alphabets"  :id="index" dir="rtl" >
-        <v-col  cols="12" md="1" sm="1">
-          {{ alphabet }}
+      <hr style="margin-top: 2vw">
+      <v-row class="brand_box" v-for="(alphabet,index) in alphabets"  :id="index" dir="rtl" >
+        <v-col class="mark" cols="12" md="1" sm="1">
+           <v-avatar
+             color="teal"
+             size="48"
+           >
+              <span class="white--text headline">{{ alphabet }}</span>
+          </v-avatar>
+
         </v-col>
         <v-col  md="2" sm="2">
-          <p v-for="i in 10"><a>  {{i}} نام برند</a></p>
+          <p v-for="i in 10"><a> نام برند</a></p>
+        </v-col>
+        <v-col md="2" sm="2">
+          <p v-for="i in 10"><a>نام برند</a></p>
+        </v-col>
+        <v-col md="2" sm="2">
+          <p v-for="i in 10"><a>نام برند</a></p>
+        </v-col>
+        <v-col md="2" sm="2">
+          <p v-for="i in 10"><a>نام برند</a></p>
+        </v-col>
+        <v-col md="2" sm="2">
+          <p v-for="i in 10"><a>نام برند</a></p>
+        </v-col>
+        <v-col md="1" sm="1">
+
+        </v-col>
+
+      </v-row>
+
+      <v-row class="brand_box" v-for="(alphabet,index) in alphabets2"  :id="'e'+index" dir="rtl" >
+        <v-col class="mark"  cols="12" md="1" sm="1">
+          <v-avatar
+             color="teal"
+             size="48"
+           >
+              <span class="white--text headline">{{ alphabet }}</span>
+          </v-avatar>
+        </v-col>
+        <v-col  md="2" sm="2">
+          <p v-for="i in 10"><a> نام برند</a></p>
         </v-col>
         <v-col md="2" sm="2">
           <p v-for="i in 10"><a>نام برند</a></p>
@@ -60,7 +105,9 @@
 
 </template>
 
+
 <script>
+
     export default {
         name: "brands",
         data(){
@@ -72,9 +119,12 @@
                     'https://dkstatics-public.digikala.com/digikala-adservice-banners/1000024159.jpg?x-oss-process=image/quality,q_80',
                 ],
                 alphabets:[
-                    'برندهای ایرانی',
                     '0-9',
                     'آ', 'ا', 'ب','پ','ت','ث','ج','چ','ح','خ','د','ذ','ر','ز','ؤ','س','ش','ص','ض','ط','ظ','غ','غ','ف','ق','ک','گ','ل','م','ن','و','ه','ی'
+                ],
+                alphabets2:[
+                    '0-9',
+                    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
                 ],
                  tab: null,
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -88,6 +138,22 @@
   font-family: 'Markazi Text', serif !important;
   font-weight: bold;
   font-size: 2vw;
+}
+.iran{
+font-family: 'Markazi Text', serif !important;
+  font-weight: bold;
+  font-size: 1.5vw;
+  color: #47494e;
+  float: right; margin-right: 2vw
+}
+.iran li{
+  margin-right: 3vw;
+}
+.box label{
+font-family: 'Markazi Text', serif !important;
+  font-weight: bold;
+  font-size: 1.5vw;
+  color: #47494e;
 }
 
   .search_box{
@@ -122,9 +188,11 @@
     position: sticky;
     top: 0;
     background-color: white;
+    z-index: 1;
   }
   .brand_box_sticky ul{
     list-style-type: none;
+    font-family: 'Markazi Text', serif !important;
   }
   .brand_box_sticky li{
     display: inline;
@@ -137,5 +205,12 @@
     color: #47494e!important;
     font-weight: bold;
   }
-
+  .brand_box{
+    font-family: 'Markazi Text', serif !important;
+  }
+  .mark{
+    font-size: 2vw;
+    margin-right: 5vw;
+    color: #19424e;
+  }
 </style>
