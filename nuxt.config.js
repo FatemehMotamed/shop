@@ -20,7 +20,9 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet'},
-      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap" rel="stylesheet'}
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap" rel="stylesheet'},
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v26.0.2/dist/font-face.css' }
+
     ]
   },
 

@@ -16,8 +16,8 @@
         <v-col cols="12" md="2" sm="2">
           <v-list>
             <v-list-item class="titr">اطلاعات</v-list-item>
-            <v-list-item><nuxt-link to="#">درباره ما</nuxt-link></v-list-item>
-            <v-list-item><nuxt-link to="#">تماس با ما</nuxt-link></v-list-item>
+            <v-list-item><nuxt-link to="/about">درباره ما</nuxt-link></v-list-item>
+            <v-list-item><nuxt-link to="/contact">تماس با ما</nuxt-link></v-list-item>
             <v-list-item><nuxt-link to="#">پشتیبانی: ۹۱۰۲۹۹۰۰-۰۲۱</nuxt-link></v-list-item>
           </v-list>
         </v-col>

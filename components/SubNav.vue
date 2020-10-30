@@ -65,13 +65,13 @@
                         <v-col cols="12" md="6" sm="5">
                           <ul>
                             <li>&nbsp;</li>
-                            <li v-for="item in items2"><nuxt-link to="#">{{ item }}</nuxt-link></li>
+                            <li v-for="item in items2"><nuxt-link to="/product">{{ item }}</nuxt-link></li>
                           </ul>
                         </v-col>
                         <v-col cols="12" md="6" sm="5">
                           <nuxt-link to="#" class="titr" style="margin-right: 6vw;"><label> < </label><label>خرید لباس مردانه</label></nuxt-link>
                           <ul>
-                    <li v-for="item in items"><nuxt-link to="#">{{ item }}</nuxt-link></li>
+                    <li v-for="item in items"><nuxt-link to="/product">{{ item }}</nuxt-link></li>
                   </ul>
                         </v-col>
                       </v-row>

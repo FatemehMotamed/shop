@@ -9,7 +9,7 @@
                 >
             <v-tabs-slider></v-tabs-slider>
 
-             <v-tab :href="'#tab-'+index" v-for="(alphabet,index) in alphabets">
+             <v-tab :href="'#tab-'+index" v-for="(alphabet,index) in alphabets" :key="index">
                   {{ alphabet }}
             </v-tab>
 
