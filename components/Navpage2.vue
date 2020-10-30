@@ -112,11 +112,11 @@
 
 	font-family: 'Markazi Text', serif;
 	/*font-weight: bold;*/
-	font-size: 1.1vw;
+	font-size: 1.3vw;
 	text-shadow: 0 0 1px rgba(0,0,0,.35);
 
 	/*background: #372f2b;*/
-	color: black;
+	color: #F5F5F5;
 	border-left: 0px solid #4b4441;
 	border-right: 0px solid #312a27;
 
@@ -149,7 +149,6 @@
 	top: 30px;
 	left: -55%;
   text-align: right;
-
 	opacity: 0;
 	visibility: hidden;
 	overflow: hidden;

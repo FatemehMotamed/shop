@@ -72,7 +72,7 @@
   }
 
   .v-text-field ::after {
-    border-color: blueviolet !important;
+    border-color: #19424e !important;
   }
 .brand{
 text-align: center;
