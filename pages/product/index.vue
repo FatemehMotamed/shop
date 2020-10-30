@@ -126,6 +126,8 @@
       fullscreen
       hide-overlay
       transition="dialog-bottom-transition"
+      style="z-index: 500;"
+
     >
       <template v-slot:activator="{ on }">
 
