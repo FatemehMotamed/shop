@@ -16,9 +16,9 @@
 
 
 <script>
-  import LogoPage from "@/components/Logo";
-  import NavPage from "@/components/NavPage";
-  import FooterPage from "@/components/FooterPage";
+  import LogoPage from "@/components/app/Header/Logo";
+  import NavPage from "@/components/app/Header/NavPage";
+  import FooterPage from "@/components/app/Footer/FooterPage";
 
 
 export default {

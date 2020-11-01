@@ -66,10 +66,10 @@
 </template>
 
 <script>
-  import Slide2 from "@/components/Slide2";
-  import CardTopic from "@/components/CardTopic";
-  import SlideGroup from "@/components/SlideGroup";
-  import FooterProduct from "@/components/FooterProduct";
+  import Slide2 from "@/components/app/Slide/Slide2";
+  import CardTopic from "@/components/app/Product/CardTopic";
+  import SlideGroup from "@/components/app/Slide/SlideGroup";
+  import FooterProduct from "@/components/app/Footer/FooterProduct";
     export default {
         name: "index",
         components: {

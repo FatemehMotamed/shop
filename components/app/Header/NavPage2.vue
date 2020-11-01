@@ -57,7 +57,7 @@
 </template>
 
 <script>
-  import SubNav from "@/components/SubNav";
+  import SubNav from "@/components/app/Header/SubNav";
     export default {
         name: "NavPage2",
         components:{

@@ -16,10 +16,10 @@
 
 
 <script>
-  import LogoPage from "@/components/Logo";
+  import LogoPage from "@/components/app/Header/Logo";
 
-  import FooterPage from "@/components/FooterPage";
-  import Logo2 from "../components/Logo2";
+  import FooterPage from "@/components/app/Footer/FooterPage";
+  import Logo2 from "@/components/app/Header/Logo2";
 
 
 export default {

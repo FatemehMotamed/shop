@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import TabGroup from "@/components/TabGroup";
+  import TabGroup from "@/components/app/Tab/TabGroup";
     export default {
         name: "test",
         components: {

@@ -61,7 +61,7 @@
 </template>
 
 <script>
-  import NavPage2 from "@/components/NavPage2";
+  import NavPage2 from "@/components/app/Header/NavPage2";
     export default {
         name: "Logo2",
         components: {

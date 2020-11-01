@@ -81,7 +81,7 @@
 <script>
 
 
-import FooterProduct from "@/components/FooterProduct";
+import FooterProduct from "@/components/app/Footer/FooterProduct";
 
 export default {
     layout:'main2',

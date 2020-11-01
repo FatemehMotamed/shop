@@ -80,8 +80,8 @@
 
 <script>
 
-import SlidePage from "@/components/Slide";
-import FooterProduct from "@/components/FooterProduct";
+import SlidePage from "@/components/app/Slide/Slide";
+import FooterProduct from "@/components/app/Footer/FooterProduct";
 
 export default {
     layout:'main',

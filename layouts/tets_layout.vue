@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import NavPage from "@/components/NavPage";
+  import NavPage from "@/components/app/Header/NavPage";
     export default {
         name: "tets_layout",
         components:{
