@@ -42,33 +42,10 @@
 <script>
     export default {
         name: "SlideGroup",
+        props:['items'],
         data(){
             return{
                 model: null,
-                items:[
-                    'https://dkstatics-public.digikala.com/digikala-products/117602102.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/117642937.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/117596894.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/116936395.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/117603487.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/117289581.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/116936208.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/118966895.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/117690088.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public-2.digikala.com/digikala-products/111462030.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/119350798.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/117367287.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/119228249.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/120802249.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/119049626.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/3350742.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/110842370.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/117672045.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/120491191.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/117680612.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/114283383.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                    'https://dkstatics-public.digikala.com/digikala-products/117612307.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
-                ]
             }
         }
     }

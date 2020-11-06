@@ -1,64 +1,12 @@
 <template>
   <div>
     <v-container fluid class="box">
-      <v-row>
         <slide2></slide2>
-      </v-row>
-
-      <v-row>
         <card-topic></card-topic>
-      </v-row>
-
-      <v-row class="popular">
-        <v-col cols="12" md="12" sm="12">
-          <h1 dir="rtl">محبوب ترین ها</h1>
-          <hr>
-          <br>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <slide-group></slide-group>
-      </v-row>
-
-      <v-row class="mt-12"><v-btn outlined class="mx-auto read_more">مشاهده همه</v-btn></v-row>
-
-      <v-row class="mt-16">
-        <v-col cols="12" md="6" sm="6" >
-          <v-row>
-            <img style="width: 40vw; height: 23vw;margin-left: 8vw" src="https://dkstatics-public.digikala.com/digikala-adservice-banners/0b8fc1354295910cc87d5cd38f888b639beb3853_1602195374.jpg?x-oss-process=image/quality,q_80">
-          </v-row>
-          <v-row >
-            <img style="width: 40vw; height: 18vw;margin-left: 8vw; margin-top: 2vw" src="https://dkstatics-public.digikala.com/digikala-adservice-banners/6ec55a34a0d541300faeb20d34698b590d61722c_1602195443.jpg?x-oss-process=image/quality,q_80">
-          </v-row>
-        </v-col>
-        <v-col cols="12" md="6" sm="6" >
-          <v-row>
-            <img style="width: 40vw; height: 18vw;margin-left: 1vw;" src="https://dkstatics-public.digikala.com/digikala-adservice-banners/b576f9b294e0df31ef5caa106cde8bb460c39c3f_1602195504.jpg?x-oss-process=image/quality,q_80">
-          </v-row>
-          <v-row>
-            <img style="width: 40vw; height: 23vw;margin-left: 1vw; margin-top: 2vw" src="https://dkstatics-public.digikala.com/digikala-adservice-banners/6ec55a34a0d541300faeb20d34698b590d61722c_1602195443.jpg?x-oss-process=image/quality,q_80">
-          </v-row>
-        </v-col>
-      </v-row>
-
-      <v-row class="popular">
-        <v-col cols="12" md="12" sm="12">
-          <h1 dir="rtl">جدیدترین ها</h1>
-          <hr>
-          <br>
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <slide-group></slide-group>
-      </v-row>
-
-      <v-row class="mt-12"><v-btn outlined class="mx-auto read_more">مشاهده همه</v-btn></v-row>
-
-      <v-row>
+        <product-group :items="popular_items" title="محبوب ترین ها"></product-group>
+        <show-case></show-case>
+        <product-group :items="new_items" title="جدیدترین ها"></product-group>
         <footer-product></footer-product>
-      </v-row>
     </v-container>
 
   </div>
@@ -68,16 +16,64 @@
 <script>
   import Slide2 from "@/components/app/Slide/Slide2";
   import CardTopic from "@/components/app/Product/CardTopic";
-  import SlideGroup from "@/components/app/Slide/SlideGroup";
   import FooterProduct from "@/components/app/Footer/FooterProduct";
+  import ProductGroup from "@/components/app/Product/ProductGroup";
+  import ShowCase from "@/components/app/Product/ShowCase";
     export default {
         name: "index",
         components: {
             Slide2:Slide2,
             CardTopic:CardTopic,
-            SlideGroup:SlideGroup,
-            FooterProduct:FooterProduct
+            FooterProduct:FooterProduct,
+            ProductGroup:ProductGroup,
+            ShowCase:ShowCase,
 
+        },
+        data(){
+            return{
+                popular_items:[
+                    'https://dkstatics-public.digikala.com/digikala-products/117602102.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117642937.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117596894.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/116936395.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117603487.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117289581.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/116936208.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/118966895.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117690088.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public-2.digikala.com/digikala-products/111462030.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/119350798.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117367287.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/119228249.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/120802249.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/119049626.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/3350742.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/110842370.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117672045.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/120491191.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117680612.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/114283383.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117612307.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                ],
+                new_items:[
+                    'https://dkstatics-public.digikala.com/digikala-products/55252753250839c6aa7d21e814d1c14cb096c9fa_1604473357.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/0bba6b0ba2430c8e6806f50a9739668ab4d96705_1604473290.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/1c932e2792893f44429eb68eed12608d06b2419d_1604473421.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/0f95649694de4c49f3decc8be973b4530ac6f334_1604473147.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/c8f0ffcd8391bb841fdf7908a8155f81d6561090_1604473295.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/2a14bf080166fe1551df38a717699bb135324cae_1604473070.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/3465058022bf9b053fba97b10008fce89fb265d4_1604473217.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/7c2ecabc04a740924a07d36efb4432bb80f9c71d_1604473901.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/116936395.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117603487.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117289581.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/116936208.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/118966895.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public.digikala.com/digikala-products/117690088.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+                    'https://dkstatics-public-2.digikala.com/digikala-products/111462030.jpg?x-oss-process=image/resize,m_fill,h_600,w_480/quality,q_60',
+
+                ],
+            }
         }
     }
 </script>
@@ -86,20 +82,5 @@
   .box{
     font-family: 'Markazi Text', serif !important;
   }
-h1{
-  margin-right:4vw;
-}
-  .popular hr{
-    width: 11vw;
-    color: #7F828B!important;
-    float: right;
-    margin-right: 4vw;
-  }
-  .read_more{
-    width: 18vw;
-    height: 4vw!important;
-    border-width: 2px;
-    font-size: 1.6vw;
-    font-weight: bold;
-  }
+
 </style>

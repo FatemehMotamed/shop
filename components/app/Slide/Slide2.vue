@@ -1,6 +1,7 @@
 <template>
 
-    <v-carousel cycle>
+    <v-row>
+      <v-carousel cycle>
       <v-carousel-item
         v-for="(item,i) in items"
         :key="i"
@@ -9,6 +10,7 @@
         transition="fade-transition"
       ></v-carousel-item>
     </v-carousel>
+    </v-row>
 
 </template>
 
