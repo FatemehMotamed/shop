@@ -3,7 +3,7 @@
     <v-container>
       <v-row >
 
-        <v-col cols="12" md="12" sm="10">
+        <v-col cols="12" md="12" sm="10" lg="12" xl="12">
           <v-card class="overflow-hidden">
               <v-tabs align-with-title dir="rtl">
             <v-row class="sub_menu">
@@ -121,6 +121,7 @@
   .sub_menu{
     font-family: 'Markazi Text', serif;
     font-size: 1.2vw;
+
   }
   .titr{
     text-decoration: none;

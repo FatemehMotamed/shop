@@ -49,6 +49,7 @@
 <style scoped>
   .box h1{
       font-family: 'Markazi Text', serif !important;
+      font-size: 2.5vw;
     }
 
   .box p{

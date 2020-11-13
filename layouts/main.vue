@@ -38,7 +38,7 @@ export default {
   .nav_box{
     position: absolute;
     top: 8vw;
-    left: 29vw;
+    left: 18vw;
   }
   html{
     font-family: 'Markazi Text', serif;

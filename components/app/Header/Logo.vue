@@ -7,8 +7,10 @@
           cols="12"
           md="2"
           sm="2"
+          lg="2"
+          xl="2"
           offset-md="1"
-          offset-sm="3"
+          offset-sm="2"
         >
         <v-text-field
           label=""
@@ -24,6 +26,8 @@
         </v-col>
         <v-col
       md="4"
+      lg="4"
+      xl="4"
       sm="3"
       offset-md="2"
       offset-sm="1">
@@ -36,7 +40,7 @@
       md="2"
       sm="2"
       offset-md="1">
-          <div class="mt-5 float-right">
+          <div class="mt-5 float-right login">
             <label class="mr-2"><nuxt-link to="/login">وارد شوید</nuxt-link></label>
             <font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" />
           </div>
@@ -59,12 +63,14 @@
     .search_box{
     color: #47494e !important;
     position: relative;
+      font-size: 1.3vw;
   }
 
   .search_icon{
     color:dimgrey;
     position: absolute;
     right: 0;
+    top: 33%;
   }
 
   .v-text-field ::before {
@@ -76,6 +82,7 @@
   }
 .brand{
 text-align: center;
+  font-size: 3vw;
 
 }
   hr{
@@ -93,5 +100,7 @@ text-align: center;
     color: #47494e !important;
     text-decoration: none;
   }
-
+  .login{
+    font-size: 1.3vw;
+  }
 </style>

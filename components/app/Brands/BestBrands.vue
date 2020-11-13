@@ -46,5 +46,10 @@
 <style scoped>
   .box2 h1,p{
     font-family: 'Markazi Text', serif !important;
+    font-size: 2.5vw;
+  }
+  .box2 img{
+    width: 6vw;
+    height: 3vw;
   }
 </style>

@@ -11,7 +11,7 @@
 
       <slogan-page></slogan-page>
 
-      <footer-product></footer-product>
+      <footer-product class="d-none d-sm-flex"></footer-product>
 
 
     </v-app>

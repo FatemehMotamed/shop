@@ -36,7 +36,7 @@ export default {
 <style >
 .nav_box2{
   margin-top: 8vw;
-  margin-left: 28vw;
+  margin-left: 18vw;
 }
 
 </style>

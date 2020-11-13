@@ -6,6 +6,9 @@
         <v-col
           cols="12"
           md="12"
+          sm="12"
+          xl="12"
+          lg="12"
         >
           <div id="menu-wrapper">
 
@@ -84,7 +87,8 @@
 
 .nav a { text-decoration: none; }
 
-.nav li { list-style: none; }
+
+.nav li { list-style: none;}
 
 /* Menu Container */
 .nav {
@@ -107,7 +111,7 @@
 	display: block;
 	z-index: 510;
 	height: 54px;
-	padding: 0 20px;
+	padding: 0 3vw;
 	line-height: 54px;
 
 	font-family: 'Markazi Text', serif;
