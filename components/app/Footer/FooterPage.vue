@@ -35,7 +35,7 @@
         </v-col>
         <v-col cols="12" md="2" sm="2" dir="ltr" class="mt-2 pl-1">
           <v-row class="titr"><label style="font-size: 2em;">BRAND NAME</label><label style="font-size: 0.9em">invent your style</label></v-row>
-          <v-row class="mt-12 ml-2"><v-btn outlined>دانلود اپلیکیشن</v-btn></v-row>
+          <v-row class="mt-12 ml-2"><v-btn outlined class="btn2"><label>دانلود اپلیکیشن</label></v-btn></v-row>
           <v-row class="mt-5">
             <v-col cols="12" md="2" sm="2"><font-awesome-icon :icon="['fab', 'twitter']" slot="prepend"  /></v-col>
             <v-col cols="12" md="2" sm="2"><font-awesome-icon :icon="['fab', 'facebook-square']" slot="prepend"  /></v-col>
@@ -73,8 +73,14 @@
   .btn{
     background-color: black !important;
     color: #F5F5F5 !important;
+    width: 6vw;
   }
-
+  .btn2{
+    width: 9vw;
+  }
+  .btn2 label{
+    font-size: 1.1vw;
+  }
   .box{
     font-family: 'Markazi Text', serif !important;
     font-size: 1.4vw;
