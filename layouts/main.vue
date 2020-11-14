@@ -1,11 +1,11 @@
 <template>
   <div>
     <v-app>
-       <logo-page></logo-page>
-        <nav-page class="nav_box"></nav-page>
+       <logo-page class="d-none d-sm-flex"></logo-page>
+        <nav-page class="nav_box d-none d-sm-flex"></nav-page>
 <!--      <header-page class="nav_box"></header-page>-->
         <Nuxt />
-      <footer-page></footer-page>
+      <footer-page class="d-none d-sm-flex"></footer-page>
     </v-app>
 
 

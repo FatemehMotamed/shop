@@ -30,7 +30,7 @@
           </v-row>
           <v-row>
             <v-col cols="12" md="8" sm="6"><v-text-field label="آدرس ایمیل شما"></v-text-field></v-col>
-            <v-col cols="12" md="4" sm="2"><v-btn class="btn mt-3">ثبت ایمیل</v-btn></v-col>
+            <v-col cols="12" md="4" sm="2"><v-btn class="btn mt-3"><label>ثبت ایمیل</label></v-btn></v-col>
           </v-row>
         </v-col>
         <v-col cols="12" md="2" sm="2" dir="ltr" class="mt-2 pl-1">
@@ -80,6 +80,9 @@
   }
   .btn2 label{
     font-size: 1.1vw;
+  }
+   .btn label{
+    font-size: 1.3vw;
   }
   .box{
     font-family: 'Markazi Text', serif !important;
