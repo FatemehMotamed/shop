@@ -15,7 +15,7 @@
       >
         <v-list nav dense>
           <v-list-item-group active-class="deep-purple--text text--accent-4">
-              <navigation-drawer-page :menu="menu" @update-menu="updateMenu"></navigation-drawer-page>
+              <navigation-drawer-page></navigation-drawer-page>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
@@ -28,8 +28,8 @@
 </template>
 
 <script>
-  import AppBarPage from "@/components/app/Mobile/Header/AppBarPage";
-  import NavigationDrawerPage from "@/components/app/Mobile/Header/NavigationDrawerPage";
+  import AppBarPage from "@/components/app/Dashboard/Drawer/AppBarPage";
+  import NavigationDrawerPage from "@/components/app/Dashboard/Drawer/NavigationDrawerPage";
     export default {
         name: "HomePage",
         components:{
@@ -39,10 +39,6 @@
         data(){
             return{
                 drawer: false,
-                menu:['man','woman','child'],
-                menu2:['tshirt','shoe','kif'],
-                menu3:['tshirt1','tshirt2','tshirt3'],
-                menu4:['shoe1','shoe2','shoe3'],
             }
         },
 
