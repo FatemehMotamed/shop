@@ -1,11 +1,11 @@
 <template>
-<div>tetsffffffffffffffffffffffffff</div>
+<div>kkkkkkkkkkkkkkkkk</div>
 </template>
 
 <script>
 
     export default {
-        name: "index",
+        name: "add",
         layout: "dashboard_layout",
         components:{
 
