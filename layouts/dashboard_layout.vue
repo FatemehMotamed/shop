@@ -8,6 +8,7 @@
       <app-bar-page @callTogleDrawer="TogleDrawer"></app-bar-page>
 
       <v-navigation-drawer
+        color="#1f1e1f"
         v-model="drawer"
         absolute
         right
