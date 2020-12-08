@@ -41,7 +41,15 @@
       sm="2"
       offset-md="1">
           <div class="mt-5 float-right login">
-            <label class="mr-2"><nuxt-link to="/login">وارد شوید</nuxt-link></label>
+            <div v-if="$auth.loggedIn">
+              Login!!!
+              {{ $auth.user.email }}
+            </div>
+
+            <div v-else>
+              <label class="mr-2"><nuxt-link to="/login">وارد شوید</nuxt-link></label>
+            </div>
+
             <font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" />
           </div>
       </v-col>
