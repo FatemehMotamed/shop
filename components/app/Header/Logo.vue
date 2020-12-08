@@ -1,6 +1,6 @@
 <template>
  <div>
-
+<!--hello {{ $auth.user.email }}-->
     <v-container class="logo_box">
       <v-row >
         <v-col
@@ -41,9 +41,10 @@
       sm="2"
       offset-md="1">
           <div class="mt-5 float-right login">
-            <div v-if="$auth.loggedIn">
-              Login!!!
-              {{ $auth.user.email }}
+
+            <div v-if="isAuthenticated">
+              {{ loggedInUser.name }}
+              <a @click="logout">Logout</a>
             </div>
 
             <div v-else>
@@ -61,8 +62,18 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
     export default {
-        name: "Logo"
+        name: "Logo",
+        methods:{
+            async logout() {
+            await this.$auth.logout();
+    },
+        },
+
+        computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser'])
+  }
     }
 </script>
 
