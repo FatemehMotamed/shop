@@ -77,6 +77,7 @@ export default {
   methods: {
 
     async login() {
+
       try {
         await this.$auth.loginWith('local', {
           data: {
@@ -85,12 +86,27 @@ export default {
               password: this.password
           }
         })
+          this.$auth.setUserToken(token, refreshToken)
+              .then(() => this.$toast.success('User set!'))
 
         this.$router.push('/')
       } catch (e) {
         this.error = e.response.data.message
       }
+
     }
   }
 }
 </script>
+
+<!-- this.$axios.post('/login', {-->
+<!--            name:this.name,-->
+<!--          email: this.email,-->
+<!--          password: this.password-->
+<!--        }).then((resp) => {-->
+<!--          this.$auth.setToken('local', 'Bearer ' + resp.data.access_token)-->
+<!--          this.$auth.setRefreshToken('local', resp.data.refresh_token)-->
+<!--          this.$axios.setHeader('Authorization', 'Bearer ' + resp.data.access_token)-->
+<!--          this.$auth.ctx.app.$axios.setHeader('Authorization', 'Bearer ' + resp.data.access_token)-->
+<!--          this.$axios.get('/users/me').then((resp) => { this.$auth.setUser(resp.data); this.$router.push('/') })-->
+<!--        })-->

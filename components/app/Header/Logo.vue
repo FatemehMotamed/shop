@@ -1,6 +1,6 @@
 <template>
  <div>
-<!--hello {{ $auth.user.email }}-->
+
     <v-container class="logo_box">
       <v-row >
         <v-col

@@ -85,6 +85,9 @@ export default {
  "port": 8080
 },
 
+//   router: {
+//   middleware: ['auth']
+// },
 
  axios: {
     baseURL: 'http://127.0.0.1:8000/api/v1'
@@ -96,17 +99,20 @@ auth: {
       token: {
         property: 'token',
         // required: true,
-        type: ''
+        // type: ''
       },
       user: {
         property: 'user',
-        // autoFetch: true
+        autoFetch: false,
+        propertyName: ''
       },
       endpoints: {
         login: { url: '/login', method: 'post' },
         logout: { url: '/logout', method: 'post' },
         user: { url: '/user', method: 'get' }
-      }
+      },
+      // tokenRequired: true,
+      // autoFetchUser: false
     }
   }
 }
