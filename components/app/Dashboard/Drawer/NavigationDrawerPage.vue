@@ -47,14 +47,14 @@
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/change">ثبت دسته بندی</nuxt-link></v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/create">افزودن</nuxt-link></v-list-item-title>
             </v-list-item>
             <v-list-item>
               <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/change">ویرایش و حذف دسته</nuxt-link></v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/read">همه</nuxt-link></v-list-item-title>
           </v-list-item>
 
           </v-list-group>
