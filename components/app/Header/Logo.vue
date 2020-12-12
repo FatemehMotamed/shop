@@ -1,6 +1,11 @@
 <template>
  <div>
-
+<!--    {{$auth.loggedIn }}-->
+<!--  hello {{ $auth.$storage.getCookie('lu') }}-->
+<!--   {{ getCookieUser }}-->
+<!--   {{getUser}}-->
+<!--   {{this.$store.state.auth.user}}-->
+   {{isAuthenticated}}
     <v-container class="logo_box">
       <v-row >
         <v-col
@@ -72,7 +77,7 @@
         },
 
         computed: {
-    ...mapGetters(['isAuthenticated', 'loggedInUser'])
+    ...mapGetters(['isAuthenticated', 'loggedInUser','getCookieUser','getUser'])
   }
     }
 </script>
