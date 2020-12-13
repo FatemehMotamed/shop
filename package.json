@@ -19,6 +19,7 @@
     "js-cookie": "^2.2.1",
     "nuxt": "^2.14.6",
     "nuxt-cookie-storage": "^1.0.2",
+    "nuxt-vuex-localstorage": "^1.2.7",
     "vue-smooth-scroll": "^1.0.13"
   },
   "devDependencies": {

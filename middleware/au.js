@@ -4,6 +4,6 @@
 //   //   return redirect('/')
 //   // }
 // }
-export default function (context) {
-  console.log(context.store.getters['isAuthenticated'])
-}
+// export default function (context) {
+//   console.log(context.store.getters['isAuthenticated'])
+// }

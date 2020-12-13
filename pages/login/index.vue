@@ -69,7 +69,7 @@
               try {
         let response = await this.$auth.loginWith('local', { data: this.login })
         console.log(response)
-          console.log(response.data.token)
+          // console.log(response.data.token)
                   // this.$store.state.auth.user=response.data.user
           // let user=this.$auth.setUser(user);
           // this.$auth.setUser(response.data.user);
@@ -77,8 +77,9 @@
           //         this.$auth.$storage.setCookie('lu', response.data.user,{ expires: 5  })
           //         console.log(this.$auth.$storage.getCookie('login_user'))
           //         this.$store.commit('set_cookie_user')
-                  this.set_cookie_user();
+          //         this.set_cookie_user();
                   this.setToken(response.data.token)
+                  // this.$auth.$storage.setLocalStorage('t', response.data.token)
 
           this.$router.push('/')
       } catch (err) {

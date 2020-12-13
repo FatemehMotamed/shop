@@ -1,7 +1,9 @@
 import Cookie from 'js-cookie'
 
 export const state = ()=>({
-  token:null,
+  token: {
+    value: null
+  },
 });
 
 export const getters = {
@@ -11,7 +13,9 @@ export const getters = {
   isAuthenticated(state) {
     // return state.auth.loggedIn
     // return state.token != null
-    return state.token
+    // return "da"
+    return  state.token.value
+    // return this.$auth.$storage.getLocalStorage('t')
   },
 
   loggedInUser(state) {
@@ -29,7 +33,7 @@ export const mutations={
     Cookie.set('user_login', state.auth.user,{ expires: 5  })
   },
   setToken(state,token){
-    state.token=token
+    state.token.value=token
   }
 }
 
