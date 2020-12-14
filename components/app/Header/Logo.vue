@@ -1,12 +1,6 @@
 <template>
  <div>
-<!--    {{$auth.loggedIn }}-->
-<!--  hello {{ $auth.$storage.getCookie('lu') }}-->
-<!--   {{ getCookieUser }}-->
-<!--   {{getUser}}-->
-<!--   {{this.$store.state.auth.user}}-->
-   {{isAuthenticated}}<br>
-<!--   {{this.$auth.$storage.getLocalStorage('t')}}-->
+<!--   {{isAuthenticated}}-->
     <v-container class="logo_box">
       <v-row >
         <v-col
@@ -48,15 +42,15 @@
       offset-md="1">
           <div class="mt-5 float-right login">
 
-<!--            <div v-if="isAuthenticated">-->
-<!--              {{ loggedInUser.name }}-->
-<!--              <a @click="logout">Logout</a>-->
-<!--              <nuxt-link to="/profile">profile</nuxt-link>-->
-<!--            </div>-->
+            <div v-if="isAuthenticated">
+              {{ loggedInUser }}
+              <a @click="logoutUser()">Logout</a>
+              <nuxt-link to="/profile">profile</nuxt-link>
+            </div>
 
-<!--            <div v-else>-->
-<!--              <label class="mr-2"><nuxt-link to="/login">وارد شوید</nuxt-link></label>-->
-<!--            </div>-->
+            <div v-else>
+              <label class="mr-2"><nuxt-link to="/login">وارد شوید</nuxt-link></label>
+            </div>
 
             <font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" />
           </div>
@@ -69,17 +63,15 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import{ mapGetters, mapState, mapMutations } from 'vuex'
     export default {
         name: "Logo",
         methods:{
-            async logout() {
-            await this.$auth.logout();
-    },
+            ...mapMutations(['logoutUser']),
         },
 
         computed: {
-    ...mapGetters(['isAuthenticated', 'loggedInUser','getCookieUser','getUser'])
+    ...mapGetters(['isAuthenticated', 'loggedInUser'])
   }
     }
 </script>

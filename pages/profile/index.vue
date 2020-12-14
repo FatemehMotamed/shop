@@ -2,16 +2,13 @@
 
     <div class="v-container">
       <h2>My Profile</h2>
-<!--      <div>-->
-<!--        <p>-->
-<!--          <strong>Username:</strong>-->
-<!--          {{ loggedInUser.username }}-->
-<!--        </p>-->
-<!--        <p>-->
-<!--          <strong>Email:</strong>-->
-<!--          {{ loggedInUser.email }}-->
-<!--        </p>-->
-<!--      </div>-->
+      <div>
+        <p>
+          <strong>Username:</strong>
+          {{ loggedInUser }}
+        </p>
+
+      </div>
     </div>
 
 </template>
@@ -21,7 +18,7 @@
   import { mapGetters } from 'vuex'
 
     export default {
-      middleware: 'au',
+      middleware: 'authUser',
         name: "index",
 
         computed: {

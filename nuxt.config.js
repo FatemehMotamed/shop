@@ -58,7 +58,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
     ['nuxt-vuex-localstorage', {
-      localStorage: ['user','token', 'expire'],
+      localStorage: ['username','token', 'expire'],
       sessionStorage: ['sfoo']
     }]
 
@@ -109,7 +109,7 @@ auth: {
         property: 'token',
         // required: true,
         // type: 'Bearer',
-        maxAge: 1800,
+        // maxAge: 1800,
       },
       user: {
         property: 'user',

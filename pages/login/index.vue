@@ -3,7 +3,7 @@
     <v-container class="main_box">
       <v-row >
           <v-col cols="12" md="4" sm="4" offset-md="5" offset-sm="5">
-            <p class="ml-3">ورود یا ثبت‌نام</p>
+            <p class="ml-12 mt-n6">ورود</p>
           </v-col>
         </v-row>
       <v-row >
@@ -11,15 +11,15 @@
           <v-card class="card ml-n6">
             <form method="post" @submit.prevent="userLogin">
               <v-row class="pt-12">
-                <v-text-field dir="rtl"  label="" placeholder="نام" name="name" v-model="login.name" ></v-text-field>
+                <v-text-field  dir="rtl"  label="" placeholder="نام" name="name" v-model="login.name" ></v-text-field>
               </v-row>
               <v-row >
                 <v-text-field dir="rtl"  label="" placeholder="ایمیل" name="email" v-model="login.email" ></v-text-field>
               </v-row>
               <v-row >
                 <v-text-field dir="rtl"  label="" placeholder="کلمه عبور" name="password" v-model="login.password" ></v-text-field>
-<!--                <v-btn class="btn ml-8 mt-10">ادامه</v-btn>-->
-                    <button type="submit" class="button is-dark is-fullwidth">Log In</button>
+                    <v-btn type="submit" class="btn ml-8 mt-10">ورود</v-btn>
+<!--                    <button type="submit" class="button is-dark is-fullwidth">Log In</button>-->
               </v-row>
             </form>
 
@@ -50,7 +50,7 @@
     export default {
         name: "index",
         layout: 'simple',
-        // middleware: 'guest',
+        middleware: 'guest',
         data(){
             return{
                 login: {
@@ -61,28 +61,16 @@
             }
         },
         methods:{
-            ...mapMutations(['set_cookie_user']),
-            setToken(token){
-                this.$store.commit('setToken',token)
-            },
+            ...mapMutations(['setToken','setUserName']),
+
             async userLogin() {
               try {
-        let response = await this.$auth.loginWith('local', { data: this.login })
-        console.log(response)
-          // console.log(response.data.token)
-                  // this.$store.state.auth.user=response.data.user
-          // let user=this.$auth.setUser(user);
-          // this.$auth.setUser(response.data.user);
-          // console.log(this.$auth)
-          //         this.$auth.$storage.setCookie('lu', response.data.user,{ expires: 5  })
-          //         console.log(this.$auth.$storage.getCookie('login_user'))
-          //         this.$store.commit('set_cookie_user')
-          //         this.set_cookie_user();
+                  let response = await this.$auth.loginWith('local', { data: this.login })
+                  console.log(response)
                   this.setToken(response.data.token)
-                  // this.$auth.$storage.setLocalStorage('t', response.data.token)
-
-          this.$router.push('/')
-      } catch (err) {
+                  this.setUserName(response.data.user.name)
+                  this.$router.push('/')
+              } catch (err) {
                   console.log(err)
       }
     }
@@ -101,24 +89,20 @@
   .v-text-field ::before {
     border-color: black !important;
     color: #7F828B !important;
-     width: 25vw !important;
-      margin-left: 5vw !important;
-
-
   }
 
   .v-text-field ::after {
     border-color: cadetblue !important;
     color: black !important;
-     width: 25vw !important;
-      margin-left: 5vw !important;
   }
   .card{
     width: 32vw;
+    padding-right: 5vw;
+    padding-left: 5vw;
   }
   .btn{
     background-color: #d0d3d4 !important;
-    width: 28vw;
+    width: 20vw;
   }
 
   .txt p{
