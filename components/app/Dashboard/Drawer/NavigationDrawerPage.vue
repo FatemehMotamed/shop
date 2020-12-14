@@ -38,7 +38,7 @@
               <v-list-item-title class="main_title">
                 <nuxt-link to="#">
                   <v-list-item-icon><v-icon color="#f75a06">mdi-clipboard-list</v-icon></v-list-item-icon>
-                  دسته بندی ها
+                  دسته بندی‌ها
                 </nuxt-link></v-list-item-title>
             </template>
 
