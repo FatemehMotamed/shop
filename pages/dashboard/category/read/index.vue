@@ -4,6 +4,7 @@
     <read-category :list="table_data"></read-category>
 
 
+
 </div>
 
     

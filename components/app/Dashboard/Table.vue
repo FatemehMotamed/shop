@@ -114,7 +114,7 @@
         </v-dialog>
       </v-toolbar>
     </template>
-    <!-- <template v-slot:item.actions="{ item }">
+    <template v-slot:item.actions="{ item }">
       <v-icon
         small
         class="mr-2"
@@ -128,7 +128,7 @@
       >
         mdi-delete
       </v-icon>
-    </template> -->
+    </template>
     <template v-slot:no-data>
       <v-btn
         color="primary"
