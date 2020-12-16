@@ -1,38 +1,45 @@
 <template>
     <div>
 
-      <v-list class="menu" dir="rtl">
+      <v-list class="menu" dir="rtl" >
           <v-list-item>
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon color="#0ad3f7">mdi-home</v-icon>
             </v-list-item-icon>
 
-            <v-list-item-title><nuxt-link to="/dashboard">صفحه اصلی</nuxt-link></v-list-item-title>
+            <v-list-item-title class="main_title"><nuxt-link to="/dashboard">صفحه اصلی</nuxt-link></v-list-item-title>
           </v-list-item>
 
-          <v-list-group prepend-icon="mdi-account-circle">
+          <v-list-group  >
             <template v-slot:activator>
-              <v-list-item-title>کااربران</v-list-item-title>
+              <v-list-item-title class="main_title"><nuxt-link to="#">
+                <v-list-item-icon><v-icon color="#edd107">mdi-account-circle</v-icon></v-list-item-icon>
+                کاربران
+              </nuxt-link></v-list-item-title>
             </template>
 
             <v-list-item>
-              <v-list-item-icon><v-icon>mdi-home</v-icon></v-list-item-icon>
+              <v-list-item-icon><v-icon color="#29f109">mdi-plus</v-icon></v-list-item-icon>
 
-              <v-list-item-title><nuxt-link to="/dashboard/users/add">ثبت کاربر</nuxt-link></v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/add">ثبت کاربر</nuxt-link></v-list-item-title>
           </v-list-item>
             <v-list-item>
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title><nuxt-link to="/dashboard/users/change">ویرایش و حذف کاربر</nuxt-link></v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/change">ویرایش و حذف کاربر</nuxt-link></v-list-item-title>
             </v-list-item>
 
           </v-list-group>
 
-          <v-list-group prepend-icon="mdi-clipboard-list">
+          <v-list-group>
             <template v-slot:activator>
-              <v-list-item-title>دسته بندی ها</v-list-item-title>
+              <v-list-item-title class="main_title">
+                <nuxt-link to="#">
+                  <v-list-item-icon><v-icon color="#f75a06">mdi-clipboard-list</v-icon></v-list-item-icon>
+                  دسته بندی‌ها
+                </nuxt-link></v-list-item-title>
             </template>
 
             <v-list-item>
@@ -40,21 +47,25 @@
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title>ثبت دسته بندی</v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/create">افزودن</nuxt-link></v-list-item-title>
             </v-list-item>
             <v-list-item>
               <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title>ویرایش و حذف دسته</v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/read">همه</nuxt-link></v-list-item-title>
           </v-list-item>
 
           </v-list-group>
 
-          <v-list-group prepend-icon="mdi-source-branch">
+          <v-list-group>
             <template v-slot:activator>
-              <v-list-item-title>شعبه ها</v-list-item-title>
+              <v-list-item-title class="main_title">
+                <nuxt-link to="#">
+                  <v-list-item-icon><v-icon color="#255803">mdi-source-branch</v-icon></v-list-item-icon>
+                  شعبه ها
+              </nuxt-link></v-list-item-title>
             </template>
 
             <v-list-item>
@@ -62,14 +73,14 @@
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-            <v-list-item-title><nuxt-link to="/dashboard/users/add">ثبت کاربر</nuxt-link></v-list-item-title>
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/create">ثبت شعبه</nuxt-link></v-list-item-title>
           </v-list-item>
             <v-list-item>
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-            <v-list-item-title><nuxt-link to="/dashboard/users/change">ویرایش و حذف کاربر</nuxt-link></v-list-item-title>
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/change">ایجاد کاربر</nuxt-link></v-list-item-title>
           </v-list-item>
 
             <v-list-group
@@ -112,10 +123,28 @@
   *{
     font-family: 'Markazi Text', serif !important;
   }
+
+  .main_title a{
+    color: white!important;
+    padding-right: 2%;
+  }
+  .main_title a:hover{
+
+    color: #0ad3f7!important;
+    display: block;
+  }
+   .sub_title a{
+    color: yellow!important;
+     font-size: 1vw;
+     padding-right: 2%;
+  }
   .menu a{
     text-decoration: none;
-    color: red!important;
     font-size: 1.2vw;
+  }
+
+  .icon{
+    width: 2vw;
   }
 
 </style>

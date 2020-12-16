@@ -1,6 +1,6 @@
 <template>
     <v-app-bar
-        color="accent-4"
+        color="#0ad3f7"
         prominent
       >
         <label><font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" /></label>
