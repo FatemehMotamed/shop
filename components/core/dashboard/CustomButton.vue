@@ -1,6 +1,6 @@
 <template>
 
-  <v-btn class="custom_btn" :width="width" :height="height"
+  <v-btn type="submit" class="custom_btn" :width="width" :height="height"
          v-bind:style="{ backgroundColor:bcolor+'!important',Color:fcolor+'!important',fontSize: fontSize + 'vw' }"  >
     {{ txt }}
     <v-icon :color="iconcolor">{{ icon }}</v-icon>

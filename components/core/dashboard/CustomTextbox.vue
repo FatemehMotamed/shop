@@ -5,12 +5,13 @@
       :placeholder="txt"
       rows="3"
       row-height="25"
-      dir="rtl">
+      dir="rtl"
+      v-on:input="$emit('input', $event)">
 
       </v-textarea>
   </div>
   <div v-else>
-      <v-text-field  dir="rtl"  label="" :placeholder="txt"></v-text-field>
+      <v-text-field  dir="rtl"  label="" :placeholder="txt" v-on:input="$emit('input', $event)"></v-text-field>
   </div>
 
 

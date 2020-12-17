@@ -93,17 +93,17 @@
                 </v-list-item-content>
               </template>
 
-              <v-list-item
-                v-for="([title, icon], i) in cruds"
-                :key="i"
-                link
-              >
-                <v-list-item-title v-text="title"></v-list-item-title>
+<!--              <v-list-item-->
+<!--                v-for="([title, icon], i) in cruds"-->
+<!--                :key="i"-->
+<!--                link-->
+<!--              >-->
+<!--                <v-list-item-title v-text="title"></v-list-item-title>-->
 
-                <v-list-item-icon>
-                  <v-icon v-text="icon"></v-icon>
-                </v-list-item-icon>
-              </v-list-item>
+<!--                <v-list-item-icon>-->
+<!--                  <v-icon v-text="icon"></v-icon>-->
+<!--                </v-list-item-icon>-->
+<!--              </v-list-item>-->
             </v-list-group>
           </v-list-group>
       </v-list>
