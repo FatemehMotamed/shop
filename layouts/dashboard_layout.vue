@@ -1,5 +1,5 @@
 <template>
-     <v-app>
+     <v-app >
     <v-card
       class="mx-auto overflow-hidden"
       height="100%"
@@ -21,8 +21,8 @@
         </v-list>
       </v-navigation-drawer>
 
-      <v-card-text>
-        <Nuxt />
+      <v-card-text style="background-color: #1f1e1f; height: 100%">
+        <Nuxt  />
       </v-card-text>
     </v-card>
   </v-app>

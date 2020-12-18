@@ -1,24 +1,34 @@
 <template>
   <div>
-    <v-select
-      align-center
-      v-on:change="fill_combo($event)"
-      :items="states"
-      menu-props="auto"
-      label="استان"
-      hide-details
-      prepend-icon="mdi-map"
-      single-line
-    ></v-select>
-    <v-select
-      v-on:change="fill_city($event)"
-      :items="city[0]"
-      menu-props="auto"
-      label="شهر"
-      hide-details
-      prepend-icon="mdi-city"
-      single-line
-    ></v-select>
+    <v-row>
+      <v-col cols="12" md="6" sm="6" lg="6">
+        <v-select
+          v-on:change="fill_city($event)"
+          :items="city[0]"
+          color="#0ad3f7"
+          menu-props="auto"
+          label="شهر"
+          hide-details
+          prepend-icon="mdi-city"
+          single-line
+        ></v-select>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" lg="6">
+        <v-select
+          color="#0ad3f7"
+          align-center
+          v-on:change="fill_combo($event)"
+          :items="states"
+          menu-props="auto"
+          label="استان"
+          hide-details
+          prepend-icon="mdi-map"
+          single-line
+        ></v-select>
+      </v-col>
+    </v-row>
+
+
   </div>
 </template>
 
@@ -71,6 +81,6 @@
   font-family: 'Markazi Text', serif !important;
 }
 .v-select{
-  color: cadetblue!important;
+  color: #0ad3f7!important;
 }
 </style>
