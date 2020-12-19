@@ -33,7 +33,7 @@
 
         <v-row>
           <v-col cols="12" md="2" lg="2" sm="2" offset-lg="5">
-            <custom-button txt="ثبت شعبه" bgcolor="#0ad3f7" fontcolor="black" fontsize="1.3" icon="mdi-plus" iconcolor="black" width="10vw" height="3vw"></custom-button>
+            <custom-button txt="ثبت شعبه" bgcolor="#0ad3f7" fontcolor="black" fontsize="1.3" icon="mdi-source-fork" iconcolor="black" width="10vw" height="3vw"></custom-button>
           </v-col>
         </v-row>
 

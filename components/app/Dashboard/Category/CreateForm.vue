@@ -8,7 +8,7 @@
               v-on:change="fill_parent($event)"
               color="#0ad3f7"
               align-center
-              :items="role"
+              :items="parent_category"
               menu-props="auto"
               label="دسته بندی مادر"
               hide-details
@@ -22,13 +22,16 @@
         </v-row>
 
         <v-row>
-          <v-col cols="12" md="2" lg="2" sm="2" offset-md="5" offset-lg="5" offset-sm="5" offset-xs="5">
-            <custom-button txt="ثبت دسته بندی" bgcolor="#0ad3f7" fontcolor="black" fontsize="1.3" icon="mdi-plus" iconcolor="black" width="10vw" height="3vw"></custom-button>
+          <v-col cols="12" md="8" lg="8" sm="8" xs="8" offset-md="4" offset-lg="4" offset-sm="4" offset-xs="4">
+            <custom-button :disable="toggle" txt="ثبت ویژگی" bgcolor="#FA950B" fontcolor="black" fontsize="1.3" icon="mdi-format-list-bulleted" iconcolor="black" width="10vw" height="3vw"></custom-button>
+            <custom-button class="ml-2"  txt="ثبت دسته بندی" bgcolor="#0ad3f7" fontcolor="black" fontsize="1.3" icon="mdi-plus" iconcolor="black" width="10vw" height="3vw"></custom-button>
           </v-col>
         </v-row>
 
       </form>
     </v-container>
+
+    <dialog-box :dialog="dialog"></dialog-box>
 
   </div>
 
@@ -38,17 +41,21 @@
 import CustomButton from '@/components/core/dashboard/CustomButton'
 import CustomTextbox from '@/components/core/dashboard/CustomTextbox'
 import CustomSelect from '@/components/core/dashboard/CustomSelect'
+import DialogBox from '@/components/core/Dialog/DialogBox'
 import EventBuss from '@/assets/js/eventBus'
 export default {
   name: "CreateForm",
   components:{
     CustomButton:CustomButton,
     CustomTextbox:CustomTextbox,
-    CustomSelect:CustomSelect
+    CustomSelect:CustomSelect,
+    DialogBox:DialogBox
   },
   data(){
     return{
-
+      parent_category:['مردانه','زنانه','بچه گانه'],
+      toggle:true,
+      dialog:false,
       form_data:{
         name:'',
         parent:'',
@@ -59,6 +66,7 @@ export default {
   methods:{
     async registerCategory(){
       console.log(this.form_data)
+      this.toggle=false
       // console.log("dsda")
     },
     fill_parent(event){
