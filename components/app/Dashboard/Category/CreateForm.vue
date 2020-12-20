@@ -23,7 +23,7 @@
 
         <v-row>
           <v-col cols="12" md="8" lg="8" sm="8" xs="8" offset-md="4" offset-lg="4" offset-sm="4" offset-xs="4">
-            <custom-button :disable="toggle" txt="ثبت ویژگی" bgcolor="#FA950B" fontcolor="black" fontsize="1.3" icon="mdi-format-list-bulleted" iconcolor="black" width="10vw" height="3vw"></custom-button>
+            <dialog-box :disable="toggle"></dialog-box>
             <custom-button class="ml-2"  txt="ثبت دسته بندی" bgcolor="#0ad3f7" fontcolor="black" fontsize="1.3" icon="mdi-plus" iconcolor="black" width="10vw" height="3vw"></custom-button>
           </v-col>
         </v-row>
@@ -31,7 +31,7 @@
       </form>
     </v-container>
 
-    <dialog-box :dialog="dialog"></dialog-box>
+
 
   </div>
 
@@ -55,7 +55,7 @@ export default {
     return{
       parent_category:['مردانه','زنانه','بچه گانه'],
       toggle:true,
-      dialog:false,
+
       form_data:{
         name:'',
         parent:'',
