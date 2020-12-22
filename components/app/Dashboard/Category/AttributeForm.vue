@@ -3,14 +3,34 @@
     <v-container >
       <form @submit.prevent="registerAttribute">
         <v-row>
-          <custom-textbox txt="نام ویژگی" v-model="newAttribute.title"></custom-textbox>
-          <v-btn class="mx-2 mt-7" fab width="2vw" height="2vw" color="success" v-on:click.prevent="addAttribute()"><v-icon>mdi-plus</v-icon></v-btn>
-        </v-row>
-        <v-row v-for="(item,index) in attributes">
-          <v-col cols="12" md="6" lg="6" sm="6" dir="rtl">
-            {{item}}
-            <v-btn class="mx-2 mt-7" fab width="2vw" height="2vw" color="error" v-on:click.prevent="removeAttribute(index)"><v-icon>mdi-minus</v-icon></v-btn>
+          <v-col cols="12" md="4" lg="4" xs="4" sm="4">
+            <v-btn  class="mx-2 mt-7 float-right" fab width="2vw" height="2vw" color="success" v-on:click.prevent="addAttribute()"><v-icon>mdi-plus</v-icon></v-btn>
+          </v-col >
+          <v-col cols="12" md="8" lg="8" xs="8" sm="8">
+            <custom-textbox txt="نام ویژگی" v-model="newAttribute.title"></custom-textbox>
           </v-col>
+        </v-row>
+        <v-row dir="rtl" class="attribute_table">
+          <v-simple-table  style="width: 75%; float: right">
+            <template v-slot: >
+              <thead>
+              <tr>
+                <th class="text-right">
+                  ویژگی
+                </th>
+                <th class="text-right">
+                  حذف ویژگی
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr v-for="(item,index) in attributes">
+                <td class="text-right">{{item}}</td>
+                <td class="text-right"><v-btn class="" fab width="1.5vw" height="1.5vw" color="error" v-on:click.prevent="removeAttribute(index)"><v-icon>mdi-minus</v-icon></v-btn></td>
+              </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
         </v-row>
 
 
@@ -67,7 +87,6 @@ export default {
   },
 }
 </script>
-
 
 <style scoped>
 
