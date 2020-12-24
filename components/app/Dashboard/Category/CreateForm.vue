@@ -41,7 +41,7 @@
 import CustomButton from '@/components/core/dashboard/CustomButton'
 import CustomTextbox from '@/components/core/dashboard/CustomTextbox'
 import CustomSelect from '@/components/core/dashboard/CustomSelect'
-import DialogBox from '@/components/core/Dialog/DialogBox'
+import DialogBox from '@/components/app/Dashboard/Category/DialogBox'
 import EventBuss from '@/assets/js/eventBus'
 export default {
   name: "CreateForm",

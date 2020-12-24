@@ -47,17 +47,44 @@
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/create">افزودن</nuxt-link></v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/create">ثبت دسته بندی</nuxt-link></v-list-item-title>
             </v-list-item>
             <v-list-item>
               <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/read">همه</nuxt-link></v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/read">ویرایش و حذف دسته بندی</nuxt-link></v-list-item-title>
           </v-list-item>
 
           </v-list-group>
+
+          <v-list-group>
+          <template v-slot:activator>
+            <v-list-item-title class="main_title">
+              <nuxt-link to="#">
+                <v-list-item-icon><v-icon color="#255803">mdi-source-branch</v-icon></v-list-item-icon>
+                محصولات
+              </nuxt-link></v-list-item-title>
+          </template>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/products/create">ثبت محصول</nuxt-link></v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/change">ویرایش و حذف محصول</nuxt-link></v-list-item-title>
+          </v-list-item>
+
+
+        </v-list-group>
 
           <v-list-group>
             <template v-slot:activator>
@@ -80,7 +107,7 @@
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
 
-            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/change">ایجاد کاربر</nuxt-link></v-list-item-title>
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/change">ویرایش و حذف شعبه</nuxt-link></v-list-item-title>
           </v-list-item>
 
             <v-list-group
