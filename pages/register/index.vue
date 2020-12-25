@@ -11,10 +11,7 @@
           <v-card class="card ml-n6">
             <form method="post" @submit.prevent="register">
               <v-row class="pt-12">
-                <v-text-field dir="rtl"  label="" placeholder="نام" name="name" v-model="name" ></v-text-field>
-              </v-row>
-              <v-row >
-                <v-text-field dir="rtl"  label="" placeholder="ایمیل" name="email" v-model="email" ></v-text-field>
+                <v-text-field dir="rtl"  label="" placeholder="موبایل" name="name" v-model="mobile" ></v-text-field>
               </v-row>
               <v-row >
                 <v-text-field dir="rtl"  label="" placeholder="کلمه عبور" name="password" v-model="password" ></v-text-field>
@@ -52,8 +49,7 @@ export default {
     middleware: 'guest',
   data() {
     return {
-      name: '',
-      email: '',
+      mobile: '',
       password: '',
       error: null
     }
@@ -63,9 +59,9 @@ export default {
     async register() {
       try {
         await this.$axios.post('register', {
-          name: this.name,
-          email: this.email,
-          password: this.password
+          mobile: this.mobile,
+          password: this.password,
+          role_id: 1,
         })
 
         // await this.$auth.loginWith('local', {

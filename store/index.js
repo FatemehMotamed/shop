@@ -16,6 +16,10 @@ export const getters = {
   loggedInUser(state) {
     return state.username.value
   },
+  getToken(state){
+    return state.token.value
+  }
+
 };
 
 export const mutations={
@@ -29,6 +33,8 @@ export const mutations={
   logoutUser(state){
     state.token.value=null
     state.username.value=null
+    this.$router.push('/')
+
   }
 }
 
