@@ -5,9 +5,10 @@
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
             <custom-textbox txt="نام خانوادگی" v-model="form_data.l_name"></custom-textbox>
+<!--            <input placeholder="نام خانوادگی" v-model="form_data.l_name">-->
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="نام" v-model="form_data.fname"></custom-textbox>
+            <custom-textbox txt="نام" v-model="form_data.f_name"></custom-textbox>
           </v-col>
         </v-row>
         <v-row>
@@ -42,7 +43,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="12" md="6" sm="6" lg="6"></v-col>
+
           <v-col cols="12" md="6" sm="6" lg="6">
             <v-select
               v-on:change="fill_role($event)"
@@ -55,6 +56,9 @@
               prepend-icon="mdi-account"
               single-line
             ></v-select>
+          </v-col>
+          <v-col cols="12" md="6" sm="6" lg="6">
+            <custom-textbox txt="ایمیل" v-model="form_data.email"></custom-textbox>
           </v-col>
         </v-row>
 
@@ -87,41 +91,95 @@ export default {
   },
   data(){
     return{
-      role:['ادمین','کانتر فروش','حسابدار'],
+      // role:['ادمین','کانتر فروش','حسابدار'],
+      role:[],
       form_data:{
         f_name:'',
         l_name:'',
         username:'',
         password:'',
+        email:'',
         city:'',
         county:'',
         address:'',
         postal_code:'',
         national_code:'',
         mobile:'',
-        branch_id:'',
+        branch_id: 1,
         role_id:'',
       }
     }
   },
 
   methods:{
-    async registerUser(){
-      console.log(this.form_data)
-      // console.log("dsda")
+     async registerUser() {
+      let self = this;
+      try {
+        await this.$axios.post('register', this.form_data).then(function(response){
+          console.log(response);
+        })
+          // .cache((error)=>{
+          // window.alert("error");
+        // })
+        console.log(this.form_data)
+        // this.$router.push('/')
+      } catch (e) {
+        this.error = e.response.data.message
+      }
     },
     set_state_city(item){
       // console.log('test',item)
-      this.form_data.state=item[0]
+      this.form_data.county=item[0]
       this.form_data.city=item[1]
     },
     fill_role(event){
-      this.form_data.role_user=event
+      if (event=="ادمین"){
+        this.form_data.role_id=1
+      }
+      else if(event=="کانتر فروش"){
+        this.form_data.role_id=2
+      }
+      else{
+        this.form_data.role_id=3
+      }
     }
 
   },
   mounted(item) {
     EventBuss.$on('set-city',item =>{this.set_state_city(item)})
+  },
+  created() {
+    let self = this;
+      try {
+        // let data =this.$axios.get('roles').thhh
+        // console.log(data)
+          // .then(function(response){
+          // console.log(response.data)
+          // let temp = response.data.data;
+          // console.log(temp[0]);
+          // console.log(response.data.data.length)
+          // this.role = response.data;
+          // for(var i=0; i<response.data.data.length; i++){
+          //   console.log(response.data.data[i]);
+          //   this.role.push('test');
+          // }
+          // response.data.forEach(function(item){
+          //   console.log(item)
+          //   // this.role.append($item);
+          // })
+          // this.role=response.data.data;
+          // c//////.log(this.role);
+
+
+        // })
+          // .cache((error)=>{
+          // window.alert("error");
+        // })
+        // console.log(this.form_data)
+        // this.$router.push('/')
+      } catch (e) {
+        this.error = e.response.data.message
+      }
   }
 }
 </script>
