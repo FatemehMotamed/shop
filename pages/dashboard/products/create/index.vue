@@ -5,7 +5,7 @@
 
 <script>
 
-import CreateForm from '@/components/app/dashboard/Products/CreateForm'
+import CreateForm from '@/components/app/Dashboard/Products/CreateForm'
 export default {
   name: "index",
 
