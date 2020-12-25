@@ -4,7 +4,7 @@
       <form @submit.prevent="registerUser">
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="نام خانوادگی" v-model="form_data.lname"></custom-textbox>
+            <custom-textbox txt="نام خانوادگی" v-model="form_data.l_name"></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
             <custom-textbox txt="نام" v-model="form_data.fname"></custom-textbox>
@@ -35,10 +35,10 @@
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شناسه شعبه" v-model="form_data.id_branch"></custom-textbox>
+            <custom-textbox txt="شناسه شعبه" v-model="form_data.branch_id"></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره موبایل" v-model="form_data.phone"></custom-textbox>
+            <custom-textbox txt="شماره موبایل" v-model="form_data.mobile"></custom-textbox>
           </v-col>
         </v-row>
         <v-row>
@@ -89,18 +89,18 @@ export default {
     return{
       role:['ادمین','کانتر فروش','حسابدار'],
       form_data:{
-        fname:'',
-        lname:'',
+        f_name:'',
+        l_name:'',
         username:'',
         password:'',
         city:'',
-        state:'',
+        county:'',
         address:'',
         postal_code:'',
         national_code:'',
-        phone:'',
-        id_branch:'',
-        role_user:'',
+        mobile:'',
+        branch_id:'',
+        role_id:'',
       }
     }
   },
