@@ -21,14 +21,22 @@
             <v-list-item>
               <v-list-item-icon><v-icon color="#29f109">mdi-plus</v-icon></v-list-item-icon>
 
+<<<<<<< HEAD
               <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/add">ثبت کاربر</nuxt-link></v-list-item-title>
+=======
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/create">ثبت کاربر</nuxt-link></v-list-item-title>
+>>>>>>> dashboard_motamed
           </v-list-item>
             <v-list-item>
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon color="#fe0a20">mdi-playlist-minus</v-icon>
             </v-list-item-icon>
 
+<<<<<<< HEAD
               <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/change">ویرایش و حذف کاربر</nuxt-link></v-list-item-title>
+=======
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/list">ویرایش و حذف کاربر</nuxt-link></v-list-item-title>
+>>>>>>> dashboard_motamed
             </v-list-item>
 
           </v-list-group>
@@ -38,28 +46,70 @@
               <v-list-item-title class="main_title">
                 <nuxt-link to="#">
                   <v-list-item-icon><v-icon color="#f75a06">mdi-clipboard-list</v-icon></v-list-item-icon>
+<<<<<<< HEAD
                   دسته بندی ها
+=======
+                  دسته بندی‌ها
+>>>>>>> dashboard_motamed
                 </nuxt-link></v-list-item-title>
             </template>
 
             <v-list-item>
               <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon color="#29f109">mdi-plus</v-icon>
             </v-list-item-icon>
 
+<<<<<<< HEAD
               <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/change">ثبت دسته بندی</nuxt-link></v-list-item-title>
+=======
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/create">ثبت دسته بندی</nuxt-link></v-list-item-title>
+>>>>>>> dashboard_motamed
             </v-list-item>
             <v-list-item>
               <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon color="#fe0a20">mdi-playlist-minus</v-icon>
             </v-list-item-icon>
 
+<<<<<<< HEAD
               <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/change">ویرایش و حذف دسته</nuxt-link></v-list-item-title>
+=======
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/read">ویرایش و حذف دسته بندی</nuxt-link></v-list-item-title>
+>>>>>>> dashboard_motamed
           </v-list-item>
 
           </v-list-group>
 
           <v-list-group>
+<<<<<<< HEAD
+=======
+          <template v-slot:activator>
+            <v-list-item-title class="main_title">
+              <nuxt-link to="#">
+                <v-list-item-icon><v-icon color="#8308f0">mdi-shopping</v-icon></v-list-item-icon>
+                محصولات
+              </nuxt-link></v-list-item-title>
+          </template>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon color="#29f109">mdi-plus</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/products/create">ثبت محصول</nuxt-link></v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon color="#fe0a20">mdi-playlist-minus</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/change">ویرایش و حذف محصول</nuxt-link></v-list-item-title>
+          </v-list-item>
+
+
+        </v-list-group>
+
+          <v-list-group>
+>>>>>>> dashboard_motamed
             <template v-slot:activator>
               <v-list-item-title class="main_title">
                 <nuxt-link to="#">
@@ -70,17 +120,25 @@
 
             <v-list-item>
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon color="#29f109">mdi-plus</v-icon>
             </v-list-item-icon>
 
+<<<<<<< HEAD
             <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/add">ثبت کاربر</nuxt-link></v-list-item-title>
+=======
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/create">ثبت شعبه</nuxt-link></v-list-item-title>
+>>>>>>> dashboard_motamed
           </v-list-item>
             <v-list-item>
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon color="#fe0a20">mdi-playlist-minus</v-icon>
             </v-list-item-icon>
 
+<<<<<<< HEAD
             <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/change">ویرایش و حذف کاربر</nuxt-link></v-list-item-title>
+=======
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/change">ویرایش و حذف شعبه</nuxt-link></v-list-item-title>
+>>>>>>> dashboard_motamed
           </v-list-item>
 
             <v-list-group
@@ -93,17 +151,17 @@
                 </v-list-item-content>
               </template>
 
-              <v-list-item
-                v-for="([title, icon], i) in cruds"
-                :key="i"
-                link
-              >
-                <v-list-item-title v-text="title"></v-list-item-title>
+<!--              <v-list-item-->
+<!--                v-for="([title, icon], i) in cruds"-->
+<!--                :key="i"-->
+<!--                link-->
+<!--              >-->
+<!--                <v-list-item-title v-text="title"></v-list-item-title>-->
 
-                <v-list-item-icon>
-                  <v-icon v-text="icon"></v-icon>
-                </v-list-item-icon>
-              </v-list-item>
+<!--                <v-list-item-icon>-->
+<!--                  <v-icon v-text="icon"></v-icon>-->
+<!--                </v-list-item-icon>-->
+<!--              </v-list-item>-->
             </v-list-group>
           </v-list-group>
       </v-list>

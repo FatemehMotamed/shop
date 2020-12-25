@@ -3,22 +3,22 @@
     <v-container class="main_box">
       <v-row >
           <v-col cols="12" md="4" sm="4" offset-md="5" offset-sm="5">
-            <p class="ml-12 mt-n6">ورود</p>
+            <p class="ml-12 mt-n6">ثبت نام</p>
           </v-col>
         </v-row>
       <v-row >
         <v-col cols="12" md="5" offset-sm="4" offset-md="4" >
           <v-card class="card ml-n6">
-            <form method="post" @submit.prevent="userLogin">
+            <form method="post" @submit.prevent="register">
               <v-row class="pt-12">
-                <v-text-field  dir="rtl"  label="" placeholder="نام" name="name" v-model="login.name" ></v-text-field>
+                <v-text-field dir="rtl"  label="" placeholder="نام" name="name" v-model="name" ></v-text-field>
               </v-row>
               <v-row >
-                <v-text-field dir="rtl"  label="" placeholder="ایمیل" name="email" v-model="login.email" ></v-text-field>
+                <v-text-field dir="rtl"  label="" placeholder="ایمیل" name="email" v-model="email" ></v-text-field>
               </v-row>
               <v-row >
-                <v-text-field dir="rtl"  label="" placeholder="کلمه عبور" name="password" v-model="login.password" ></v-text-field>
-                    <v-btn type="submit" class="btn ml-8 mt-10">ورود</v-btn>
+                <v-text-field dir="rtl"  label="" placeholder="کلمه عبور" name="password" v-model="password" ></v-text-field>
+                <v-btn type="submit" class="btn ml-8 mt-10">ثبت نام</v-btn>
 <!--                    <button type="submit" class="button is-dark is-fullwidth">Log In</button>-->
               </v-row>
             </form>
@@ -42,44 +42,48 @@
 
     </v-container>
   </div>
-
 </template>
 
 <script>
-   import{ mapMutations } from 'vuex'
-    export default {
-        name: "index",
-        layout: 'simple',
-        middleware: 'guest',
-        data(){
-            return{
-                login: {
-                    name: '',
-                    email: '',
-                    password: '',
-                }
-            }
-        },
-        methods:{
-            ...mapMutations(['setToken','setUserName']),
 
-            async userLogin() {
-              try {
-                  let response = await this.$auth.loginWith('local', { data: this.login })
-                  console.log(response)
-                  this.setToken(response.data.token)
-                  this.setUserName(response.data.user.name)
-                  this.$router.push('/')
-              } catch (err) {
-                  console.log(err)
+
+export default {
+    layout: 'simple',
+    middleware: 'guest',
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      error: null
+    }
+  },
+
+  methods: {
+    async register() {
+      try {
+        await this.$axios.post('register', {
+          name: this.name,
+          email: this.email,
+          password: this.password
+        })
+
+        // await this.$auth.loginWith('local', {
+        //   data: {
+        //   email: this.email,
+        //   password: this.password
+        //   },
+        // })
+
+        this.$router.push('/')
+      } catch (e) {
+        this.error = e.response.data.message
       }
     }
   }
-
-    }
+}
 </script>
-
-<style scoped>
+<style>
   .main_box{
     font-family: 'Markazi Text', serif !important;
   }
@@ -114,5 +118,4 @@
   color: #7f828b;
   margin-left: 2.1vw;
 }
-
 </style>

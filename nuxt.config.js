@@ -1,6 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   //  server: {
   //   port: 8000, // default: 3000
@@ -52,7 +53,16 @@ export default {
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
+
   modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
+    ['nuxt-vuex-localstorage', {
+      localStorage: ['username','token', 'expire'],
+      sessionStorage: ['sfoo']
+    }]
+
+    // 'cookie-universal-nuxt',
   ],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
@@ -81,5 +91,46 @@ export default {
 
   "nuxt": {
  "port": 8080
+},
+
+//   router: {
+//   middleware: ['auth']
+// },
+
+ axios: {
+    baseURL: 'http://127.0.0.1:8000/api/v1',
+
+  },
+
+auth: {
+  strategies: {
+    local: {
+      token: {
+        property: 'token',
+        // required: true,
+        // type: 'Bearer',
+        // maxAge: 1800,
+      },
+      user: {
+        property: 'user',
+        // autoFetch: true
+      },
+      endpoints: {
+        login: { url: '/login', method: 'post' },
+        logout: { url: '/logout', method: 'post' },
+        user: { url: '/user', method: 'get' }
+      }
+    },
+    cookie: {
+    prefix: 'auth.',
+    options: {
+      path: '/',
+      expires: 1,
+    }
+  }
+  }
 }
+
+
+
 }
