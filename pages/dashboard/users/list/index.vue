@@ -1,5 +1,5 @@
 <template>
-  <custom-table :desserts="table_data" :headers="headers" ></custom-table>
+  <custom-table :desserts="table_data"></custom-table>
 </template>
 
 <script>
