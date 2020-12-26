@@ -147,7 +147,7 @@
   export default {
 
     props:{
-      list: {
+      desserts: {
         type: Object,
         default: 'ddd',
       }
@@ -207,16 +207,7 @@
 
     methods: {
       initialize () {
-        this.desserts = [
-          {
-            name: this.list.title,
-            calories: this.list.image,
-            fat:  this.list.updated_at,
-            carbs: this.list.image,
-            protein: 4.0,
-          },
 
-        ]
       },
 
       editItem (item) {
