@@ -4,7 +4,9 @@
       <v-col cols="12" md="6" sm="6" lg="6">
         <v-select
           v-on:change="fill_city($event)"
-          :items="city[0]"
+          :items="city"
+          item-value="id"
+          item-text="name"
           color="#0ad3f7"
           menu-props="auto"
           label="شهر"
@@ -19,6 +21,8 @@
           align-center
           v-on:change="fill_combo($event)"
           :items="states"
+          item-value="id"
+          item-text="name"
           menu-props="auto"
           label="استان"
           hide-details
@@ -40,17 +44,8 @@
       return {
         select_state:'',
         select_city:'',
-        states:['گیلان','تهران'],
+        states:[],
         city:[],
-        address:[
-          {
-            name:'گیلان',citys:['رشت','خمام','آستانه','انزلی']
-          },
-          {
-            name:'تهران',citys:['تهران','کرج','ورامین','دماوند']
-          },
-          {},
-        ]
       }
     },
     methods:{
@@ -60,19 +55,30 @@
       },
 
       fill_combo(event){
+        console.log(event)
         this.select_state=event
         this.city=[];
-        let i;
-        for(i of this.address){
-          if (i.name === event){
-            this.city.push(i.citys)
-          }
-        }
+        let self=this;
+        let c=[];
+              this.$axios.get('/cities?county_id='+String(event)).then(function(response){
+              // console.log(response.data.data[0].name);
+                response.data.data.forEach(item => c.push({id:item.id,name:item.name}));
+        })
+        this.city=c;
 
       },
 
 
-    }
+    },
+    created() {
+    let self=this;
+    let s=[];
+              this.$axios.get('/counties').then(function(response){
+              // console.log(response.data.data[0].name);
+                response.data.data.forEach(item => s.push({id:item.id,name:item.name}));
+        })
+    this.states=s;
+  }
   }
 </script>
 

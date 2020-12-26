@@ -47,8 +47,9 @@
   import CustomSelect from '@/components/core/dashboard/CustomSelect'
   import EventBuss from '@/assets/js/eventBus'
   export default {
-  name: "CreateForm",
-  components:{
+    name: "EditForm",
+    props:['id_branch'],
+    components:{
       CustomButton:CustomButton,
       CustomTextbox:CustomTextbox,
       CustomSelect:CustomSelect
@@ -90,9 +91,20 @@
       }
 
     },
+    created() {
+      // console.log("hhhhhhhh",this.id_branch)
+    let self=this;
+    let s=[];
+              this.$axios.get('/branch/search?id='+this.id_branch).then(function(response){
+              console.log(response.data.data);
+              //   response.data.data.forEach(item => s.push({id:item.id,name:item.name}));
+        })
+    // this.states=s;
+  },
     mounted(item) {
       EventBuss.$on('set-city',item =>{this.set_state_city(item)})
     }
+
   }
 </script>
 

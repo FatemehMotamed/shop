@@ -50,6 +50,8 @@
               color="#0ad3f7"
               align-center
               :items="role"
+               item-value="id"
+              item-text="name"
               menu-props="auto"
               label="نقش کاربر"
               hide-details
@@ -91,7 +93,6 @@ export default {
   },
   data(){
     return{
-      // role:['ادمین','کانتر فروش','حسابدار'],
       role:[],
       form_data:{
         f_name:'',
@@ -113,6 +114,7 @@ export default {
 
   methods:{
      async registerUser() {
+       console.log(this.form_data)
       let self = this;
       try {
         await this.$axios.post('register', this.form_data).then(function(response){
@@ -133,15 +135,8 @@ export default {
       this.form_data.city=item[1]
     },
     fill_role(event){
-      if (event=="ادمین"){
-        this.form_data.role_id=1
-      }
-      else if(event=="کانتر فروش"){
-        this.form_data.role_id=2
-      }
-      else{
-        this.form_data.role_id=3
-      }
+       // console.log("ffffffff",event)
+      this.form_data.role_id=event
     }
 
   },
@@ -149,37 +144,13 @@ export default {
     EventBuss.$on('set-city',item =>{this.set_state_city(item)})
   },
   created() {
-    let self = this;
-      try {
-        // let data =this.$axios.get('roles').thhh
-        // console.log(data)
-          // .then(function(response){
-          // console.log(response.data)
-          // let temp = response.data.data;
-          // console.log(temp[0]);
-          // console.log(response.data.data.length)
-          // this.role = response.data;
-          // for(var i=0; i<response.data.data.length; i++){
-          //   console.log(response.data.data[i]);
-          //   this.role.push('test');
-          // }
-          // response.data.forEach(function(item){
-          //   console.log(item)
-          //   // this.role.append($item);
-          // })
-          // this.role=response.data.data;
-          // c//////.log(this.role);
-
-
-        // })
-          // .cache((error)=>{
-          // window.alert("error");
-        // })
-        // console.log(this.form_data)
-        // this.$router.push('/')
-      } catch (e) {
-        this.error = e.response.data.message
-      }
+    let self=this;
+    let r=[];
+              this.$axios.get('/roles').then(function(response){
+              // console.log(response.data.data[0].name);
+                response.data.data.forEach(item => r.push({id:item.id,name:item.name}));
+        })
+    this.role=r;
   }
 }
 </script>
