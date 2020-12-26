@@ -7,7 +7,7 @@
             <custom-textbox txt="نام شعبه" v-model="form_data.name"></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره تلفن" v-model="form_data.phone"></custom-textbox>
+            <custom-textbox txt="شماره تلفن" v-model="form_data.phones"></custom-textbox>
           </v-col>
         </v-row>
         <custom-select></custom-select>
@@ -19,17 +19,13 @@
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شناسه" v-model="form_data.id_branch"></custom-textbox>
+            <custom-textbox txt="شماره فکس" v-model="form_data.fax"></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
             <custom-textbox txt="کد پستی" v-model="form_data.postal_code"></custom-textbox>
           </v-col>
         </v-row>
-        <v-row>
-          <v-col cols="12" md="6" lg="6" sm="6"></v-col>
-          <v-col cols="12" md="6" lg="6" sm="6"><custom-textbox txt="شماره فکس" v-model="form_data.fax"></custom-textbox></v-col>
 
-        </v-row>
 
         <v-row>
           <v-col cols="12" md="2" lg="2" sm="2" offset-lg="5">
@@ -61,13 +57,12 @@
       return{
         form_data:{
           name:'',
-          city:'',
-          state:'',
-          address:'',
-          phone:'',
-          postal_code:'',
-          id_branch:'',
-          fax:'',
+          // phones:'',
+          county:'24',
+          city:'159',
+          // address:'',
+          // postal_code:'',
+          // fax:'',
         }
       }
     },
@@ -76,7 +71,7 @@
       async registerBranch() {
       let self = this;
       try {
-        await this.$axios.post('register', this.form_data).then(function(response){
+        await this.$axios.post('branch', this.form_data).then(function(response){
           console.log(response);
         })
           // .cache((error)=>{
@@ -90,7 +85,7 @@
     },
       set_state_city(item){
         // console.log('test',item)
-        this.form_data.state=item[0]
+        this.form_data.county=item[0]
         this.form_data.city=item[1]
       }
 

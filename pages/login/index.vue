@@ -57,7 +57,7 @@
             }
         },
         methods:{
-            ...mapMutations(['setToken','setUserName']),
+            ...mapMutations(['setToken','setUserName','setHeader']),
 
             async userLogin() {
               try {
@@ -65,6 +65,7 @@
                   console.log(response)
                   this.setToken(response.data.token)
                   this.setUserName(response.data.data.username)
+                  this.setHeader()
                   this.$router.push('/')
               } catch (err) {
                   console.log(err)

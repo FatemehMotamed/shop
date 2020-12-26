@@ -10,9 +10,8 @@
         layout: "dashboard_layout",
         methods:{
           set(){
-            console.log(this.getToken)
             let self=this;
-              this.$axios.post('usersList', this.getToken ).then(function(response){
+              this.$axios.post('/user/usersList').then(function(response){
               console.log(response);
         })
           }

@@ -30,6 +30,9 @@ export const mutations={
   setUserName(state,name){
     state.username.value=name
   },
+  setHeader(state){
+    this.$axios.setHeader('Authorization', state.token.value)
+  },
   logoutUser(state){
     state.token.value=null
     state.username.value=null
