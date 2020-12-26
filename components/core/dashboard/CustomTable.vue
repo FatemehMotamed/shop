@@ -148,7 +148,7 @@
 
     props:{
       list: {
-        type: Object,
+        type: String | Number | Boolean | Object,
         default: 'ddd',
       }
     },
@@ -209,10 +209,7 @@
       initialize () {
         this.desserts = [
           {
-            name: this.list.mobile,
-            calories: this.list.image,
-            fat:  this.list.updated_at,
-            carbs: this.list.image,
+
             protein: 5.0,
           },
 

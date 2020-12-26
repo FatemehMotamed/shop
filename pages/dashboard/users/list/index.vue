@@ -15,7 +15,7 @@ export default {
 
     data(){
         return{
-            table_data: {}
+            table_data: []
         }
     },
 
