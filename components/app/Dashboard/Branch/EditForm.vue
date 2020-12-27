@@ -1,10 +1,12 @@
 <template>
   <div class="main rounded-xl">
+{{form_data[0]}}
     <v-container >
+
       <form @submit.prevent="registerBranch">
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="نام شعبه" v-model="form_data.name"></custom-textbox>
+            <custom-textbox txt="نام شعبه" v-model="form_data.name" :data_txt="form_data.name" ></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
             <custom-textbox txt="شماره تلفن" v-model="form_data.phones"></custom-textbox>
@@ -56,6 +58,7 @@
     },
     data(){
       return{
+        temp_data:[],
         form_data:{
           name:'',
           phones:'',
@@ -88,18 +91,26 @@
         // console.log('test',item)
         this.form_data.county=item[0]
         this.form_data.city=item[1]
+      },
+      set_form_data(){
+        // let i;
+        // for (i of this.temp_data) {
+        //     this.form_data=i
+        // }
+        this.form_data=this.temp_data
       }
 
     },
     created() {
       // console.log("hhhhhhhh",this.id_branch)
     let self=this;
-    let s=[];
+    let d=[];
               this.$axios.get('/branch/search?id='+this.id_branch).then(function(response){
-              console.log(response.data.data);
-              //   response.data.data.forEach(item => s.push({id:item.id,name:item.name}));
+              // console.log(response.data.data[0]);
+              response.data.data.forEach(item => d.push({name:item.name,phone:item.phone,county:item.county,city:item.city,address: item.address,postal_code:item.postal_code,fax:item.fax}));
         })
-    // this.states=s;
+    this.temp_data=d
+      this.set_form_data();
   },
     mounted(item) {
       EventBuss.$on('set-city',item =>{this.set_state_city(item)})

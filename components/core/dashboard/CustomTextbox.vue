@@ -6,12 +6,13 @@
       rows="3"
       row-height="25"
       dir="rtl"
+      :value="data_txt"
       v-on:input="$emit('input', $event)">
 
       </v-textarea>
   </div>
   <div v-else>
-      <v-text-field  dir="rtl"  label="" :placeholder="txt" v-on:input="$emit('input', $event)"></v-text-field>
+      <v-text-field :value="data_txt"  dir="rtl"  label="" :placeholder="txt" v-on:input="$emit('input', $event)"></v-text-field>
   </div>
 
 
@@ -20,7 +21,7 @@
 <script>
     export default {
         name: "CustomTextbox",
-        props:['txt','textarea']
+        props:['txt','textarea','data_txt']
     }
 </script>
 
