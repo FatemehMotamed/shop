@@ -1,30 +1,30 @@
 <template>
   <div class="main rounded-xl">
-{{form_data[0]}}
+<!--{{form_data}}-->
     <v-container >
 
       <form @submit.prevent="registerBranch">
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="نام شعبه" v-model="form_data.name" :data_txt="form_data.name" ></custom-textbox>
+            <custom-textbox txt="نام شعبه" v-model="form_data.name" v-if="form_data[0]" :data_txt="form_data[0].name" ></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره تلفن" v-model="form_data.phones"></custom-textbox>
+            <custom-textbox txt="شماره تلفن"   v-model="form_data.phones" v-if="form_data[0]" :data_txt="form_data[0].phones"></custom-textbox>
           </v-col>
         </v-row>
         <custom-select></custom-select>
         <v-row>
           <v-col cols="12" md="12" lg="12" sm="12">
-            <custom-textbox txt="آدرس" textarea=true v-model="form_data.address"></custom-textbox>
+            <custom-textbox txt="آدرس" v-if="form_data[0]" textarea=true v-model="form_data.address" :data_txt="form_data[0].address"></custom-textbox>
           </v-col>
 
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره فکس" v-model="form_data.fax"></custom-textbox>
+            <custom-textbox txt="شماره فکس" v-if="form_data[0]" v-model="form_data.fax" :data_txt="form_data[0].fax"></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="کد پستی" v-model="form_data.postal_code"></custom-textbox>
+            <custom-textbox txt="کد پستی" v-if="form_data[0]" v-model="form_data.postal_code" :data_txt="form_data[0].postal_code"></custom-textbox>
           </v-col>
         </v-row>
 
@@ -75,7 +75,7 @@
       async registerBranch() {
       let self = this;
       try {
-        await this.$axios.post('branch', this.form_data).then(function(response){
+        await this.$axios.post('branch', this.form_data[0]).then(function(response){
           console.log(response);
         })
           // .cache((error)=>{
@@ -107,7 +107,7 @@
     let d=[];
               this.$axios.get('/branch/search?id='+this.id_branch).then(function(response){
               // console.log(response.data.data[0]);
-              response.data.data.forEach(item => d.push({name:item.name,phone:item.phone,county:item.county,city:item.city,address: item.address,postal_code:item.postal_code,fax:item.fax}));
+              response.data.data.forEach(item => d.push({name:item.name,phones:item.phones,county:item.county,city:item.city,address: item.address,postal_code:item.postal_code,fax:item.fax}));
         })
     this.temp_data=d
       this.set_form_data();
