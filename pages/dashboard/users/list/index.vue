@@ -1,5 +1,5 @@
 <template>
-  <custom-table :desserts="table_data"></custom-table>
+  <custom-table :list="table_data"></custom-table>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
 
     data(){
         return{
-            table_data: []
+            table_data: {}
         }
     },
 
