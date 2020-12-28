@@ -15,7 +15,7 @@ export default {
 
     data(){
         return{
-            table_data: {}
+            table_data: []
         }
     },
 
@@ -27,8 +27,8 @@ export default {
           let self = this;
 
           this.$axios.$post('/user/usersList').then(function(response) {
-              self.table_data = response.data[0];
-              console.log(self.table_data);
+              self.table_data = response.data;
+              // console.log(self.table_data);
           });
       }
     },

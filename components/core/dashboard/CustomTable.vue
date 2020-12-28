@@ -1,25 +1,29 @@
 <template>
-<v-data-table
+    <v-data-table
     :headers="headers"
-    :items="desserts"
+    :items="list"
     sort-by="calories"
   >
-
     <template v-slot:top>
       <v-toolbar
         flat
       >
         <v-toolbar-title>دسته بندی‌ها</v-toolbar-title>
+
         <v-divider
           class="mx-4"
           inset
           vertical
         ></v-divider>
+                <v-text-field></v-text-field>
+
         <v-spacer></v-spacer>
         <v-dialog
           v-model="dialog"
           max-width="500px"
         >
+
+        
           <v-card>
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
@@ -138,7 +142,7 @@
       </v-btn>
     </template>
 
-  </v-data-table>
+    </v-data-table>
 
 </template>
 
@@ -148,27 +152,29 @@
 
     props:{
       list: {
-        type: Object,
-        default: 'ddd',
+        type: Array,
+        default: '',
       }
     },
     data: () => ({
       dialog: false,
       dialogDelete: false,
       headers: [
-        {
-          text: 'Dessert (100g serving)',
-          align: 'start',
-          sortable: false,
-          value: 'name',
-        },
-        { text: 'Calories', value: 'calories' },
-        { text: 'Fat (g)', value: 'fat' },
-        { text: 'Carbs (g)', value: 'carbs' },
-        { text: 'Protein (g)', value: 'protein' },
+        { text: 'نام کاربری', value: 'username', align: 'start'},
+        { text: 'نام', value: 'f_name'},
+        { text: 'نام خانوادگی', value: 'l_name' },
+        { text: 'شماره تماس', value: 'mobile' },
+        { text: 'کدملی', value: 'national_code' },
+        { text: 'شهر', value: 'city' },
+        { text: 'کدپستی', value: 'postal_code' },
+        { text: 'عکس', value: 'avatar' },
+        { text: 'ایمیل', value: 'email' },
+
+
+
         { text: 'Actions', value: 'actions', sortable: false },
+        
       ],
-      desserts: [],
       editedIndex: -1,
       editedItem: {
         name: '',
@@ -202,35 +208,25 @@
     },
 
     created () {
-      this.initialize()
+
     },
 
     methods: {
-      initialize () {
-        this.desserts = [
-          {
-            name: this.list.f_name,
-            calories: this.list.l_name,
-            fat:  this.list.username,
-          },
-
-        ]
-      },
 
       editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
+        this.editedIndex = this.list.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
 
       deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
+        this.editedIndex = this.list.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
 
       deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
+        this.list.splice(this.editedIndex, 1)
         this.closeDelete()
       },
 
@@ -252,9 +248,9 @@
 
       save () {
         if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
+          Object.assign(this.list[this.editedIndex], this.editedItem)
         } else {
-          this.desserts.push(this.editedItem)
+          this.list.push(this.editedItem)
         }
         this.close()
       },
