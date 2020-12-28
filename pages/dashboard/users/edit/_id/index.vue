@@ -1,6 +1,6 @@
 <template>
 <!--  <div>{{$route.params.id}}</div>-->
-  <edit-form :id_branch="$route.params.id"></edit-form>
+  <edit-form :id_user="$route.params.id"></edit-form>
 </template>
 
 <script>

@@ -49,7 +49,7 @@
               v-on:change="fill_role($event)"
               color="#0ad3f7"
               align-center
-              :items="role"
+              :items="ro"
                item-value="id"
               item-text="name"
               menu-props="auto"
@@ -93,7 +93,7 @@ export default {
   },
   data(){
     return{
-      role:[],
+      ro:[],
       form_data:{
         f_name:'',
         l_name:'',
@@ -106,7 +106,7 @@ export default {
         postal_code:'',
         national_code:'',
         mobile:'',
-        branch_id: 1,
+        branch_id: '',
         role_id:'',
       }
     }
@@ -147,10 +147,10 @@ export default {
     let self=this;
     let r=[];
               this.$axios.get('/roles').then(function(response){
-              // console.log(response.data.data[0].name);
-                response.data.data.forEach(item => r.push({id:item.id,name:item.name}));
+              // console.log(response.data);
+                response.data.forEach(item => r.push({id:item.id,name:item.name}));
         })
-    this.role=r;
+    this.ro=r;
   }
 }
 </script>

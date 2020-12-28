@@ -31,7 +31,7 @@
 
         <v-row>
           <v-col cols="12" md="2" lg="2" sm="2" offset-lg="5">
-            <custom-button txt="ویرایش شعبه" bgcolor="green" fontcolor="black" fontsize="1.3" icon="mdi-edit" iconcolor="black" width="10vw" height="3vw"></custom-button>
+            <custom-button txt="ویرایش شعبه" bgcolor="green" fontcolor="black" fontsize="1.3" icon="mdi-pencil" iconcolor="black" width="10vw" height="3vw"></custom-button>
           </v-col>
         </v-row>
 
@@ -89,8 +89,8 @@
     },
       set_state_city(item){
         // console.log('test',item)
-        this.form_data.county=item[0]
-        this.form_data.city=item[1]
+        this.form_data[0].county=item[0]
+        this.form_data[1].city=item[1]
       },
       set_form_data(){
         this.form_data=this.temp_data
