@@ -3,35 +3,35 @@
 <!--{{form_data}}-->
     <v-container >
 
-      <form @submit.prevent="registerBranch">
+      <form @submit.prevent="updateBranch">
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="نام شعبه" v-model="form_data.name" v-if="form_data[0]" :data_txt="form_data[0].name" ></custom-textbox>
+            <custom-textbox txt="نام شعبه" v-model="form_data[0].name" v-if="form_data[0]" :data_txt="form_data[0].name" ></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره تلفن"   v-model="form_data.phones" v-if="form_data[0]" :data_txt="form_data[0].phones"></custom-textbox>
+            <custom-textbox txt="شماره تلفن"   v-model="form_data[0].phones" v-if="form_data[0]" :data_txt="form_data[0].phones"></custom-textbox>
           </v-col>
         </v-row>
         <custom-select></custom-select>
         <v-row>
           <v-col cols="12" md="12" lg="12" sm="12">
-            <custom-textbox txt="آدرس" v-if="form_data[0]" textarea=true v-model="form_data.address" :data_txt="form_data[0].address"></custom-textbox>
+            <custom-textbox txt="آدرس" v-if="form_data[0]" textarea=true v-model="form_data[0].address" :data_txt="form_data[0].address"></custom-textbox>
           </v-col>
 
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره فکس" v-if="form_data[0]" v-model="form_data.fax" :data_txt="form_data[0].fax"></custom-textbox>
+            <custom-textbox txt="شماره فکس" v-if="form_data[0]" v-model="form_data[0].fax" :data_txt="form_data[0].fax"></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="کد پستی" v-if="form_data[0]" v-model="form_data.postal_code" :data_txt="form_data[0].postal_code"></custom-textbox>
+            <custom-textbox txt="کد پستی" v-if="form_data[0]" v-model="form_data[0].postal_code" :data_txt="form_data[0].postal_code"></custom-textbox>
           </v-col>
         </v-row>
 
 
         <v-row>
           <v-col cols="12" md="2" lg="2" sm="2" offset-lg="5">
-            <custom-button txt="ثبت شعبه" bgcolor="#0ad3f7" fontcolor="black" fontsize="1.3" icon="mdi-source-fork" iconcolor="black" width="10vw" height="3vw"></custom-button>
+            <custom-button txt="ویرایش شعبه" bgcolor="green" fontcolor="black" fontsize="1.3" icon="mdi-edit" iconcolor="black" width="10vw" height="3vw"></custom-button>
           </v-col>
         </v-row>
 
@@ -72,16 +72,16 @@
     },
 
     methods:{
-      async registerBranch() {
+      async updateBranch() {
       let self = this;
       try {
-        await this.$axios.post('branch', this.form_data[0]).then(function(response){
+        await this.$axios.put('branch/'+this.id_branch, this.form_data[0]).then(function(response){
           console.log(response);
         })
           // .cache((error)=>{
           // window.alert("error");
         // })
-        console.log(this.form_data)
+        console.log(this.form_data[0])
         // this.$router.push('/')
       } catch (e) {
         this.error = e.response.data.message
@@ -93,23 +93,18 @@
         this.form_data.city=item[1]
       },
       set_form_data(){
-        // let i;
-        // for (i of this.temp_data) {
-        //     this.form_data=i
-        // }
         this.form_data=this.temp_data
       }
 
     },
     created() {
-      // console.log("hhhhhhhh",this.id_branch)
-    let self=this;
-    let d=[];
-              this.$axios.get('/branch/search?id='+this.id_branch).then(function(response){
-              // console.log(response.data.data[0]);
-              response.data.data.forEach(item => d.push({name:item.name,phones:item.phones,county:item.county,city:item.city,address: item.address,postal_code:item.postal_code,fax:item.fax}));
-        })
-    this.temp_data=d
+      let self=this;
+      let d=[];
+      this.$axios.get('/branch/search?id='+this.id_branch).then(function(response){
+      // console.log(response.data.data[0]);
+      response.data.data.forEach(item => d.push({name:item.name,phones:item.phones,county:item.county,city:item.city,address: item.address,postal_code:item.postal_code,fax:item.fax}));
+      })
+      this.temp_data=d
       this.set_form_data();
   },
     mounted(item) {
