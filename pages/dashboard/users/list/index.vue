@@ -1,7 +1,10 @@
 <template>
   <div class="main rounded-xl">
-    <h1 dir="rtl" class="pt-10 pr-5">جستجوی کاربر</h1>
-    <search-form></search-form>
+    <div class="form_box rounded-xl">
+      <h1 dir="rtl" class="pt-10 pr-5">جستجوی کاربر</h1>
+      <search-form ></search-form>
+    </div>
+
     <custom-table  :list="table_data" :table_title="headers"></custom-table>
 
   </div>
@@ -73,5 +76,11 @@ export default {
   .v-select{
   color: #0ad3f7!important;
 }
+  .form_box{
+    /*width: 80%;*/
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #b8ebe3;
+  }
 
 </style>

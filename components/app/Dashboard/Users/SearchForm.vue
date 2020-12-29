@@ -17,6 +17,15 @@
         </v-col>
       </v-row>
       <v-row>
+        <v-col cols="12" md="6" sm="6" lg="6" xs="6">
+          <custom-select></custom-select>
+        </v-col>
+        <v-col cols="12" md="3" sm="3" lg="3" xs="3">
+          <selectbox-role></selectbox-role>
+        </v-col>
+        <v-col cols="12" md="3" sm="3" lg="3" xs="3">
+          <selectbox-branch></selectbox-branch>
+        </v-col>
 
       </v-row>
     </v-container>
@@ -29,17 +38,20 @@
     import CustomButton from '@/components/core/dashboard/CustomButton'
     import CustomTextbox from '@/components/core/dashboard/CustomTextbox'
     import CustomSelect from '@/components/core/dashboard/CustomSelect'
+    import SelectboxBranch from '@/components/app/Dashboard/Branch/SelectboxBranch'
+    import SelectboxRole from '@/components/app/Dashboard/Users/SelectboxRole'
     import EventBuss from '@/assets/js/eventBus'
     export default {
         name: "SearchForm",
         components:{
           CustomButton:CustomButton,
           CustomTextbox:CustomTextbox,
-          CustomSelect:CustomSelect
+          CustomSelect:CustomSelect,
+          SelectboxBranch:SelectboxBranch,
+          SelectboxRole:SelectboxRole,
         },
         data(){
             return{
-              role:[],
               form_data:{
                 f_name:'',
                 l_name:'',
@@ -57,6 +69,29 @@
               }
             }
            },
+        methods:{
+
+          set_state_city(item){
+      // console.log('test',item)
+      this.form_data.county=item[0]
+      this.form_data.city=item[1]
+    },
+          set_branch(item){
+            console.log(item)
+            this.form_data.branch_id=item
+          },
+          set_role(item){
+            this.form_data.role_id=item
+            console.log(item)
+          },
+
+        },
+
+        mounted(item) {
+            EventBuss.$on('set-city',item =>{this.set_state_city(item)})
+            EventBuss.$on('set-branch',item =>{this.set_branch(item)})
+            EventBuss.$on('set-role',item =>{this.set_role(item)})
+        },
     }
 
 </script>
