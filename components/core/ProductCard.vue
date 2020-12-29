@@ -1,8 +1,10 @@
 <template>
+
   <v-card
     class="mx-auto"
     max-width="344"
   >
+  <nuxt-link :to="product.link">
     <v-img
       :src= "product.image"
       height="195px"
@@ -21,6 +23,7 @@
       <div><strong>{{ product.off }}</strong></div>
     </v-row>
 
+  </nuxt-link>
 
   </v-card>
 </template>

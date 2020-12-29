@@ -32,7 +32,7 @@ import SloganPage from "@/components/app/Slogan/SloganPage";
 export default {
     layout:'main',
     components: {
-         SlidePage:SlidePage,
+          SlidePage:SlidePage,
           FooterProduct:FooterProduct,
           PopularBrands:PopularBrands,
           BestBrands:BestBrands,

@@ -2,7 +2,6 @@
     <v-app-bar
         color="accent-4"
         prominent
-        fixed
         height="50vw"
       >
         <label><font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" /></label>
