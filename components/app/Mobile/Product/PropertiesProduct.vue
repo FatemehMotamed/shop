@@ -43,9 +43,11 @@
 
     </div>
     
-    <div>
-      <ul v-for="(l, i) in properties_data_1.size_name" :key="i" style="float:right">
-        <li :model="size_number(i)" style="list-style: none;" class="pa-2 rounded-pill blue-grey lighten-5 mb-16 mt-2" v-if="l != ''">
+    <div class="mr-4">
+      <ul v-for="(l, i) in properties_data_1.size_name" 
+      :key="i" style="float:right">
+        <li :model="size_number(i)" style="list-style: none;" 
+        class="pa-1 pl-5 pr-5 rounded-pill blue-grey lighten-5 mb-16 mt-2" v-if="l != ''">
           {{ l }}
         </li>
       </ul>
@@ -53,13 +55,39 @@
 
     <v-divider class="mt-16"></v-divider>
 
-    <div>
-      <ul v-for="(l, i) in properties_data_1.properties" :key="i"  style="float:right">
-        <li style="list-style: none;">{{ l }}</li>
+    <div class="mt-10">
+      <label>ویژگی‌ها:</label>
+      <br>
+
+      <ul v-for="(l, i) in properties_data_1.properties" 
+      :key="i" style="float:right" class="mr-4">
+        <li style="list-style: none;">{{ l }}-</li>
       </ul>
     </div>
 
     <v-divider class="mt-16"></v-divider>
+
+
+
+        <v-expansion-panels>
+      <v-expansion-panel>
+        <v-expansion-panel-header>
+          مشخصات فنی
+          <template v-slot:actions>
+            <v-icon color="primary">
+              $expand
+            </v-icon>
+          </template>
+        </v-expansion-panel-header>
+        <v-expansion-panel-content 
+        v-for="(l, i) in properties_data_1.custom_properties_1"
+        :key="i">
+          {{ l }}
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+
+
+    </v-expansion-panels>
 
 
   </div>
