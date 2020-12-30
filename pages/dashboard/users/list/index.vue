@@ -1,11 +1,11 @@
 <template>
   <div class="main rounded-xl">
-    <div class="form_box rounded-xl">
-      <h1 dir="rtl" class="pt-10 pr-5">جستجوی کاربر</h1>
+    <div class="form_box rounded-lg">
+
       <search-form ></search-form>
     </div>
 
-    <custom-table  :list="table_data" :table_title="headers"></custom-table>
+    <custom-table  :list="table_data" :table_title="headers" ></custom-table>
 
   </div>
 </template>
@@ -14,6 +14,7 @@
 
 import CustomTable from '@/components/core/dashboard/CustomTable'
 import SearchForm from '@/components/app/Dashboard/Users/SearchForm'
+import EventBuss from '@/assets/js/eventBus'
 export default {
   name: "index",
 
@@ -54,10 +55,19 @@ export default {
 
           this.$axios.$post('/user/usersList').then(function(response) {
               self.table_data = response.data;
-              console.log(self.table_data[1].id);
+              // console.log("Alllllll",response.data);
           });
-      }
+
+      },
+       set_search_result(item){
+          this.table_data=item
+         // console.log("filtttter",item)
+        }
+
     },
+    mounted(){
+        EventBuss.$on('search-result',item =>{this.set_search_result(item)})
+      }
 
 
 }
@@ -69,6 +79,10 @@ export default {
   background-color: ghostwhite;
   margin-right: auto;
   margin-left: auto;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 0.5vw;
+  padding-bottom: 2vw;
   }
   *{
   font-family: 'Markazi Text', serif !important;
@@ -77,10 +91,12 @@ export default {
   color: #0ad3f7!important;
 }
   .form_box{
-    /*width: 80%;*/
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #b8ebe3;
+    /*background-color: #b8ebe3;*/
+    margin-top: 1vw;
   }
+
 
 </style>

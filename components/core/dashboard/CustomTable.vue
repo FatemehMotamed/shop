@@ -1,12 +1,11 @@
 <template>
-    <v-data-table dir="rtl"
+    <v-data-table dir="rtl" dark
     :headers="table_title"
     :items="list"
     sort-by="calories"
-    class="text-center"
-  >
+    class="text-center">
     <template v-slot:top>
-      <v-toolbar flat>
+
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
             <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
@@ -18,18 +17,15 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-      </v-toolbar>
+
     </template>
     <template v-slot:[`item.actions`]="{ item }">
       <v-icon small class="mr-2" @click="editItem(item)">
         mdi-pencil
       </v-icon>
-      <v-icon small @click="deleteItem(item)">
-        mdi-delete
-      </v-icon>
-       <v-icon small>
-        mdi-eye
-      </v-icon>
+      <v-icon v-if="delete_icon" small @click="deleteItem(item)">mdi-delete</v-icon>
+       <v-icon small @click="active_deactive(item)">{{eye_icon}}</v-icon>
+
     </template>
     <template v-slot:no-data>
       <v-btn color="primary" >
@@ -53,9 +49,15 @@
       table_title: {
         type: Array,
         default: '',
+      },
+      delete_icon:{
+        type:Boolean,
+        default:false
       }
     },
     data: () => ({
+      status:true,
+      eye_icon:'mdi-eye',
       dialog: false,
       dialogDelete: false,
 
@@ -82,6 +84,30 @@
     },
 
     methods: {
+      // active_deactive(item){
+      //     // let s
+      //     // this.status=!this.status
+      //     // if (this.status){s='active'}
+      //     // else{s='inactive'}
+      //     // this.editedItem = Object.assign({}, item)
+      //     // this.$axios.post('user/userModify/', {id:this.editItem.id, role_id:this.editItem.role, status:s}).then(function () {
+      //     this.$axios.post('user/userModify/', {id:1, role_id:1, status:'inactive'}).then(function () {
+      //         console.log(response.data)
+      //     })
+      //     // this.eye_icon='mdi-eye-off'
+      // },
+      async active_deactive(item) {
+       // console.log(this.form_data[0])
+      //   let self = this;
+      //   self.editedItem = Object.assign({}, item)
+      //  try {
+      //   await this.$axios.post('user/userModify/', {id:self.editItem.id, role_id:self.editItem.role, status:'inactive'})
+      // } catch (e) {
+      //   this.error = e.response.data.message
+      // }
+
+
+    },
       editItem(item){
         this.editedItem = Object.assign({}, item)
         // console.log("hhhhhhhh",this.editedItem.f_name)
@@ -111,3 +137,8 @@
     },
   }
 </script>
+<style scoped>
+
+
+
+</style>

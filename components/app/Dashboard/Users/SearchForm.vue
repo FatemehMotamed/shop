@@ -2,18 +2,19 @@
 
     <form @submit.prevent="searchUser">
     <v-container>
+<!--      {{form_data}}-->
       <v-row>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-            <custom-textbox txt="وضعیت" v-model="form_data.l_name"></custom-textbox>
+            <custom-textbox txt="وضعیت" v-model="form_data.status"></custom-textbox>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
             <custom-textbox txt="نام خانوادگی" v-model="form_data.l_name"></custom-textbox>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-            <custom-textbox txt="شماره موبایل" v-model="form_data.l_name"></custom-textbox>
+            <custom-textbox txt="شماره موبایل" v-model="form_data.mobile"></custom-textbox>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-            <custom-textbox txt="شماره ملی" v-model="form_data.l_name"></custom-textbox>
+            <custom-textbox txt="شماره ملی" v-model="form_data.national_code"></custom-textbox>
         </v-col>
       </v-row>
       <v-row>
@@ -28,6 +29,11 @@
         </v-col>
 
       </v-row>
+      <v-row>
+          <v-col cols="12" md="2" lg="2" sm="2" offset-lg="5">
+            <custom-button txt="جستجو" bgcolor="black" fontcolor="white" fontsize="1.3" icon="mdi-magnify" iconcolor="white" width="10vw" height="3vw"></custom-button>
+          </v-col>
+        </v-row>
     </v-container>
   </form>
 
@@ -52,6 +58,7 @@
         },
         data(){
             return{
+              result_data:[],
               form_data:{
                 f_name:'',
                 l_name:'',
@@ -66,16 +73,24 @@
                 mobile:'',
                 branch_id: '',
                 role_id:'',
+                status:'',
               }
             }
            },
         methods:{
+          async searchUser(){
+            let self=this;
+            this.$axios.post('/user/userSearch/',self.form_data).then(function(response){
+            self.result_data=response.data
+            EventBuss.$emit("search-result",self.result_data.data)
+            })
+
+          },
 
           set_state_city(item){
-      // console.log('test',item)
-      this.form_data.county=item[0]
-      this.form_data.city=item[1]
-    },
+            this.form_data.county=item[0]
+            this.form_data.city=item[1]
+          },
           set_branch(item){
             console.log(item)
             this.form_data.branch_id=item

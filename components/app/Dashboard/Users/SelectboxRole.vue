@@ -1,5 +1,5 @@
 <template>
-    <row>
+    <v-row>
         <v-col cols="12" md="12" sm="12" lg="12">
           <v-select
               v-on:change="fill_role($event)"
@@ -15,7 +15,7 @@
               single-line
             ></v-select>
         </v-col>
-    </row>
+    </v-row>
 </template>
 
 <script>
