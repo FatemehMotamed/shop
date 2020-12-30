@@ -20,10 +20,10 @@
     <carousel-product :images="images"></carousel-product>
     <v-divider></v-divider>
 
-    <properties-product class="mt-5" :properties_data_1="properties_data_1"></properties-product>
+    <properties-product class="mt-5" 
+    :properties_data_1="properties_data_1"
+    :comments_product="comments_product"></properties-product>
 
-
-  
   <footer-side class="mt-16"></footer-side>
   </v-card>
 
@@ -103,6 +103,66 @@ export default {
                     {'کشور تولید کننده': 'ایران'},
                   ],
                 },
+                comments_product: [
+                  {
+                    like:Math.round(Math.random(1, 6)),
+                    title: 'حیف پول بخدا',
+                    comment: 'فقط اسمش کاپشنه یخ میزنی داخلش',
+                    created_at: 'یک ماه پیش',
+                    author: 'رضا فقیهی نسب',
+                  },
+                  {
+                    like:Math.round(Math.random(1, 6)),
+                    title: 'حیف پول بخدا',
+                    positiv: ['aa', 'bb', 'cc'],
+                    negative: ['qq', 'ww', 'ee'],
+                    comment: 'فقط اسمش کاپشنه یخ میزنی داخلش',
+                    created_at: 'یک ماه پیش',
+                    author: 'رضا فقیهی نسب',
+                    is_anonymous: Boolean(Math.round(Math.random())),
+                  },
+                                    {
+                    like:Math.round(Math.random(1, 6)),
+                    title: 'حیف پول بخدا',
+                    positiv: ['aa', 'bb', 'cc'],
+                    negative: ['qq', 'ww', 'ee'],
+                    comment: 'فقط اسمش کاپشنه یخ میزنی داخلش',
+                    created_at: 'یک ماه پیش',
+                    author: 'رضا فقیهی نسب',
+                    is_anonymous: Boolean(Math.round(Math.random())),
+                  },
+                                    {
+                    like:Math.round(Math.random(1, 6)),
+                    title: 'حیف پول بخدا',
+                    positiv: ['aa', 'bb', 'cc'],
+                    negative: ['qq', 'ww', 'ee'],
+                    comment: 'فقط اسمش کاپشنه یخ میزنی داخلش',
+                    created_at: 'یک ماه پیش',
+                    author: 'رضا فقیهی نسب',
+                    is_anonymous: Boolean(Math.round(Math.random())),
+                  },
+                                    {
+                    like:Math.round(Math.random(1, 6)),
+                    title: 'حیف پول بخدا',
+                    positiv: ['aa', 'bb', 'cc'],
+                    negative: ['qq', 'ww', 'ee'],
+                    comment: 'فقط اسمش کاپشنه یخ میزنی داخلش',
+                    created_at: 'یک ماه پیش',
+                    author: 'رضا فقیهی نسب',
+                    is_anonymous: Boolean(Math.round(Math.random())),
+                  },
+                                    {
+                    like:Math.round(Math.random(1, 6)),
+                    title: 'حیف پول بخدا',
+                    positiv: ['aa', 'bb', 'cc'],
+                    negative: ['qq', 'ww', 'ee'],
+                    comment: 'فقط اسمش کاپشنه یخ میزنی داخلش',
+                    created_at: 'یک ماه پیش',
+                    author: 'رضا فقیهی نسب',
+                    is_anonymous: Boolean(Math.round(Math.random())),
+                  },
+                  
+                ],
 
             }
         },

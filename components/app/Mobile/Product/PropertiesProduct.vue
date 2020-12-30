@@ -73,7 +73,10 @@
       <v-expansion-panel>
         <v-expansion-panel-header>
           مشخصات فنی
-          <template v-slot:actions>
+          <template 
+          v-slot:actions
+          :headers="headers"
+          :items="desserts">
             <v-icon color="primary">
               $expand
             </v-icon>
@@ -85,9 +88,11 @@
           {{ l }}
         </v-expansion-panel-content>
       </v-expansion-panel>
-
-
     </v-expansion-panels>
+
+    <v-divider></v-divider>
+
+    <comment-product class="mt-4" :comments_product="comments_product"></comment-product>
 
 
   </div>
@@ -95,13 +100,23 @@
 </template>
 
 <script>
+import CommentProduct from '@/components/app/Mobile/Product/CommentProduct.vue'
+
 export default {
+
 
   props:{
     properties_data_1:{
       type:Object,
       default: '',
     },
+    comments_product: {
+      type:Array,
+      default: ''
+    }
+  },
+  components:{
+    CommentProduct
   },
   data(){
     return {
