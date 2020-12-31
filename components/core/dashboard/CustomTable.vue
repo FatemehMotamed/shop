@@ -24,7 +24,8 @@
         mdi-pencil
       </v-icon>
       <v-icon v-if="delete_icon" small @click="deleteItem(item)">mdi-delete</v-icon>
-       <v-icon small @click="active_deactive(item)">{{eye_icon}}</v-icon>
+       <v-icon small v-if="item.status=='active'" @click="toggle_status(item)">mdi-eye</v-icon>
+       <v-icon small v-if="item.status=='inactive'" @click="toggle_status(item)">mdi-eye-off</v-icon>
 
     </template>
     <template v-slot:no-data>
@@ -39,6 +40,7 @@
 
 
 <script>
+  import EventBuss from '@/assets/js/eventBus'
   export default {
 
     props:{
@@ -53,11 +55,16 @@
       delete_icon:{
         type:Boolean,
         default:false
+      },
+      table_name:{
+        type:String,
+        default:'',
       }
     },
     data: () => ({
       status:true,
-      eye_icon:'mdi-eye',
+      // eye_icon:'mdi-eye',
+      // eye_icon_off:'mdi-eye-off',
       dialog: false,
       dialogDelete: false,
 
@@ -79,39 +86,28 @@
       },
     },
 
-    created () {
-      // console.log("hhhhhhhhh",list.id)
-    },
 
     methods: {
-      // active_deactive(item){
-      //     // let s
-      //     // this.status=!this.status
-      //     // if (this.status){s='active'}
-      //     // else{s='inactive'}
-      //     // this.editedItem = Object.assign({}, item)
-      //     // this.$axios.post('user/userModify/', {id:this.editItem.id, role_id:this.editItem.role, status:s}).then(function () {
-      //     this.$axios.post('user/userModify/', {id:1, role_id:1, status:'inactive'}).then(function () {
-      //         console.log(response.data)
-      //     })
-      //     // this.eye_icon='mdi-eye-off'
-      // },
-      async active_deactive(item) {
-       // console.log(this.form_data[0])
-      //   let self = this;
-      //   self.editedItem = Object.assign({}, item)
-      //  try {
-      //   await this.$axios.post('user/userModify/', {id:self.editItem.id, role_id:self.editItem.role, status:'inactive'})
-      // } catch (e) {
-      //   this.error = e.response.data.message
-      // }
+      toggle_status(item){
+        let st=''
+        this.editedItem = Object.assign({}, item)
+        if (this.editedItem.status=="active"){
+          this.editedItem.status='inactive'
+          st='inactive'
+          EventBuss.$emit('change-status',[st,item_id])
+        }
+        else{
+          this.editedItem.status='active'
+          st='active'
+          let item_id= this.editedItem.id
+          EventBuss.$emit('change-status', [st,item_id])
+        }
 
-
-    },
+      },
       editItem(item){
         this.editedItem = Object.assign({}, item)
         // console.log("hhhhhhhh",this.editedItem.f_name)
-        this.$router.push('/dashboard/users/edit/'+this.editedItem.id)
+        this.$router.push('/dashboard/'+this.table_name+'/edit/'+this.editedItem.id)
       },
 
       deleteItem (item) {
@@ -135,6 +131,10 @@
       },
 
     },
+
+    // created () {
+    //   this.icon_status()
+    // },
   }
 </script>
 <style scoped>

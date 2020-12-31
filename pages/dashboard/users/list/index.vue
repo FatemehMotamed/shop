@@ -5,7 +5,7 @@
       <search-form ></search-form>
     </div>
 
-    <custom-table  :list="table_data" :table_title="headers" ></custom-table>
+    <custom-table table_name="users" :list="table_data" :table_title="headers" ></custom-table>
 
   </div>
 </template>
