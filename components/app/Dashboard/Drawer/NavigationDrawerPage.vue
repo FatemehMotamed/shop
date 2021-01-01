@@ -54,7 +54,7 @@
               <v-icon color="#fe0a20">mdi-playlist-minus</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/read">ویرایش و حذف دسته بندی</nuxt-link></v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/list">همه</nuxt-link></v-list-item-title>
           </v-list-item>
 
           </v-list-group>
