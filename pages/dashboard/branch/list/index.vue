@@ -49,11 +49,30 @@
       this.fetchSomething();
     },
     methods: {
+      set_eye_icon(st){
+        if (st=='active'){
+          return 'mdi-eye'
+        }
+        else{
+          return 'mdi-eye-off'
+        }
+      },
+      set_status_boolan(st){
+        if (st=='active'){
+          return true
+        }
+        else{
+          return false
+        }
+      },
       async fetchSomething() {
         let self = this;
 
-      this.$axios.get('/branch/search/').then(function(response) {
+
+        this.$axios.get('/branch/search/').then(function(response) {
+
           self.table_data = response.data.data;
+          self.table_data.forEach(item => {item.icon=self.set_eye_icon(item.status) ;item.status_bool=self.set_status_boolan(item.status)});
           // console.log("Alllllll",response.data);
         });
 
@@ -62,8 +81,16 @@
         this.table_data=item
         // console.log("filtttter",item)
       },
-      change_status(item){
+      async change_status(item){
         console.log(item)
+        try {
+          await this.$axios.put('branch/'+str(item[1]), {status:item[0]}).then(function(response){
+            console.log(response.data);
+          })
+          // this.$router.push('/')
+        } catch (e) {
+          this.error = e.response.data.message
+        }
       }
 
     },
@@ -103,3 +130,4 @@
 
 
 </style>
+

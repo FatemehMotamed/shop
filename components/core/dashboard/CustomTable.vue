@@ -1,22 +1,22 @@
 <template>
-    <v-data-table dir="rtl" dark
-    :headers="table_title"
-    :items="list"
-    sort-by="calories"
-    class="text-center">
+  <v-data-table dir="rtl" dark
+                :headers="table_title"
+                :items="list"
+                sort-by="calories"
+                class="text-center">
     <template v-slot:top>
 
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+      <v-dialog v-model="dialogDelete" max-width="500px">
+        <v-card>
+          <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
+            <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
+            <v-spacer></v-spacer>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
 
     </template>
     <template v-slot:[`item.actions`]="{ item }">
@@ -24,9 +24,11 @@
         mdi-pencil
       </v-icon>
       <v-icon v-if="delete_icon" small @click="deleteItem(item)">mdi-delete</v-icon>
-       <v-icon small v-if="item.status=='active'" @click="toggle_status(item)">mdi-eye</v-icon>
-       <v-icon small v-if="item.status=='inactive'" @click="toggle_status(item)">mdi-eye-off</v-icon>
-
+      <!--       <v-icon small v-if="item.status=='active'" @click="toggle_status(item)">mdi-eye</v-icon>-->
+      <!--       <v-icon small v-if="item.status=='inactive'" @click="toggle_status(item)" v-model="item.status">mdi-eye-off</v-icon>-->
+      {{item.status_bool}}
+      <v-icon @click="toggle_status(item)" small :class="[ item.status_bool ? 'is-on' : 'is-off' ]" >mdi-eye</v-icon>
+<!--      <v-icon small  @click="toggle_status(item)"  :class="{t:item.status_bool}">{{item.icon}}</v-icon>-->
     </template>
     <template v-slot:no-data>
       <v-btn color="primary" >
@@ -34,7 +36,7 @@
       </v-btn>
     </template>
 
-    </v-data-table>
+  </v-data-table>
 
 </template>
 
@@ -88,19 +90,19 @@
 
 
     methods: {
-      toggle_status(item){
-        let st=''
+      changeColor(item){
         this.editedItem = Object.assign({}, item)
-        if (this.editedItem.status=="active"){
-          this.editedItem.status='inactive'
-          st='inactive'
-          EventBuss.$emit('change-status',[st,item_id])
+        this.editedItem.status_bool=!this.editedItem.status_bool
+      },
+
+      toggle_status(item){
+        item.status_bool =! item.status_bool
+        // console.log(!item.status_bool)
+        if (item.status_bool){
+          EventBuss.$emit('change-status',['inactive',item.id])
         }
         else{
-          this.editedItem.status='active'
-          st='active'
-          let item_id= this.editedItem.id
-          EventBuss.$emit('change-status', [st,item_id])
+          EventBuss.$emit('change-status', ['active',item.id])
         }
 
       },
@@ -138,7 +140,12 @@
   }
 </script>
 <style scoped>
-
+  .is-off{
+    color: gray;
+  }
+  .is-on{
+    color: white;
+  }
 
 
 </style>
