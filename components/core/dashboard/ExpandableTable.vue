@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-title></v-card-title>
+<!--    <v-card-title></v-card-title>-->
     <v-data-table
       dark
       dir="rtl"
@@ -10,17 +10,24 @@
       :expanded.sync="expanded"
       show-expand
       single-expand
-      item-key="name">
+      item-key="name"
+    >
       <template v-slot:expanded-item="{ headers, item }">
         <td :colspan="headers.length">
           <div class="row sp-details">
             <div class="col-4 text-right">
-              <v-text-field
-                v-model="input1"
-                label="Label"
-              ></v-text-field>
+              ویژگی های این دسته:
             </div>
           </div>
+          <div class="row sp-details">
+            <div class="col-4 text-right">
+              <v-list>
+                <v-list-item v-for="(m,index) in item.meta">{{item.meta[index].value}}</v-list-item>
+              </v-list>
+
+            </div>
+          </div>
+
         </td>
       </template>
       <template v-slot:[`item.actions`]="{ item }">

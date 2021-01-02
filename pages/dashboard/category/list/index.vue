@@ -14,7 +14,7 @@
 <script>
 
   import ExpandableTable from '@/components/core/dashboard/ExpandableTable'
-  import SearchForm from '@/components/app/Dashboard/Branch/SearchForm'
+  import SearchForm from '@/components/app/Dashboard/Category/SearchForm'
   import EventBuss from '@/assets/js/eventBus'
   export default {
     name: "index",
@@ -67,10 +67,10 @@
           // self.table_data=response.data.data
           response.data.data.forEach(item => {
             if(item.parent != null){
-              self.table_data.push({name:item.name, parent:item.parent.name})
+              self.table_data.push({name:item.name, parent:item.parent.name, meta:item.meta})
             }
             else{
-              self.table_data.push({name:item.name, parent:'ندارد'})
+              self.table_data.push({name:item.name, parent:'ندارد',meta:[{value:'ویژگی ندارد'}]})
             }
           });
           // console.log("Alllllll",response.data);
