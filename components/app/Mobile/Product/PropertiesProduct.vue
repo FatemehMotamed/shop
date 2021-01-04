@@ -14,7 +14,6 @@
         
       </div>
 
-
     </v-row>
     <div class="pa-1">{{ properties_data_1.title }} مدل<span>{{ properties_data_1.model }}</span></div>
 
@@ -66,8 +65,6 @@
     </div>
 
     <v-divider class="mt-16"></v-divider>
-
-
 
         <v-expansion-panels>
       <v-expansion-panel>

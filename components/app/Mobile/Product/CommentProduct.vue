@@ -59,13 +59,25 @@
     <v-row>
 
         <div>در مورد این کالا نظر دهید</div>
-        <div></div>
+        <div>
+        <template v-slot`:activator`="{ on, attrs }">
+        <v-btn
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Open Dialog
+        </v-btn>
+      </template>
+        </div>
     </v-row>
 </div>
   
 </template>
 
 <script>
+import CreateComment from '@/components/app/Mobile/Product/CreateComment.vue'
   export default {
     props: {
         comments_product:Object,
