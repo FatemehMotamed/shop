@@ -59,6 +59,12 @@ export default {
 
   },
   methods:{
+    get_main_category(){
+      let self=this;
+      this.$axios.post('/category/search/').then(function (response) {
+          response.data.data.forEach(item => s.push({id:item.id,name:item.name}));
+      })
+    },
     fill_subcategory(event){
       this.select_subcategory=event
       EventBuss.$emit("set-category",[this.select_maincategory,this.select_subcategory])
