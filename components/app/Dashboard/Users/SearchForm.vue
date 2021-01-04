@@ -22,10 +22,10 @@
           <custom-select></custom-select>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-          <selectbox-role></selectbox-role>
+          <selectbox-role class="mt-5"></selectbox-role>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-          <selectbox-branch></selectbox-branch>
+          <selectbox-branch class="mt-5"></selectbox-branch>
         </v-col>
 
       </v-row>

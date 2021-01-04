@@ -1,7 +1,7 @@
 <template>
 
-  <v-row>
-    <v-col cols="12" md="12" sm="12" lg="12">
+
+
       <v-select
               v-on:change="fill_branch($event)"
               color="#0ad3f7"
@@ -15,8 +15,8 @@
               prepend-icon="mdi-account"
               single-line
             ></v-select>
-    </v-col>
-  </v-row>
+
+
 
 </template>
 
