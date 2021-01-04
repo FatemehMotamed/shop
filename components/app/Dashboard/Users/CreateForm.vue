@@ -49,7 +49,7 @@
               v-on:change="fill_role($event)"
               color="#0ad3f7"
               align-center
-              :items="ro"
+              :items="role"
                item-value="id"
               item-text="name"
               menu-props="auto"
@@ -93,7 +93,7 @@ export default {
   },
   data(){
     return{
-      ro:[],
+      role:[],
       form_data:{
         f_name:'',
         l_name:'',
@@ -150,7 +150,7 @@ export default {
               // console.log(response.data);
                 response.data.forEach(item => r.push({id:item.id,name:item.name}));
         })
-    this.ro=r;
+    this.role=r;
   }
 }
 </script>

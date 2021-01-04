@@ -1,28 +1,28 @@
 <template>
   <div class="main rounded-xl">
     <v-container >
-      <form @submit.prevent="registerBranch">
+      <form @submit.prevent="registerBranch" v-model="valid">
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="نام شعبه" v-model="form_data.name"></custom-textbox>
+            <v-text-field  dir="rtl"  label="" placeholder="نام شعبه" v-model="form_data.name" :rules="txtRules" required></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره تلفن" v-model="form_data.phones"></custom-textbox>
+            <v-text-field  dir="rtl"  label="" placeholder="شماره تلفن" v-model="form_data.phones"  :rules="numRules"  required></v-text-field>
           </v-col>
         </v-row>
         <custom-select></custom-select>
         <v-row>
           <v-col cols="12" md="12" lg="12" sm="12">
-            <custom-textbox txt="آدرس" textarea=true v-model="form_data.address"></custom-textbox>
+            <v-textarea rows="3" row-height="25" dir="rtl" label="" placeholder="آدرس" v-model="form_data.address"  :rules="txtRules"  required></v-textarea>
           </v-col>
 
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره فکس" v-model="form_data.fax"></custom-textbox>
+            <v-text-field  dir="rtl"  label="" placeholder="شماره فکس" v-model="form_data.fax"  :rules="numRules"  required></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="کد پستی" v-model="form_data.postal_code"></custom-textbox>
+            <v-text-field  dir="rtl"  label="" placeholder="کد پستی" v-model="form_data.postal_code"  :rules="postalRules"  required></v-text-field>
           </v-col>
         </v-row>
 
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+
   import CustomButton from '@/components/core/dashboard/CustomButton'
   import CustomTextbox from '@/components/core/dashboard/CustomTextbox'
   import CustomSelect from '@/components/core/dashboard/CustomSelect'
@@ -55,6 +56,7 @@
     },
     data(){
       return{
+        valid:false,
         form_data:{
           name:'',
           phones:'',
@@ -63,7 +65,21 @@
           address:'',
           postal_code:'',
           fax:'',
-        }
+        },
+        txtRules: [
+          v => !!v || 'این فیلد الزامی است',
+          v => v.length >=6 || 'لطفا بیشتر از 6 کاراکتر وارد کنید',
+        ],
+        numRules: [
+          v => !!v || 'این فیلد الزامی است',
+          v => v.length >=11 || 'لطفا 11 رقم وارد کنید',
+          v => v.length <=11 || 'لطفا 11 رقم وارد کنید',
+        ],
+        postalRules: [
+          v => !!v || 'این فیلد الزامی است',
+          v => v.length >=10 || 'لطفا 10 رقم وارد کنید',
+          v => v.length <=10 || 'لطفا 10 رقم وارد کنید',
+        ],
       }
     },
 
@@ -102,6 +118,19 @@
   background-color: ghostwhite;
   margin-right: auto;
   margin-left: auto;
+}
+*{
+  font-family: 'Markazi Text', serif !important;
+}
+
+.v-text-field ::before {
+  border-color: black !important;
+  color: #7F828B !important;
+}
+
+.v-text-field ::after {
+  border-color: #0ad3f7 !important;
+  color: black !important;
 }
 
 </style>

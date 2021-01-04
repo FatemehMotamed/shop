@@ -4,7 +4,12 @@
       <form @submit.prevent="registerProduct">
         <category-select></category-select>
         <v-row>
-          <v-col v-for="(item, key, index) in fields" cols="12" md="6" lg="6" sm="6">
+          <v-col cols="12" md="6" lg="6" sm="6" xs="6">
+            <v-text-field v-if="show" placeholder="عنوان محصول"></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col v-for="(item, key, index) in fields" cols="12" md="6" lg="6" sm="6" xs="6">
             <custom-textbox :txt="item" v-model="form_data[item]" ></custom-textbox>
           </v-col>
         </v-row>
@@ -40,6 +45,7 @@ export default {
         main_category:'',
       },
       fields:[],
+      show:false
 
     }
   },
@@ -56,6 +62,7 @@ export default {
     },
     get_attributes(){
       this.fields=['سایز', 'رنگ','قد','جنس']
+      this.show=true
     },
 
   },

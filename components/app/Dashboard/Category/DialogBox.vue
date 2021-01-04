@@ -47,22 +47,32 @@ export default {
   data () {
     return {
       dialog:false,
-      final_attributes:[]
+      form_data:{
+        id:'',
+        properties:[]
+      }
     }
   },
   methods:{
     getAttributes(item){
 
-      this.final_attributes=item
+      this.form_data.properties=item
 
     },
+    get_id_category(item){
+      this.form_data.id=item
+    },
     saveAttributes(){
-      console.log("ggggggggg",this.final_attributes)
-      this.dialog = false
+
+      let self=this
+      this.$axios.post('/category/addProperties/',self.form_data)
+      self.dialog = false
+      // this.$router.push('/dashboard/category/create')
     }
   },
   mounted() {
     EventBus.$on('send-attributes',item=>{this.getAttributes(item)})
+    EventBus.$on('get-id',item=>{this.get_id_category(item)})
   }
 
 }

@@ -28,7 +28,7 @@
               <v-icon color="#fe0a20">mdi-playlist-minus</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/list">ویرایش و حذف کاربر</nuxt-link></v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/users/list">همه</nuxt-link></v-list-item-title>
             </v-list-item>
 
           </v-list-group>
@@ -54,7 +54,7 @@
               <v-icon color="#fe0a20">mdi-playlist-minus</v-icon>
             </v-list-item-icon>
 
-              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/read">ویرایش و حذف دسته بندی</nuxt-link></v-list-item-title>
+              <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/category/list">همه</nuxt-link></v-list-item-title>
           </v-list-item>
 
           </v-list-group>
@@ -107,13 +107,10 @@
               <v-icon color="#fe0a20">mdi-playlist-minus</v-icon>
             </v-list-item-icon>
 
-            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/change">ویرایش و حذف شعبه</nuxt-link></v-list-item-title>
+            <v-list-item-title class="sub_title"><nuxt-link to="/dashboard/branch/list">همه</nuxt-link></v-list-item-title>
           </v-list-item>
 
-            <v-list-group
-              no-action
-              sub-group
-            >
+            <v-list-group no-action sub-group>
               <template v-slot:activator>
                 <v-list-item-content>
                   <v-list-item-title>Actions</v-list-item-title>
