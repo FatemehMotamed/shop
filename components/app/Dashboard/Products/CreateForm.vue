@@ -39,7 +39,8 @@
                 </v-row>
                 <v-row>
                   <v-col v-for="(item, key, index) in fields" cols="12" md="6" lg="6" sm="6" xs="6">
-                    <custom-textbox :txt="item" v-model="form_data[item]" ></custom-textbox>
+<!--                    <custom-textbox :txt="item" v-model="form_data[item]" ></custom-textbox>-->
+                    <custom-textbox :txt="item.value" v-model="form_data[item]" ></custom-textbox>
                   </v-col>
                 </v-row>
 
@@ -125,7 +126,11 @@ export default {
       this.get_attributes();
     },
     get_attributes(){
-      this.fields=['سایز', 'رنگ','قد','جنس']
+      let self=this
+      this.$axios.get('/category/'+this.sub_category+'/getProperties').then(function (response) {
+        // console.log(response.data.data)
+        self.fields=response.data.data
+      })
       this.show=true
     },
 

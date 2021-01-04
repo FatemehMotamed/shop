@@ -4,7 +4,9 @@
       <v-col cols="12" md="6" sm="6" lg="6">
         <v-select
           v-on:change="fill_subcategory($event)"
-          :items="subcategory[0]"
+          :items="subcategory"
+          item-value="id"
+          item-text="name"
           color="#0ad3f7"
           menu-props="auto"
           label="دسته بندی"
@@ -19,6 +21,8 @@
           align-center
           v-on:change="fill_combo($event)"
           :items="main_category"
+          item-text="name"
+          item-value="id"
           menu-props="auto"
           label="دسته بندی مادر"
           hide-details
@@ -41,28 +45,16 @@ export default {
     return {
       select_maincategory:'',
       select_subcategory:'',
-      main_category:['مردانه','زنانه','بچه گانه'],
+      main_category:[],
       subcategory:[],
-      categorys:[
-        {
-          name:'بچه گانه',category:['بلوز','شلوار','دامن','کلاه']
-        },
-        {
-          name:'زنانه',category:['روسری','کیف','کفش','روپوش']
-        },
-        {
-          name:'مردانه',category:['شلوار','کیف','کفش','کاپشن']
-        },
-      ],
-
     }
 
   },
   methods:{
     get_main_category(){
       let self=this;
-      this.$axios.post('/category/search/').then(function (response) {
-          response.data.data.forEach(item => s.push({id:item.id,name:item.name}));
+      this.$axios.get('/category/getParents/').then(function(response){
+        self.main_category = response.data.data;
       })
     },
     fill_subcategory(event){
@@ -71,19 +63,21 @@ export default {
     },
 
     fill_combo(event){
-
       this.select_maincategory=event
-      this.subcategory=[];
-      let i;
-      for(i of this.categorys){
-        if (i.name === event){
-          this.subcategory.push(i.category)
-        }
-      }
+      let self=this;
+      self.subcategory=[];
+      this.$axios.post('/category/search/',{parent_id:event}).then(function(response){
+        // console.log(response.data.data);
+        response.data.data.forEach(item => self.subcategory.push({id:item.id,name:item.name}));
+      })
 
     },
 
 
+  },
+
+  created() {
+    this.get_main_category()
   }
 }
 </script>
