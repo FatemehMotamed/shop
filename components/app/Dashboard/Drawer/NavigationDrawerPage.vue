@@ -1,7 +1,7 @@
 <template>
     <div>
 
-      <v-list class="menu" dir="rtl" >
+      <v-list class="menu" dir="rtl">
           <v-list-item>
             <v-list-item-icon>
               <v-icon color="#0ad3f7">mdi-home</v-icon>
@@ -10,7 +10,7 @@
             <v-list-item-title class="main_title"><nuxt-link to="/dashboard">صفحه اصلی</nuxt-link></v-list-item-title>
           </v-list-item>
 
-          <v-list-group  >
+          <v-list-group>
             <template v-slot:activator>
               <v-list-item-title class="main_title"><nuxt-link to="#">
                 <v-list-item-icon><v-icon color="#edd107">mdi-account-circle</v-icon></v-list-item-icon>

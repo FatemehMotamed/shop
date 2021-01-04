@@ -1,6 +1,6 @@
 <template>
 
-  <create-form></create-form>
+  <create-form style="box-shadow: 5px 5px 5px #424242;"></create-form>
 </template>
 
 <script>

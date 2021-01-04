@@ -1,7 +1,7 @@
 <template>
   <div class="main rounded-xl">
     <v-container >
-      <form @submit.prevent="registerBranch" v-model="valid">
+      <form @submit.prevent="registerBranch" v-model="valid" >
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
             <v-text-field  dir="rtl"  label="" placeholder="نام شعبه" v-model="form_data.name" :rules="txtRules" required></v-text-field>

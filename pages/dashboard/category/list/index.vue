@@ -1,12 +1,12 @@
 <template>
-  <div class="main rounded-xl">
+  <div class="main rounded-xl" style="box-shadow: 5px 5px 5px #424242; float:left">
     <div class="form_box rounded-lg">
 
-      <search-form ></search-form>
+      <search-form></search-form>
     </div>
 
 <!--    <custom-table table_name="branch"  :list="table_data" :table_title="headers" ></custom-table>-->
-    <expandable-table table_name="branch"  :list="table_data" :table_title="headers"></expandable-table>
+    <expandable-table style="box-shadow: 5px 5px 5px #424242;" table_name="branch"  :list="table_data" :table_title="headers"></expandable-table>
 
   </div>
 </template>

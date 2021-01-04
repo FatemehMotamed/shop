@@ -1,5 +1,6 @@
 <template>
     <v-app-bar
+        height="50vw"
         color="#0ad3f7"
         prominent
       >
@@ -7,11 +8,11 @@
 
       <div class="account_box mt-3" v-if="isAuthenticated">
               {{ loggedInUser }}
-              <a @click="logoutUser()">Logout</a>
+              <a @click="logoutUser()">خروج</a>
       </div>
 
         <v-spacer></v-spacer>
-        <div class="mt-1 ml-n16 brand_name">Brand Name</div>
+        <div class="ml-n16 brand_name">Brand Name</div>
         <v-spacer></v-spacer>
         <v-app-bar-nav-icon @click.stop="togleDrawer" ></v-app-bar-nav-icon>
 
@@ -43,7 +44,7 @@
     font-family: 'Markazi Text', serif !important;
   }
   .brand_name{
-    font-size: 5vw;
+    font-size: 2vw;
   }
   .account_box{
     font-size: 1.2vw;
