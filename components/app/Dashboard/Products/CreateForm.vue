@@ -67,7 +67,7 @@
             <v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
             <v-row>
               <v-col cols="12" md="6" lg="6" sm="6" xs="6" >
-                <custom-button class="float-right" v-on:click.native="e1=1" txt="بازگشت" bgcolor="yellow" fontcolor="black" fontsize="1.3" icon="mdi-keyboard-return" iconcolor="black" width="10vw" height="3vw"></custom-button>
+                <custom-button class="float-right" v-on:click.native="e1=1" txt="بازگشت" bgcolor="lightblue" fontcolor="black" fontsize="1.3" icon="mdi-keyboard-return" iconcolor="black" width="10vw" height="3vw"></custom-button>
               </v-col>
               <v-col cols="12" md="6" lg="6" sm="6" xs="6" >
                 <custom-button   txt="ثبت تصاویر" bgcolor="green" fontcolor="black" fontsize="1.3" icon="mdi-file-image" iconcolor="black" width="10vw" height="3vw"></custom-button>
