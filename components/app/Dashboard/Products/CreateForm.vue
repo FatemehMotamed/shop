@@ -19,8 +19,7 @@
         <v-stepper-items>
           <v-stepper-content step="1">
             <v-card class="mb-12">
-<!--              {{dic}}-->
-              {{fields}}
+<!--              {{form_data}}-->
               <form @submit.prevent="registerProduct">
                 <category-select></category-select>
                 <v-row>
@@ -28,15 +27,15 @@
                     <selectbox-branch v-if="show"></selectbox-branch>
                   </v-col>
                   <v-col cols="12" md="4" lg="4" sm="4" xs="4">
-                    <v-text-field v-if="show" placeholder="قیمت" v-model="product.price"></v-text-field>
+                    <v-text-field v-if="show" placeholder="قیمت" v-model="product[0].price"></v-text-field>
                   </v-col>
                   <v-col cols="12" md="4" lg="4" sm="4" xs="4">
-                    <v-text-field v-if="show" placeholder="عنوان محصول" v-model="product.title"></v-text-field>
+                    <v-text-field v-if="show" placeholder="عنوان محصول" v-model="product[0].title"></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
                   <v-col cols="12" md="12" lg="12" sm="12" xs="12">
-                    <v-textarea v-if="show" placeholder="توضیحات" v-model="product.title" rows="3" row-height="25" dir="rtl"></v-textarea>
+                    <v-textarea v-if="show" placeholder="توضیحات" v-model="product[0].description" rows="3" row-height="25" dir="rtl"></v-textarea>
                   </v-col>
                 </v-row>
                 <v-row>
@@ -47,8 +46,17 @@
                 </v-row>
 
                 <v-row>
-                  <v-col cols="12" md="2" lg="2" sm="2" offset-lg="5">
-                    <custom-button txt="ثبت محصول" bgcolor="#0ad3f7" fontcolor="black" fontsize="1.3" icon="mdi-account-plus" iconcolor="black" width="10vw" height="3vw"></custom-button>
+                  <v-col cols="12" md="7" lg="7" sm="7" offset-lg="4">
+                    <div v-if="btn_continue">
+                      <custom-button @click.native="e1=2" txt="ادامه" bgcolor="green" fontcolor="black" fontsize="1.3" icon="mdi-arrow-left-bold-circle-outline" iconcolor="black" width="10vw" height="3vw"></custom-button>
+                    </div>
+                    <div class="float-left ml-2" v-else>
+                        <v-btn disabled color="#FA950B" width="10vw" height="3vw" class="custom_btn">
+                        ادامه
+                        <v-icon>mdi-arrow-left-bold-circle-outline</v-icon>
+                      </v-btn>
+                    </div>
+                    <custom-button :txt="btn_txt" :bgcolor="btn_color" fontcolor="black" fontsize="1.3" icon="mdi-shopping" iconcolor="black" width="10vw" height="3vw"></custom-button>
                   </v-col>
                 </v-row>
               </form>
@@ -59,10 +67,10 @@
             <v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
             <v-row>
               <v-col cols="12" md="6" lg="6" sm="6" xs="6" >
-                <custom-button class="float-right" v-on:click.native="e1=1" txt="بازگشت" bgcolor="yellow" fontcolor="black" fontsize="1.3" icon="mdi-account-plus" iconcolor="black" width="10vw" height="3vw"></custom-button>
+                <custom-button class="float-right" v-on:click.native="e1=1" txt="بازگشت" bgcolor="yellow" fontcolor="black" fontsize="1.3" icon="mdi-keyboard-return" iconcolor="black" width="10vw" height="3vw"></custom-button>
               </v-col>
               <v-col cols="12" md="6" lg="6" sm="6" xs="6" >
-                <custom-button   txt="ثبت تصاویر" bgcolor="green" fontcolor="black" fontsize="1.3" icon="mdi-account-plus" iconcolor="black" width="10vw" height="3vw"></custom-button>
+                <custom-button   txt="ثبت تصاویر" bgcolor="green" fontcolor="black" fontsize="1.3" icon="mdi-file-image" iconcolor="black" width="10vw" height="3vw"></custom-button>
 
 
               </v-col>
@@ -95,6 +103,9 @@ export default {
   data(){
 
     return{
+      btn_txt:'ثبت محصول',
+      btn_color:'#0ad3f7',
+      btn_continue : false,
       e1: 1,
       sub_category:'',
       main_category:'',
@@ -108,7 +119,7 @@ export default {
       properties:[],
       form_data:{
         product: [],
-        properties:[{}]
+        properties:[]
       },
       fields:[],
       show:false,
@@ -121,12 +132,24 @@ export default {
   methods:{
     async registerProduct(){
       console.log(this.form_data)
-      this.e1=2
+
+      this.fill_properties()
+      this.form_data.product=this.product
+      this.form_data.properties=this.properties
+      let self=this
+      this.$axios.post('/product/',self.form_data).then(function (response) {
+        console.log(response.data.data)
+      })
+      // console.log(this.form_data)
+      this.btn_txt='ویرایش محصول'
+      this.btn_color="#ff5733"
+      this.btn_continue=true
     },
     set_categorys(item){
       // console.log('test',item)
       this.main_category=item[0]
       this.sub_category=item[1]
+      this.product[0].category_id=item[1]
       this.get_attributes();
     },
     get_attributes(){
@@ -134,7 +157,7 @@ export default {
       this.$axios.get('/category/'+this.sub_category+'/getProperties').then(function (response) {
         // console.log(response.data.data)
         self.fields=response.data.data
-        self.fill_properties()
+
       })
       this.show=true
     },
@@ -148,13 +171,18 @@ export default {
         temp=[]
         x+=1
       }
-      // this.properties.push(dic)
-      console.log("tttttt",this.dic[0][0].value)
-    }
+      this.properties.push(this.dic)
+      // console.log("tttttt",this.dic[0][0].value)
+    },
+    set_branch(item){
+      // console.log(item)
+      this.product[0].branch_id=item
+    },
 
   },
   mounted(item) {
     EventBuss.$on('set-category',item =>{this.set_categorys(item)})
+    EventBuss.$on('set-branch',item =>{this.set_branch(item)})
   }
 }
 </script>
@@ -180,6 +208,12 @@ export default {
 .v-text-field ::after {
   border-color: #0ad3f7 !important;
   color: black !important;
+}
+.custom_btn{
+  font-family: 'Markazi Text', serif !important;
+  font-weight: bold;
+  font-size: 1vw;
+  color: black!important;
 }
 
 
