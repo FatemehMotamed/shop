@@ -19,6 +19,8 @@
         <v-stepper-items>
           <v-stepper-content step="1">
             <v-card class="mb-12">
+<!--              {{dic}}-->
+              {{fields}}
               <form @submit.prevent="registerProduct">
                 <category-select></category-select>
                 <v-row>
@@ -38,9 +40,9 @@
                   </v-col>
                 </v-row>
                 <v-row>
-                  <v-col v-for="(item, key, index) in fields" cols="12" md="6" lg="6" sm="6" xs="6">
+                  <v-col v-for="(item, key) in fields" cols="12" md="6" lg="6" sm="6" xs="6">
 <!--                    <custom-textbox :txt="item" v-model="form_data[item]" ></custom-textbox>-->
-                    <custom-textbox :txt="item.value" v-model="form_data[item]" ></custom-textbox>
+                    <custom-textbox :txt="item.value" v-model="fields[key].value" ></custom-textbox>
                   </v-col>
                 </v-row>
 
@@ -106,10 +108,12 @@ export default {
       properties:[],
       form_data:{
         product: [],
-        properties:[]
+        properties:[{}]
       },
       fields:[],
-      show:false
+      show:false,
+      dic:{}
+
 
     }
   },
@@ -130,9 +134,23 @@ export default {
       this.$axios.get('/category/'+this.sub_category+'/getProperties').then(function (response) {
         // console.log(response.data.data)
         self.fields=response.data.data
+        self.fill_properties()
       })
       this.show=true
     },
+    fill_properties(){
+      let item;
+      let temp=[]
+      let x=0
+      for (item of this.fields){
+        temp.push({property_id:item.id, value:item.value})
+        this.dic[x]=temp
+        temp=[]
+        x+=1
+      }
+      // this.properties.push(dic)
+      console.log("tttttt",this.dic[0][0].value)
+    }
 
   },
   mounted(item) {
