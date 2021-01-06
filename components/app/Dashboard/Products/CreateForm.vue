@@ -1,5 +1,5 @@
 <template>
-  <div class="main rounded-xl">
+  <div class="main rounded-lg">
     <v-container >
       <form @submit.prevent="registerProduct">
         <category-select></category-select>
@@ -9,7 +9,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col v-for="(item, key, index) in fields" cols="12" md="6" lg="6" sm="6" xs="6">
+          <v-col v-for="(item, key, index) in fields" :key="index" cols="12" md="6" lg="6" sm="6" xs="6">
             <custom-textbox :txt="item" v-model="form_data[item]" ></custom-textbox>
           </v-col>
         </v-row>

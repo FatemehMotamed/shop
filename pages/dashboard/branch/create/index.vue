@@ -1,5 +1,5 @@
 <template>
-  <create-form style="box-shadow: 5px 5px 5px #424242;"></create-form>
+  <create-form class="mt-10" style="box-shadow: 5px 5px 5px #BDBDBD;"></create-form>
 </template>
 
 <script>

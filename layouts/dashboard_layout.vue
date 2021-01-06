@@ -8,7 +8,7 @@
       <app-bar-page @callTogleDrawer="TogleDrawer"></app-bar-page>
 
       <v-navigation-drawer
-        color="#1f1e1f"
+        color="#F5F5F5"
         v-model="drawer"
         right
         fixed
@@ -21,7 +21,7 @@
         </v-list>
       </v-navigation-drawer>
 
-      <v-card-text style="background-color: #BDBDBD; height: 100%;" >
+      <v-card-text style="background-color: #E0E0E0; height: 100%;" >
         <Nuxt  />
       </v-card-text>
     </v-card>

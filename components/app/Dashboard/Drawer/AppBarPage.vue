@@ -3,38 +3,43 @@
         height="50vw"
         color="#0ad3f7"
         prominent
+        fixed
       >
-        <v-btn icon><v-icon>mdi-account</v-icon></v-btn>
 
-      <div class="account_box mt-3" v-if="isAuthenticated">
+        <avatar class="align-start" v-if="isAuthenticated" :auth="[loggedInUser, logoutUser]"></avatar>
+<!-- 
+      <div class="account_box mt-3" >
               {{ loggedInUser }}
               <a @click="logoutUser()">خروج</a>
-      </div>
+      </div> -->
 
-        <v-spacer></v-spacer>
+        <!-- <v-spacer></v-spacer>
         <div class="ml-n16 brand_name">Brand Name</div>
         <v-spacer></v-spacer>
-        <v-app-bar-nav-icon @click.stop="togleDrawer" ></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click.stop="togleDrawer" ></v-app-bar-nav-icon> -->
 
       </v-app-bar>
 </template>
 
 <script>
    import{ mapGetters, mapState, mapMutations } from 'vuex'
+   import Avatar from '@/components/app/Dashboard/Drawer/Avatar.vue'
     export default {
-        name: "AppBarPage",
-        methods:{
-                  togleDrawer(){
-                      this.$emit("callTogleDrawer");
-                  },
-                  ...mapMutations(['logoutUser']),
+      components:{
+        Avatar
+      },
+
+      name: "AppBarPage",
+      methods:{
+        togleDrawer(){
+            this.$emit("callTogleDrawer");
         },
+        ...mapMutations(['logoutUser']),
+      },
 
-          computed: {
-              ...mapGetters(['isAuthenticated', 'loggedInUser'])
-              }
-
-
+      computed: {
+        ...mapGetters(['isAuthenticated', 'loggedInUser'])
+        }
     }
 
 </script>

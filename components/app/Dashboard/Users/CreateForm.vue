@@ -1,5 +1,5 @@
 <template>
-  <div class="main rounded-xl">
+  <div class="main rounded-lg">
     <v-container >
       <form @submit.prevent="registerUser">
         <v-row>
