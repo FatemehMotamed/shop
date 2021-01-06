@@ -1,13 +1,11 @@
 <template>
   <v-container
     fluid
-    style="height: 300px"
     
   >
     <v-row>
       <v-menu
         bottom
-        min-width="200px"
         rounded
         offset-y
       >
