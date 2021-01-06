@@ -57,10 +57,10 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
-    ['nuxt-vuex-localstorage', {
-      localStorage: ['username','token', 'expire'],
-      sessionStorage: ['sfoo']
-    }]
+    // ['nuxt-vuex-localstorage', {
+      // localStorage: ['username','token', 'expire'],
+      // sessionStorage: ['sfoo']
+    // }]
 
     // 'cookie-universal-nuxt',
   ],
@@ -125,7 +125,7 @@ auth: {
     prefix: 'auth.',
     options: {
       path: '/',
-      expires: 1,
+      // expires: 1,
     }
   }
   }
