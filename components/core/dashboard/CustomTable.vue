@@ -4,7 +4,7 @@
                 :items="list"
                 sort-by="calories"
                 class="text-center">
-    <template v-slot:top>
+    <template v-slot:top color>
 
       <v-dialog v-model="dialogDelete" max-width="500px">
         <v-card>

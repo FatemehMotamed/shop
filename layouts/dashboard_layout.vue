@@ -1,5 +1,5 @@
 <template>
-     <v-app >
+     <v-app>
     <v-card
       class="mx-auto overflow-hidden"
       height="100%"
@@ -8,11 +8,11 @@
       <app-bar-page @callTogleDrawer="TogleDrawer"></app-bar-page>
 
       <v-navigation-drawer
-        color="#1f1e1f"
+        color="#F5F5F5"
         v-model="drawer"
-        absolute
         right
-        temporary
+        fixed
+        width="17vw"
       >
         <v-list nav dense>
           <v-list-item-group active-class="deep-purple--text text--accent-4">
@@ -21,7 +21,7 @@
         </v-list>
       </v-navigation-drawer>
 
-      <v-card-text style="background-color: #1f1e1f; height: 100%">
+      <v-card-text style="background-color: #E0E0E0; height: 100%;" >
         <Nuxt  />
       </v-card-text>
     </v-card>

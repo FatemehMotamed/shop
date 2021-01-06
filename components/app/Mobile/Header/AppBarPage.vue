@@ -2,6 +2,8 @@
     <v-app-bar
         color="accent-4"
         prominent
+        fixed
+        height="50vw"
       >
         <label><font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" /></label>
         <v-btn icon><v-icon>mdi-magnify</v-icon></v-btn>
@@ -15,9 +17,9 @@
     export default {
         name: "AppBarPage",
         methods:{
-                  togleDrawer(){
-                      this.$emit("callTogleDrawer");
-                  }
+            togleDrawer(){
+                this.$emit("callTogleDrawer");
+            }
         }
     }
 

@@ -1,11 +1,11 @@
 <template>
-  <div class="main rounded-xl">
+  <div class="mt-10 main rounded-lg" style="box-shadow: 5px 5px 5px #BDBDBD; float:left">
     <div class="form_box rounded-lg">
 
       <search-form ></search-form>
     </div>
 
-    <custom-table table_name="users" :list="table_data" :table_title="headers" ></custom-table>
+    <custom-table style="box-shadow: 5px 5px 5px #BDBDBD;" table_name="users" :list="table_data" :table_title="headers" ></custom-table>
 
   </div>
 </template>
