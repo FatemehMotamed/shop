@@ -56,7 +56,7 @@ export default {
   methods:{
     async registerCategory(){
       let self=this;
-      this.$axios.post('/category/', self.form_data).then(function (response) {
+      this.$axios.post('/category', self.form_data).then(function (response) {
         self.toggle=false
         EventBuss.$emit('get-id', response.data.data.id)
       })

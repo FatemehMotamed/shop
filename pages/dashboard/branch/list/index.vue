@@ -69,10 +69,10 @@
         let self = this;
 
 
-        this.$axios.get('/branch/search/').then(function(response) {
+        this.$axios.get('/branch/search').then(function(response) {
 
           self.table_data = response.data.data;
-          self.table_data.forEach(item => {item.icon=self.set_eye_icon(item.status) ;item.status_bool=self.set_status_boolan(item.status)});
+          // self.table_data.forEach(item => {item.icon=self.set_eye_icon(item.status) ;item.status_bool=self.set_status_boolan(item.status)});
           // console.log("Alllllll",response.data);
         });
 

@@ -65,7 +65,7 @@ export default {
     saveAttributes(){
 
       let self=this
-      this.$axios.post('/category/addProperties/',self.form_data)
+      this.$axios.post('/category/addProperties',self.form_data)
       self.dialog = false
       // this.$router.push('/dashboard/category/create')
     }

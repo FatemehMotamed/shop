@@ -44,7 +44,7 @@
         methods:{
           async searchCategory(){
             let self=this;
-            this.$axios.post('/category/search/', self.form_data).then(function(response){
+            this.$axios.post('/category/search', self.form_data).then(function(response){
             self.result_data=response.data
             EventBuss.$emit("search-result",self.result_data.data)
             })

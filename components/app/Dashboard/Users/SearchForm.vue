@@ -80,7 +80,7 @@
         methods:{
           async searchUser(){
             let self=this;
-            this.$axios.post('/user/userSearch/',self.form_data).then(function(response){
+            this.$axios.post('/user/userSearch',self.form_data).then(function(response){
             self.result_data=response.data
             EventBuss.$emit("search-result",self.result_data.data)
             })

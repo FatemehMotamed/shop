@@ -53,7 +53,7 @@ export default {
   methods:{
     get_main_category(){
       let self=this;
-      this.$axios.get('/category/getParents/').then(function(response){
+      this.$axios.get('/category/getParents').then(function(response){
         self.main_category = response.data.data;
       })
     },
@@ -66,7 +66,7 @@ export default {
       this.select_maincategory=event
       let self=this;
       self.subcategory=[];
-      this.$axios.post('/category/search/',{parent_id:event}).then(function(response){
+      this.$axios.post('/category/search',{parent_id:event}).then(function(response){
         // console.log(response.data.data);
         response.data.data.forEach(item => self.subcategory.push({id:item.id,name:item.name}));
       })

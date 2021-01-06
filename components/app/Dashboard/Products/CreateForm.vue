@@ -131,13 +131,13 @@ export default {
 
   methods:{
     async registerProduct(){
-      console.log(this.form_data)
+      console.log("testttt",this.form_data)
 
       this.fill_properties()
       this.form_data.product=this.product
       this.form_data.properties=this.properties
       let self=this
-      this.$axios.post('/product/',self.form_data).then(function (response) {
+      this.$axios.post('/product',self.form_data).then(function (response) {
         console.log(response.data.data)
       })
       // console.log(this.form_data)

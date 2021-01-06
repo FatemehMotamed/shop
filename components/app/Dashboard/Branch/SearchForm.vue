@@ -65,7 +65,7 @@
         methods:{
           async searchBranch(){
             let self=this;
-            this.$axios.get('/branch/search/',{
+            this.$axios.get('/branch/search',{
               params:{
                 id:self.form_data.id,
                 name:self.form_data.name,

@@ -84,21 +84,12 @@
     },
 
     methods:{
-      async registerBranch() {
-      let self = this;
-      try {
-        await this.$axios.post('branch', this.form_data).then(function(response){
-          console.log(response);
+      registerBranch() {
+        let self = this;
+        this.$axios.post('/branch', self.form_data).then((res)=>{
+          console.log(res);
         })
-          // .cache((error)=>{
-          // window.alert("error");
-        // })
-        console.log(this.form_data)
-        // this.$router.push('/')
-      } catch (e) {
-        this.error = e.response.data.message
-      }
-    },
+      },
       set_state_city(item){
         // console.log('test',item)
         this.form_data.county=item[0]

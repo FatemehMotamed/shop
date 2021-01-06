@@ -38,7 +38,7 @@
       },
         created() {
             let self=this;
-              this.$axios.get('/branch/search/').then(function(response){
+              this.$axios.get('/branch/search').then(function(response){
                 self.branch = response.data.data;
         })
         }

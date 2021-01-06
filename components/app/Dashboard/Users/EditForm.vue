@@ -121,7 +121,7 @@ export default {
      async updateUser() {
        // console.log(this.form_data[0])
        try {
-        await this.$axios.post('user/userModify/', this.form_data[0])
+        await this.$axios.post('user/userModify', this.form_data[0])
       } catch (e) {
         this.error = e.response.data.message
       }
@@ -152,7 +152,7 @@ export default {
     get_data(){
       let self=this;
       let d=[];
-      this.$axios.post('/user/userSearch/',{id:this.id_user}).then(function(response){
+      this.$axios.post('/user/userSearch',{id:this.id_user}).then(function(response){
       // console.log(response.data.data);
       response.data.data.forEach(item => d.push({id:item.id,f_name:item.f_name,l_name:item.l_name,username:item.username,email:item.email,county:item.county,city:item.city,address: item.address,postal_code:item.postal_code,national_code:item.national_code,mobile:item.mobile,branch_id: item.branch_id,role_id:item.role_id,status: item.status}));
       })

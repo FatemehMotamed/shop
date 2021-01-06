@@ -72,20 +72,12 @@
     },
 
     methods:{
-      async updateBranch() {
+      updateBranch() {
       let self = this;
-      try {
-        await this.$axios.put('branch/'+this.id_branch, this.form_data[0]).then(function(response){
+      this.$axios.put('branch/'+String(this.id_branch), self.form_data[0]).then(function(response){
           console.log(response);
         })
-          // .cache((error)=>{
-          // window.alert("error");
-        // })
         console.log(this.form_data[0])
-        // this.$router.push('/')
-      } catch (e) {
-        this.error = e.response.data.message
-      }
     },
       set_state_city(item){
         // console.log('test',item)

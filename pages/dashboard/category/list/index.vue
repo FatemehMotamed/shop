@@ -62,7 +62,7 @@
         let self = this;
 
 
-        this.$axios.post('/category/search/').then(function(response) {
+        this.$axios.post('/category/search').then(function(response) {
 
           // self.table_data=response.data.data
           response.data.data.forEach(item => {
