@@ -1,6 +1,6 @@
 <template>
  <div>
-
+<!--   {{isAuthenticated}}-->
     <v-container class="logo_box">
       <v-row >
         <v-col
@@ -41,7 +41,17 @@
       sm="2"
       offset-md="1">
           <div class="mt-5 float-right login">
-            <label class="mr-2"><nuxt-link to="/login">وارد شوید</nuxt-link></label>
+
+            <div v-if="isAuthenticated">
+              {{ loggedInUser }}
+              <a @click="logoutUser()">Logout</a>
+              <nuxt-link to="/profile">profile</nuxt-link>
+            </div>
+
+            <div v-else>
+              <label class="mr-2"><nuxt-link to="/login">وارد شوید</nuxt-link></label>
+            </div>
+
             <font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" />
           </div>
       </v-col>
@@ -53,8 +63,16 @@
 </template>
 
 <script>
+    import{ mapGetters, mapState, mapMutations } from 'vuex'
     export default {
-        name: "Logo"
+        name: "Logo",
+        methods:{
+            ...mapMutations(['logoutUser']),
+        },
+
+        computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser'])
+  }
     }
 </script>
 

@@ -22,7 +22,6 @@
 
             <v-row class="pt-5">
           <v-col class="txt" cols="12" offset-md="2" md="8" sm="12">
-            <p>با ورود و یا ثبت نام در دیجی‌استایل، شما شرایط و قوانین استفاده از تمام سرویس های سایت دیجی‌کالا و قوانین حریم خصوصی آن را می‌پذیرید </p>
         </v-col>
       </v-row>
 
@@ -30,12 +29,6 @@
         </v-col>
       </v-row>
 
-      <v-row>
-        <v-col cols="12" md="3" sm="3" offset-md="5" offset-sm="5">
-          <p class="footnote"> Login Powered by </p>
-          <img class="ml-4" src="https://www.digistyle.com/static/files/d4af64f8.svg">
-        </v-col>
-      </v-row>
 
     </v-container>
   </div>
@@ -66,7 +59,7 @@
                   this.setToken(response.data.token)
                   this.setUserName(response.data.data.username)
                   this.setHeader()
-                  this.$router.push('/')
+                  this.$router.push('/dashboard')
               } catch (err) {
                   console.log(err)
       }
