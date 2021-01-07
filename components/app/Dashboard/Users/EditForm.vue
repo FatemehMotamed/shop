@@ -118,15 +118,9 @@ export default {
   },
 
   methods:{
-     async updateUser() {
-       // console.log(this.form_data[0])
-       try {
-        await this.$axios.post('user/userModify', this.form_data[0])
-      } catch (e) {
-        this.error = e.response.data.message
-      }
-
-
+     updateUser() {
+       let self=this;
+       this.$axios.post('user/userModify', self.form_data[0])
     },
     set_state_city(item){
       // console.log('test',item)

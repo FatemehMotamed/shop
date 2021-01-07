@@ -2,7 +2,6 @@
   <div class="main rounded-xl">
 <!--{{form_data}}-->
     <v-container >
-
       <form @submit.prevent="updateBranch">
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">

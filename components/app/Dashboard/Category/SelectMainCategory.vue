@@ -1,6 +1,5 @@
 <template>
-    <v-row>
-        <v-col cols="12" md="12" sm="12" lg="12">
+
           <v-select
               v-on:change="fill_category($event)"
               color="#0ad3f7"
@@ -9,12 +8,11 @@
                item-value="id"
               item-text="name"
               menu-props="auto"
-              label="دسته بنددی مادر"
+              label="دسته بندی مادر"
               hide-details
               single-line
             ></v-select>
-        </v-col>
-    </v-row>
+
 </template>
 
 <script>
