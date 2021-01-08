@@ -20,7 +20,8 @@
     "nuxt": "^2.14.6",
     "nuxt-cookie-storage": "^1.0.2",
     "nuxt-vuex-localstorage": "^1.2.7",
-    "vue-smooth-scroll": "^1.0.13"
+    "vue-smooth-scroll": "^1.0.13",
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
