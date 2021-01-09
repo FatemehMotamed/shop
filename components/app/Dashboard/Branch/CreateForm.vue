@@ -11,6 +11,7 @@
           </v-col>
         </v-row>
         <custom-select></custom-select>
+        <div v-bind="city_validation">{{city_validation}}</div>
         <v-row>
           <v-col cols="12" md="12" lg="12" sm="12">
             <v-textarea rows="3" row-height="25" dir="rtl" label="" placeholder="آدرس" v-model="address"    :error-messages="addressErrors" @input="$v.address.$touch()" @blur="$v.address.$touch()"   required></v-textarea>
@@ -65,22 +66,15 @@
     mixins: [validationMixin],
 
     validations: {
-      name: { required, maxLength: maxLength(10),minLength: minLength(6) },
-      phones: { required, maxLength: maxLength(11) },
-      address: { required, maxLength: maxLength(10) },
-      postal_code: { required, maxLength: maxLength(10) },
-      fax: { required, maxLength: maxLength(10) },
-
-      // email: { required, email },
+      name: { required, minLength: minLength(6) },
+      phones: { required, minLength: minLength(11) },
+      address: { required, minLength: minLength(6) },
+      postal_code: { required, minLength: minLength(10) },
+      fax: { required, minLength: minLength(11) },
       // select: { required },
-      // checkbox: {
-      //   checked (val) {
-      //     return val
-      //   },
-      // },
     },
     data: () => ({
-        select: null,
+        city_validation:'',
         name:'',
         phones:'',
         county:'',
@@ -88,36 +82,22 @@
         address:'',
         postal_code:'',
         fax:'',
-
-        txtRules: [
-          v => !!v || 'این فیلد الزامی است',
-          v => v.length >=6 || 'لطفا بیشتر از 6 کاراکتر وارد کنید',
-        ],
-        numRules: [
-          v => !!v || 'این فیلد الزامی است',
-          v => v.length >=11 || 'لطفا 11 رقم وارد کنید',
-          v => v.length <=11 || 'لطفا 11 رقم وارد کنید',
-        ],
-        postalRules: [
-          v => !!v || 'این فیلد الزامی است',
-          v => v.length >=10 || 'لطفا 10 رقم وارد کنید',
-          v => v.length <=10 || 'لطفا 10 رقم وارد کنید',
-        ],
-
   }),
 
     methods:{
-      registerBranch() {
-
-      },
       set_state_city(item){
         // console.log('test',item)
         this.county=item[0]
         this.city=item[1]
+        this.city_validation=""
       },
       submit () {
         this.$v.$touch()
-        if (this.$v.$pendding || this.$v.$error) return;
+        if (this.county=='' || this.city==''){
+          this.city_validation="لطفا شهر و استان را انتخاب کنید"
+        }
+
+        if (this.$v.$pendding || this.$v.$error || this.county=='' || this.city=='') return;
         alert('Data Submit');
         // this.$v.$reset();
         // this.resetData();
@@ -138,29 +118,16 @@
 
     },
     computed: {
-      checkboxErrors () {
-        const errors = []
-        if (!this.$v.checkbox.$dirty) return errors
-        !this.$v.checkbox.checked && errors.push('You must agree to continue!')
-        return errors
-      },
+
       selectErrors () {
         const errors = []
         if (!this.$v.select.$dirty) return errors
         !this.$v.select.required && errors.push('Item is required')
         return errors
       },
-      emailErrors () {
-        const errors = []
-        if (!this.$v.email.$dirty) return errors
-        !this.$v.email.email && errors.push('Must be valid e-mail')
-        !this.$v.email.required && errors.push('E-mail is required')
-        return errors
-      },
       nameErrors () {
         const errors = []
         if (!this.$v.name.$dirty) return errors
-        !this.$v.name.maxLength && errors.push('Name must be at most 10 characters long')
         !this.$v.name.minLength && errors.push('min 6')
         !this.$v.name.required && errors.push('Name is required.')
         return errors
@@ -168,21 +135,21 @@
       phonesErrors () {
         const errors = []
         if (!this.$v.phones.$dirty) return errors
-        !this.$v.phones.maxLength && errors.push('Name must be at most 10 characters long')
+        !this.$v.phones.minLength && errors.push('Name must be at most 10 characters long')
         !this.$v.phones.required && errors.push('Name is required.')
         return errors
       },
       addressErrors () {
         const errors = []
         if (!this.$v.address.$dirty) return errors
-        !this.$v.address.maxLength && errors.push('Name must be at most 10 characters long')
+        !this.$v.address.minLength && errors.push('Name must be at most 10 characters long')
         !this.$v.address.required && errors.push('Name is required.')
         return errors
       },
       postalErrors () {
         const errors = []
         if (!this.$v.postal_code.$dirty) return errors
-        !this.$v.postal_code.maxLength && errors.push('Name must be at most 10 characters long')
+        !this.$v.postal_code.minLength && errors.push('Name must be at most 10 characters long')
         !this.$v.postal_code.required && errors.push('Name is required.')
         return errors
       },
@@ -190,7 +157,7 @@
       faxErrors () {
         const errors = []
         if (!this.$v.fax.$dirty) return errors
-        !this.$v.fax.maxLength && errors.push('Name must be at most 10 characters long')
+        !this.$v.fax.minLength && errors.push('Name must be at most 10 characters long')
         !this.$v.fax.required && errors.push('Name is required.')
         return errors
       },
