@@ -1,7 +1,7 @@
 <template>
     <v-app-bar
         height="50vw"
-        color="#0ad3f7"
+        color="#EF6C00"
         prominent
         fixed
       >

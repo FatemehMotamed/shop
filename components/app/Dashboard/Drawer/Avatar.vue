@@ -1,8 +1,7 @@
 <template>
   <v-container
     fluid
-    
-  >
+    >
     <v-row>
       <v-menu
         bottom
@@ -12,12 +11,10 @@
         <template v-slot:activator="{ on }">
           <v-btn
             icon
-            x-large
             v-on="on"
           >
             <v-avatar
               color="brown"
-              size="48"
             >
               <span class="white--text headline">{{ user.initials }}</span>
             </v-avatar>
