@@ -37,9 +37,10 @@
         <v-row>
           <v-col cols="12" md="4" lg="4" sm="4" xs="4"></v-col>
           <v-col cols="12" md="6" lg="6" sm="6" xs="6">
-<!--            <custom-button txt="ثبت شعبه" bgcolor="#0ad3f7" fontcolor="black" fontsize="1.3" icon="mdi-source-fork" iconcolor="black" width="10vw" height="3vw"></custom-button>-->
-            <v-btn class="ml-6" @click="submit" color="primary" dark> submit</v-btn>
-            <v-btn class="ml-2" @click="submit" color="primary" dark> submit</v-btn>
+            <v-btn class="ml-6">
+              <nuxt-link style="text-decoration: none;color: black" to="/dashboard">بازگشت</nuxt-link>
+            </v-btn>
+            <v-btn class="ml-2" @click="submit">ثبت شعبه</v-btn>
           </v-col>
         </v-row>
 

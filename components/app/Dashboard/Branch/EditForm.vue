@@ -2,28 +2,35 @@
   <div class="main rounded-xl">
 <!--{{form_data}}-->
     <v-container >
+<!--      <v-alert :value="alert_success" color="green" type="success" dark border="top" transition="scale-transition" dir="rtl" align="center">-->
+<!--        شعبه با موفقیت ثبت شد-->
+<!--      </v-alert>-->
+<!--      <v-alert :value="alert_error" color="red" type="error" dark border="top" transition="scale-transition" dir="rtl" align="center">-->
+<!--        لطفا فیلدها را به درستی پر کنید-->
+<!--      </v-alert>-->
+
       <form @submit.prevent="updateBranch">
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="نام شعبه" v-model="form_data[0].name" v-if="form_data[0]" :data_txt="form_data[0].name" ></custom-textbox>
+            <custom-textbox txt="نام شعبه" v-model="name" :data_txt="name" ></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره تلفن"   v-model="form_data[0].phones" v-if="form_data[0]" :data_txt="form_data[0].phones"></custom-textbox>
+            <custom-textbox txt="شماره تلفن"   v-model="phones" :data_txt="phones"></custom-textbox>
           </v-col>
         </v-row>
         <custom-select></custom-select>
         <v-row>
           <v-col cols="12" md="12" lg="12" sm="12">
-            <custom-textbox txt="آدرس" v-if="form_data[0]" textarea=true v-model="form_data[0].address" :data_txt="form_data[0].address"></custom-textbox>
+            <custom-textbox txt="آدرس" textarea=true v-model="address"  :data_txt="address"></custom-textbox>
           </v-col>
 
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="شماره فکس" v-if="form_data[0]" v-model="form_data[0].fax" :data_txt="form_data[0].fax"></custom-textbox>
+            <custom-textbox txt="شماره فکس"  v-model="fax" :data_txt="fax"></custom-textbox>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="کد پستی" v-if="form_data[0]" v-model="form_data[0].postal_code" :data_txt="form_data[0].postal_code"></custom-textbox>
+            <custom-textbox txt="کد پستی"   v-model="postal_code" :data_txt="postal_code"></custom-textbox>
           </v-col>
         </v-row>
 
@@ -58,15 +65,14 @@
     data(){
       return{
         temp_data:[],
-        form_data:{
-          name:'',
-          phones:'',
-          county:'',
-          city:'',
-          address:'',
-          postal_code:'',
-          fax:'',
-        }
+        name:'',
+        phones:'',
+        county:'',
+        city:'',
+        address:'',
+        postal_code:'',
+        fax:'',
+
       }
     },
 
@@ -83,20 +89,21 @@
         this.form_data[0].county=item[0]
         this.form_data[1].city=item[1]
       },
-      set_form_data(){
-        this.form_data=this.temp_data
-      }
 
     },
     created() {
       let self=this;
-      let d=[];
       this.$axios.get('/branch/search?id='+this.id_branch).then(function(response){
       // console.log(response.data.data[0]);
-      response.data.data.forEach(item => d.push({name:item.name,phones:item.phones,county:item.county,city:item.city,address: item.address,postal_code:item.postal_code,fax:item.fax}));
+      response.data.data.forEach(item => (
+        self.name=item.name,
+        self.phones=item.phones,
+        self.county=item.county,
+        self.city=item.city,
+        self.address=item.address,
+        self.postal_code=item.postal_code,
+        self.fax=item.fax));
       })
-      this.temp_data=d
-      this.set_form_data();
   },
     mounted(item) {
       EventBuss.$on('set-city',item =>{this.set_state_city(item)})
