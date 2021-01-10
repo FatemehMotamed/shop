@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="mt-10 main rounded-lg" style="box-shadow: 5px 5px 5px #BDBDBD; float:left">
     <div class="form_box rounded-lg">
 
@@ -8,6 +9,9 @@
     <custom-table style="box-shadow: 5px 5px 5px #BDBDBD;" table_name="users" :list="table_data" :table_title="headers" ></custom-table>
 
   </div>
+=======
+  <custom-table :list="table_data"></custom-table>
+>>>>>>> d046394869a9d0b117824b16e0c205c13535da61
 </template>
 
 <script>
@@ -26,6 +30,7 @@ export default {
 
     data(){
         return{
+<<<<<<< HEAD
             table_data: [],
             headers: [
         { text: 'نام کاربری', value: 'username', align: 'start'},
@@ -43,6 +48,9 @@ export default {
         { text: 'Actions', value: 'actions', sortable: false },
 
       ],
+=======
+            table_data: []
+>>>>>>> d046394869a9d0b117824b16e0c205c13535da61
         }
     },
 
@@ -55,6 +63,7 @@ export default {
 
           this.$axios.$post('/user/usersList').then(function(response) {
               self.table_data = response.data;
+<<<<<<< HEAD
               // console.log("Alllllll",response.data);
           });
 
@@ -68,6 +77,12 @@ export default {
     mounted(){
         EventBuss.$on('search-result',item =>{this.set_search_result(item)})
       }
+=======
+              // console.log(self.table_data);
+          });
+      }
+    },
+>>>>>>> d046394869a9d0b117824b16e0c205c13535da61
 
 
 }
