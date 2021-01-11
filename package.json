@@ -12,7 +12,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@nuxtjs/auth": "^4.5.1",
     "@nuxtjs/auth-next": "^5.0.0-1602966760.822bc05",
-    "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/axios": "^5.12.5",
     "cookie-universal-nuxt": "^2.1.4",
     "cookieparser": "^0.1.0",
     "core-js": "^3.6.5",
