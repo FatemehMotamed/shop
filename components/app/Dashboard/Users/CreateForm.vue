@@ -2,7 +2,7 @@
   <div class="main rounded-lg">
     <v-container >
       <v-alert :value="alert_success" color="green" type="success" dark border="top" transition="scale-transition" dir="rtl" align="center">
-        شعبه با موفقیت ثبت شد
+        کاربر با موفقیت ثبت شد
       </v-alert>
       <v-alert :value="alert_error" color="red" type="error" dark border="top" transition="scale-transition" dir="rtl" align="center">
         لطفا فیلدها را به درستی پر کنید
@@ -10,60 +10,62 @@
       <form>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field placeholder="نام خانوادگی" v-model="l_name"  :error-messages="lnameErrors" @input="$v.l_name.$touch()" @blur="$v.l_name.$touch()"></v-text-field>
+            <v-text-field dir="rtl" placeholder="نام خانوادگی" v-model="l_name"  :error-messages="lnameErrors" @input="$v.l_name.$touch()" @blur="$v.l_name.$touch()"></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field placeholder="نام" v-model="f_name"  :error-messages="fnameErrors" @input="$v.f_name.$touch()" @blur="$v.f_name.$touch()"></v-text-field>
+            <v-text-field dir="rtl" placeholder="نام" v-model="f_name"  :error-messages="fnameErrors" @input="$v.f_name.$touch()" @blur="$v.f_name.$touch()"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
             <v-text-field
+              dir="rtl"
               :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
               :type="show ? 'text' : 'password'"
               name="input-10-2"
               placeholder="رمز عبور"
               class="input-group--focused"
               @click:append="show = !show"
+              v-model="password"
               :error-messages="passwordErrors" @input="$v.password.$touch()" @blur="$v.password.$touch()"
             ></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field placeholder="نام کاربری" v-model="username"  :error-messages="usernameErrors" @input="$v.username.$touch()" @blur="$v.username.$touch()"></v-text-field>
+            <v-text-field dir="rtl" placeholder="نام کاربری" v-model="username"  :error-messages="usernameErrors" @input="$v.username.$touch()" @blur="$v.username.$touch()"></v-text-field>
           </v-col>
         </v-row>
         <custom-select></custom-select>
         <v-row>
           <v-col cols="12" md="12" lg="12" sm="12">
-            <v-text-field placeholder="آدرس" v-model="address"  :error-messages="addressErrors" @input="$v.address.$touch()" @blur="$v.address.$touch()"></v-text-field>
+            <v-text-field dir="rtl" placeholder="آدرس" v-model="address"  :error-messages="addressErrors" @input="$v.address.$touch()" @blur="$v.address.$touch()"></v-text-field>
           </v-col>
 
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field placeholder="کد ملی" v-model="national_code"  :error-messages="nationalCodeErrors" @input="$v.national_code.$touch()" @blur="$v.national_code.$touch()"></v-text-field>
+            <v-text-field dir="rtl" placeholder="کد ملی" v-model="national_code"  :error-messages="nationalCodeErrors" @input="$v.national_code.$touch()" @blur="$v.national_code.$touch()"></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field placeholder="کد پستی" v-model="postal_code"  :error-messages="postalCodeErrors" @input="$v.postal_code.$touch()" @blur="$v.postal_code.$touch()"></v-text-field>
+            <v-text-field dir="rtl" placeholder="کد پستی" v-model="postal_code"  :error-messages="postalCodeErrors" @input="$v.postal_code.$touch()" @blur="$v.postal_code.$touch()"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <selectbox-branch class="mt-5"></selectbox-branch>
+            <selectbox-branch></selectbox-branch>
             <div class="validation_message" :value="branch_validation">{{branch_validation}}</div>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field placeholder="شماره موبایل" v-model="mobile"  :error-messages="mobileErrors" @input="$v.mobile.$touch()" @blur="$v.mobile.$touch()"></v-text-field>
+            <v-text-field dir="rtl" placeholder="شماره موبایل" v-model="mobile"  :error-messages="mobileErrors" @input="$v.mobile.$touch()" @blur="$v.mobile.$touch()"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
 
           <v-col cols="12" md="6" sm="6" lg="6">
-            <selectbox-role class="mt-5"></selectbox-role>
+            <selectbox-role></selectbox-role>
             <div class="validation_message" :value="role_validation">{{role_validation}}</div>
           </v-col>
           <v-col cols="12" md="6" sm="6" lg="6">
-            <v-text-field placeholder="ایمیل" v-model="email"  :error-messages="emailErrors" @input="$v.email.$touch()" @blur="$v.email.$touch()"></v-text-field>
+            <v-text-field dir="rtl" v-model="email" :error-messages="emailErrors" placeholder="ایمیل" @input="$v.email.$touch()" @blur="$v.email.$touch()"></v-text-field>
           </v-col>
         </v-row>
 
@@ -72,7 +74,7 @@
           <v-col cols="12" md="4" lg="4" sm="4" xs="4"></v-col>
           <v-col cols="12" md="6" lg="6" sm="6" xs="6">
             <v-btn class="ml-6">
-              <nuxt-link style="text-decoration: none;color: black" to="/dashboard">بازگشت</nuxt-link>
+              <nuxt-link style="text-decoration: none;color: black" to="/dashboard/users/list">بازگشت</nuxt-link>
             </v-btn>
             <v-btn class="ml-2" @click="submit">ثبت کاربر</v-btn>
           </v-col>
@@ -107,15 +109,16 @@ export default {
   mixins: [validationMixin],
 
   validations: {
-    f_name: { required, minLength: minLength(6) },
-    l_name: { required, minLength: minLength(6) },
+    f_name: { minLength: minLength(6) },
+    l_name: { minLength: minLength(6) },
     username: { required, minLength: minLength(6) },
     password: { required, minLength: minLength(6) },
     email: { email },
-    mobile: { minLength: minLength(11), maxLength: maxLength(11),numeric },
+    mobile: { required ,minLength: minLength(11), maxLength: maxLength(11),numeric },
     address: { minLength: minLength(6) },
-    postal_code: { minLength: minLength(10), maxLength: maxLength(10),numeric },
     national_code: { minLength: minLength(10), maxLength: maxLength(10),numeric },
+    postal_code: { minLength: minLength(10), maxLength: maxLength(10),numeric },
+
   },
   data(){
     return{
@@ -143,33 +146,19 @@ export default {
   },
 
   methods:{
-     async registerUser() {
-       console.log(this.form_data)
-      let self = this;
-      try {
-        await this.$axios.post('register', this.form_data).then(function(response){
-          console.log(response);
-        })
-          // .cache((error)=>{
-          // window.alert("error");
-        // })
-        console.log(this.form_data)
-        // this.$router.push('/')
-      } catch (e) {
-        this.error = e.response.data.message
-      }
-    },
     set_state_city(item){
       // console.log('test',item)
-      this.form_data.county=item[0]
-      this.form_data.city=item[1]
+      this.county=item[0]
+      this.city=item[1]
     },
     set_branch(item){
       console.log(item)
       this.branch_id=item
+      this.branch_validation=''
     },
     set_role(item){
       this.role_id=item
+      this.role_validation=''
       console.log(item)
     },
     submit () {
@@ -197,6 +186,7 @@ export default {
         county:this.county,
         city:this.city,
         address:this.address,
+        mobile:this.mobile,
         postal_code:this.postal_code,
         national_code:this.national_code,
         role_id:this.role_id,
@@ -284,15 +274,7 @@ export default {
     EventBuss.$on('set-branch',item =>{this.set_branch(item)})
     EventBuss.$on('set-role',item =>{this.set_role(item)})
   },
-  created() {
-    let self=this;
-    let r=[];
-              this.$axios.get('/roles').then(function(response){
-              // console.log(response.data);
-                response.data.forEach(item => r.push({id:item.id,name:item.name}));
-        })
-    this.role=r;
-  }
+
 }
 </script>
 
