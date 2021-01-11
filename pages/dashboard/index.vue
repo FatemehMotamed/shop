@@ -1,5 +1,14 @@
 <template>
-<div><a @click="set()">AllUSER</a></div>
+<div>
+
+  <div class="mt-16">
+
+    
+
+  </div>
+</div>
+
+
 </template>
 
 <script>
