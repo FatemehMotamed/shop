@@ -68,7 +68,7 @@
             <ul>
               <li>
                 <a href="#">
-                  <font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:#696969;" class="mt-6 mr-10"/>
+                  <font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:#696969;" class="mt-xl-6 mt-lg-6 mt-md-4 mt-sm-2 mr-10"/>
                 </a>
 
                 <div class="submenu">
@@ -239,11 +239,6 @@ text-align: center;
     }
 
 
-    .wrapper ul li .submenu ul li a {
-      display: block;
-      color: #707086;
-    }
-
     .wrapper ul li .submenu ul li:last-child {
       border-bottom: 0;
       border-bottom-left-radius: 5px;
@@ -318,12 +313,7 @@ text-align: center;
       background: #fff;
       border-bottom: 1px solid #f9f9f9;
       line-height: 0.2vw;
-    }
 
-
-    .wrapper_user ul li .submenu_user ul li a {
-      display: block;
-      color: #707086;
     }
 
     .wrapper_user ul li .submenu_user ul li:last-child {
@@ -339,11 +329,9 @@ text-align: center;
       font-size: 1.2vw;
       margin: 5%;
     }
-    .info_container_user{
-      width: 15vw;
-    }
+
     .info_container_user div{
-      width: 15vw;
+      width: 18vw;
       height: 3vw;
     }
 

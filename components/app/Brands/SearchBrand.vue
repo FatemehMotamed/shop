@@ -54,7 +54,7 @@ font-family: 'Markazi Text', serif !important;
   }
 
   .v-text-field ::after {
-    border-color: blueviolet !important;
+    border-color: #19424e !important;
     width: 20vw !important;
   }
 
