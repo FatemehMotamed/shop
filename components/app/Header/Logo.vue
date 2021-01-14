@@ -1,69 +1,9 @@
 <template>
  <div style="z-index:1000">
 <!--   {{isAuthenticated}}-->
-    <v-container class="logo_box">
+    <v-container fluid class="logo_box">
       <v-row >
-        <v-col cols="12" md="2" sm="2" lg="2" xl="2" offset-md="1" offset-sm="1">
-          <v-text-field label="" placeholder="        جستجوی محصولات" class="search_box dir" dir="rtl">
-          <font-awesome-icon :icon="['fas', 'search']" slot="prepend" class="search_icon" />
-        </v-text-field>
-        </v-col>
-        <v-col md="3" lg="3" xl="3" sm="3"  offset-lg="2" offset-xl="2" offset-md="1" offset-sm="1">
-          <h1 class="brand ml-md-10">BRAND NAME</h1>
-          <hr class="ml-md-10" />
-        </v-col>
-        <v-col md="3" sm="3" lg="2" xl="2" offset-lg="1" style="position: relative;" >
-          <div class="mt-5 float-right login">
-
-            <div v-if="isAuthenticated">
-              <div class="wrapper_user">
-                <ul>
-                  <li>
-                    <a href="#">
-                      <label class="float-lef">عزیز خوش آمدید&nbsp;</label><label class="float-right"> {{ loggedInUser }} <v-icon style="font-size: 1.5vw">mdi-account-outline</v-icon></label>
-                    </a>
-
-                    <div class="submenu_user">
-                      <div class="info_container_user">
-
-                          <div>
-                            <font-awesome-icon :icon="['fas', 'cog']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
-                            <label class="float-right mr-2">حساب کاربری</label>
-                          </div>
-                          <div>
-                            <font-awesome-icon :icon="['fas', 'save']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
-                            <label class="float-right mr-2">سفارش های من</label>
-                          </div>
-                          <div>
-                            <font-awesome-icon :icon="['fas', 'heart']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
-                            <label class="float-right mr-2">لیست علاقه مندی ها</label>
-                          </div>
-                          <div>
-                            <font-awesome-icon :icon="['fas', 'sign-out-alt']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
-                            <label class="float-right mr-2"><a @click="logoutUser()">خروج از حساب کاربری</a></label>
-                          </div>
-
-                      </div>
-                    </div>
-
-                  </li>
-
-                </ul>
-              </div>
-
-
-<!--              <a @click="logoutUser()">Logout</a>-->
-<!--              <nuxt-link to="/profile">profile</nuxt-link>-->
-            </div>
-
-            <div v-else>
-              <label class="mr-10"><nuxt-link to="/login">وارد شوید</nuxt-link></label>
-
-            </div>
-
-          </div>
-      </v-col>
-        <v-col md="1" lg="1" xl="1" sm="1" style="position: relative;" >
+        <v-col md="1" lg="1" xl="1" sm="1" offset="1" style="position: relative;" >
           <div class="wrapper">
             <ul>
               <li>
@@ -72,7 +12,7 @@
                 </a>
 
                 <div class="submenu">
-                    <img src="@/assets/image/bc6a97c7.svg">
+                  <img src="@/assets/image/bc6a97c7.svg">
                   <div class="info_container">
                     <div>
                       <div>
@@ -98,6 +38,72 @@
             </ul>
           </div>
         </v-col>
+        <v-col md="3" sm="3" lg="2" xl="2"  style="position: relative;" >
+          <div class="mt-5 float-right login">
+
+            <div v-if="isAuthenticated">
+              <div class="wrapper_user">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <label class="float-lef">عزیز خوش آمدید&nbsp;</label><label class="float-right"> {{ loggedInUser }} <v-icon style="font-size: 1.5vw">mdi-account-outline</v-icon></label>
+                    </a>
+
+                    <div class="submenu_user">
+                      <div class="info_container_user">
+
+                        <div>
+                          <font-awesome-icon :icon="['fas', 'cog']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
+                          <label class="float-right mr-2">حساب کاربری</label>
+                        </div>
+                        <div>
+                          <font-awesome-icon :icon="['fas', 'save']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
+                          <label class="float-right mr-2">سفارش های من</label>
+                        </div>
+                        <div>
+                          <font-awesome-icon :icon="['fas', 'heart']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
+                          <label class="float-right mr-2">لیست علاقه مندی ها</label>
+                        </div>
+                        <div>
+                          <font-awesome-icon :icon="['fas', 'sign-out-alt']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
+                          <label class="float-right mr-2"><a @click="logoutUser()">خروج از حساب کاربری</a></label>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </li>
+
+                </ul>
+              </div>
+
+
+              <!--              <a @click="logoutUser()">Logout</a>-->
+              <!--              <nuxt-link to="/profile">profile</nuxt-link>-->
+            </div>
+
+            <div v-else>
+              <label class="mr-10"><nuxt-link to="/login">وارد شوید</nuxt-link></label>
+
+            </div>
+
+          </div>
+        </v-col>
+        <v-col md="4" lg="4" xl="4" sm="4"  >
+          <h1 class="brand ">BRAND NAME</h1>
+          <hr  />
+        </v-col>
+        <v-col cols="12" md="2" sm="2" lg="2" xl="2" offset-md="1" offset-sm="1">
+          <v-text-field label="" placeholder="        جستجوی محصولات" class="search_box mt-sm-n2" dir="rtl">
+            <font-awesome-icon :icon="['fas', 'search']" slot="prepend" class="search_icon" />
+          </v-text-field>
+        </v-col>
+
+
+
+
+
+
       </v-row>
 
     </v-container>

@@ -1,5 +1,5 @@
 <template>
-    <v-row class="box">
+    <v-row class="box" dir="ltr">
         <v-col cols="12" md="2" sm="2">
           <v-text-field
           label=""

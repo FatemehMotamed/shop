@@ -5,7 +5,7 @@
           <v-col cols="12" md="4" sm="4" class="ml-12"><h1>از پرطرفدارترین برندها</h1></v-col>
           <v-col cols="12" md="4" sm="4"></v-col>
         </v-row>
-        <v-row>
+        <v-row dir="ltr">
           <v-col cols="12" md="3" sm="3"></v-col>
           <v-col cols="12" md="1" sm="1"><p>Reebok</p></v-col>
           <v-col cols="12" md="4" sm="4"><p>آر اِن اِس</p></v-col>

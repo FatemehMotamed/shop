@@ -3,21 +3,9 @@
     <v-row>
       <v-col cols="12" md="6" sm="6" lg="6">
         <v-select
-          v-on:change="fill_city($event)"
-          :items="city"
-          item-value="id"
-          item-text="name"
-          color="#0ad3f7"
-          menu-props="auto"
-          label="شهر"
-          hide-details
-          prepend-icon="mdi-city"
-          single-line
-        ></v-select>
-      </v-col>
-      <v-col cols="12" md="6" sm="6" lg="6">
-        <v-select
-          color="#0ad3f7"
+          outlined
+          dense
+          color="#3f6ad8"
           align-center
           v-on:change="fill_combo($event)"
           :items="states"
@@ -26,7 +14,21 @@
           menu-props="auto"
           label="استان"
           hide-details
-          prepend-icon="mdi-map"
+          single-line
+        ></v-select>
+      </v-col>
+      <v-col cols="12" md="6" sm="6" lg="6">
+        <v-select
+          outlined
+          dense
+          v-on:change="fill_city($event)"
+          :items="city"
+          item-value="id"
+          item-text="name"
+          color="#3f6ad8"
+          menu-props="auto"
+          label="شهر"
+          hide-details
           single-line
         ></v-select>
       </v-col>
@@ -86,7 +88,5 @@
 *{
   font-family: 'Markazi Text', serif !important;
 }
-.v-select{
-  color: #0ad3f7!important;
-}
+
 </style>

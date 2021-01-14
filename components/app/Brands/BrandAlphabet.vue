@@ -43,7 +43,7 @@
   }
 
 
-  .brand_boxul{
+  .brand_box ul{
     list-style-type: none;
     font-family: 'Markazi Text', serif !important;
   }
