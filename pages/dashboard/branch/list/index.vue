@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-10 main rounded-lg" style="box-shadow: 5px 5px 5px #BDBDBD; float:left">
-    <div class="form_box rounded-lg">
+  <div class="mt-10 main rounded" style="box-shadow: 5px 5px 5px #BDBDBD; float:left">
+    <div class="form_box rounded">
 
       <search-form></search-form>
     </div>

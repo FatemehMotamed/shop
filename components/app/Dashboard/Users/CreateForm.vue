@@ -1,5 +1,5 @@
 <template>
-  <div class="main rounded-lg">
+  <div class="main rounded">
     <h1 class="pt-5 form_head" >ثبت کاربر</h1>
     <v-container >
       <v-alert :value="alert_success" color="green" type="success" dark border="top" transition="scale-transition" dir="rtl" align="center">

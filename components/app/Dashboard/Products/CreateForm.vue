@@ -1,15 +1,24 @@
 <template>
 
     <v-container >
-      <v-stepper class="main rounded-xl" v-model="e1" >
+      <v-stepper class="main rounded" v-model="e1" >
+
+        <h1 class="pt-5 form_head" >ثبت محصول</h1>
+        <v-alert :value="alert_success" color="green" type="success" dark border="top" transition="scale-transition" dir="rtl" align="center">
+          شعبه با موفقیت ثبت شد
+        </v-alert>
+        <v-alert :value="alert_error" color="red" type="error" dark border="top" transition="scale-transition" dir="rtl" align="center">
+          لطفا فیلدها را به درستی پر کنید
+        </v-alert>
+
         <v-stepper-header dir="rtl">
-          <v-stepper-step @click="e1=1" :complete="e1 > 1" step="1">
+          <v-stepper-step @click="e1=1" :complete="e1 > 1" step="1" color="#3f6ad8">
             <label class="mr-2">ثبت محصول</label>
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step :complete="e1 > 2" step="2">
+          <v-stepper-step :complete="e1 > 2" step="2" color="#3f6ad8">
             <label class="mr-2">آپلود تصویر</label>
           </v-stepper-step>
 
@@ -20,43 +29,42 @@
           <v-stepper-content step="1">
             <v-card class="mb-12">
 <!--              {{form_data}}-->
-              <form @submit.prevent="registerProduct">
+              <form>
                 <category-select></category-select>
                 <v-row>
                   <v-col cols="12" md="4" lg="4" sm="4" xs="4" >
                     <selectbox-branch v-if="show"></selectbox-branch>
+                    <div class="validation_message" :value="branch_validation">{{branch_validation}}</div>
                   </v-col>
                   <v-col cols="12" md="4" lg="4" sm="4" xs="4">
-                    <v-text-field v-if="show" placeholder="قیمت" v-model="product[0].price"></v-text-field>
+                    <v-text-field color="#3f6ad8"  outlined dense label="قیمت" v-if="show" v-model="price" :error-messages="priceErrors" @input="$v.price.$touch()" @blur="$v.price.$touch()"  required></v-text-field>
                   </v-col>
                   <v-col cols="12" md="4" lg="4" sm="4" xs="4">
-                    <v-text-field v-if="show" placeholder="عنوان محصول" v-model="product[0].title"></v-text-field>
+                    <v-text-field color="#3f6ad8"  outlined dense label="عنوان محصول" v-if="show" v-model="title" :error-messages="titleErrors" @input="$v.title.$touch()" @blur="$v.title.$touch()"  required></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
                   <v-col cols="12" md="12" lg="12" sm="12" xs="12">
-                    <v-textarea v-if="show" placeholder="توضیحات" v-model="product[0].description" rows="3" row-height="25" dir="rtl"></v-textarea>
+                    <v-textarea  color="#3f6ad8"  outlined dense label="توضیحات" v-if="show" v-model="description" rows="3" row-height="25" :error-messages="descriptionErrors" @input="$v.description.$touch()" @blur="$v.description.$touch()"  required></v-textarea>
                   </v-col>
                 </v-row>
                 <v-row>
                   <v-col v-for="(item, key) in fields" cols="12" md="6" lg="6" sm="6" xs="6">
-<!--                    <custom-textbox :txt="item" v-model="form_data[item]" ></custom-textbox>-->
-                    <custom-textbox :txt="item.value" v-model="fields[key].value" ></custom-textbox>
+
+                    <v-text-field  color="#3f6ad8"  outlined dense :label="item.value" v-model="fields[key].value" ></v-text-field>
                   </v-col>
                 </v-row>
 
                 <v-row>
-                  <v-col cols="12" md="7" lg="7" sm="7" offset-lg="4">
-                    <div v-if="btn_continue">
-                      <custom-button @click.native="e1=2" txt="ادامه" bgcolor="green" fontcolor="black" fontsize="1.3" icon="mdi-arrow-left-bold-circle-outline" iconcolor="black" width="10vw" height="3vw"></custom-button>
+                  <v-col cols="12" md="12" lg="12" xl="12" sm="12" xs="12">
+                    <v-btn class="btn_form float-right" style="margin-right: 20vw"  @click="submit">{{btn_txt}}</v-btn>
+                    <div class="float-right" v-if="btn_continue">
+                      <v-btn class="btn_form"  @click.native="e1=2">ادامه</v-btn>
                     </div>
-                    <div class="float-left ml-2" v-else>
-                        <v-btn disabled color="#FA950B" width="10vw" height="3vw" class="custom_btn">
-                        ادامه
-                        <v-icon>mdi-arrow-left-bold-circle-outline</v-icon>
-                      </v-btn>
+                    <div v-else>
+                      <v-btn c disabled class="btn_form float-right" >ادامه</v-btn>
                     </div>
-                    <custom-button :txt="btn_txt" :bgcolor="btn_color" fontcolor="black" fontsize="1.3" icon="mdi-shopping" iconcolor="black" width="10vw" height="3vw"></custom-button>
+
                   </v-col>
                 </v-row>
               </form>
@@ -92,129 +100,191 @@ import CustomTextbox from '@/components/core/dashboard/CustomTextbox'
 import CategorySelect from '@/components/app/Dashboard/Products/CategorySelect'
 import SelectboxBranch from '@/components/app/Dashboard/Branch/SelectboxBranch'
 import EventBuss from '@/assets/js/eventBus'
+import { validationMixin } from 'vuelidate'
+import { required, maxLength, email, minLength, numeric } from 'vuelidate/lib/validators'
 export default {
   name: "CreateForm",
-  components:{
-    CustomButton:CustomButton,
-    CustomTextbox:CustomTextbox,
-    CategorySelect:CategorySelect,
+  components: {
+    CustomButton: CustomButton,
+    CustomTextbox: CustomTextbox,
+    CategorySelect: CategorySelect,
     SelectboxBranch: SelectboxBranch,
   },
-  data(){
+  mixins: [validationMixin],
 
-    return{
-      btn_txt:'ثبت محصول',
-      btn_color:'#0ad3f7',
-      btn_continue : false,
-      e1: 1,
-      sub_category:'',
-      main_category:'',
-      product:[{
-        title:'',
-        price:'',
-        description:'',
-        category_id:'',
-        branch_id:'',
-      }],
-      properties:[],
-      form_data:{
-        product: [],
-        properties:[]
-      },
-      fields:[],
-      show:false,
-      dic:{}
-
-
-    }
+  validations: {
+    title: {required, minLength: minLength(6)},
+    price: {required, numeric},
+    description: {minLength: minLength(6)},
   },
 
-  methods:{
-    async registerProduct(){
-      console.log("testttt",this.form_data)
+    data() {
 
-      this.fill_properties()
-      this.form_data.product=this.product
-      this.form_data.properties=this.properties
-      let self=this
-      this.$axios.post('/product',self.form_data).then(function (response) {
-        console.log(response.data.data)
-      })
-      // console.log(this.form_data)
-      this.btn_txt='ویرایش محصول'
-      this.btn_color="#ff5733"
-      this.btn_continue=true
-    },
-    set_categorys(item){
-      // console.log('test',item)
-      this.main_category=item[0]
-      this.sub_category=item[1]
-      this.product[0].category_id=item[1]
-      this.get_attributes();
-    },
-    get_attributes(){
-      let self=this
-      this.$axios.get('/category/'+this.sub_category+'/getProperties').then(function (response) {
-        // console.log(response.data.data)
-        self.fields=response.data.data
+      return {
+        branch_validation:'',
+        alert_success:false,
+        alert_error:false,
+        btn_txt: 'ثبت محصول',
+        btn_color: '#0ad3f7',
+        btn_continue: false,
+        e1: 1,
+        sub_category: '',
+        main_category: '',
+        title: '',
+        price: '',
+        description: '',
+        category_id: '',
+        branch_id: '',
 
-      })
-      this.show=true
-    },
-    fill_properties(){
-      let item;
-      let temp=[]
-      let x=0
-      for (item of this.fields){
-        temp.push({property_id:item.id, value:item.value})
-        this.dic[x]=temp
-        temp=[]
-        x+=1
+        fields: [],
+        properties : [],
+        show: false,
+        dic: {}
+
+
       }
-      this.properties.push(this.dic)
-      // console.log("tttttt",this.dic[0][0].value)
-    },
-    set_branch(item){
-      // console.log(item)
-      this.product[0].branch_id=item
     },
 
-  },
-  mounted(item) {
-    EventBuss.$on('set-category',item =>{this.set_categorys(item)})
-    EventBuss.$on('set-branch',item =>{this.set_branch(item)})
-  }
+    methods: {
+
+      submit() {
+        this.$v.$touch()
+        if (this.branch_id == '') {
+          this.branch_validation = "لطفا شعبه را انتخاب کنید"
+        }
+
+        if (this.$v.$pendding || this.$v.$error || this.branch_id == '') {
+          this.alert_error = !this.alert_error;
+          return
+        }
+        this.alert_error = !this.alert_error
+        this.alert_success = !this.alert_success
+        this.$v.$reset();
+
+        let product = [{
+          title: this.title,
+          price: this.price,
+          description: this.description,
+          category_id: this.category_id,
+          branch_id: this.branch_id,
+        }]
+
+        let form_data = {
+          product: [],
+          properties: []
+        }
+
+        this.fill_properties()
+        form_data.product = product
+        form_data.properties = this.properties
+
+        this.$axios.post('/product', form_data).then(function (response) {
+          console.log(response.data.data)
+        })
+        // console.log(this.form_data)
+        this.btn_txt = 'ویرایش محصول'
+        this.btn_color = "#ff5733"
+        this.btn_continue = true
+      },
+
+      set_categorys(item) {
+        // console.log('test',item)
+        this.main_category = item[0]
+        this.sub_category = item[1]
+        this.category_id = item[1]
+        this.get_attributes();
+      },
+      get_attributes() {
+        let self = this
+        this.$axios.get('/category/' + this.sub_category + '/getProperties').then(function (response) {
+          // console.log(response.data.data)
+          self.fields = response.data.data
+
+        })
+        this.show = true
+      },
+      fill_properties() {
+        let item;
+        let temp = []
+        let x = 0
+        for (item of this.fields) {
+          temp.push({property_id: item.id, value: item.value})
+          this.dic[x] = temp
+          temp = []
+          x += 1
+        }
+        this.properties.push(this.dic)
+        // console.log("tttttt",this.dic[0][0].value)
+      },
+      set_branch(item) {
+        // console.log(item)
+        this.branch_id = item
+        this.branch_validation=""
+      },
+
+    },
+    computed:{
+      titleErrors () {
+        const errors = []
+        if (!this.$v.title.$dirty) return errors
+        !this.$v.title.minLength && errors.push('نام شعبه باید حداقل 6 کاراکتر باشد')
+        !this.$v.title.required && errors.push('این فیلد الزامی است')
+        return errors
+      },
+      priceErrors () {
+        const errors = []
+        if (!this.$v.price.$dirty) return errors
+        !this.$v.price.numeric && errors.push('لطفا فقط عدد وارد کنید')
+        !this.$v.price.required && errors.push('این فیلد الزامی است')
+        return errors
+      },
+      descriptionErrors () {
+        const errors = []
+        if (!this.$v.description.$dirty) return errors
+        !this.$v.description.minLength && errors.push('آدرس باید حداقل 6 کاراکتر باشد')
+        return errors
+      },
+
+    },
+    mounted() {
+      EventBuss.$on('set-category', item => {
+        this.set_categorys(item)
+      })
+      EventBuss.$on('set-branch', item => {
+        this.set_branch(item)
+      })
+    }
+
 }
 </script>
 
 <style scoped>
-.main{
-  width: 60vw;
-  background-color: ghostwhite;
-  margin-right: auto;
-  margin-left: auto;
-}
+  .main{
+    width: 60vw;
+    background-color: ghostwhite;
+    float:left;
+    margin-left: 10vw;
+    margin-top: 1.5vw!important;
+  }
 *{
   font-family: 'Markazi Text', serif !important;
 }
-.v-select{
-  color: #0ad3f7!important;
-}
-.v-text-field ::before {
-  border-color: black !important;
-  color: #7F828B !important;
-}
 
-.v-text-field ::after {
-  border-color: #0ad3f7 !important;
-  color: black !important;
-}
-.custom_btn{
-  font-family: 'Markazi Text', serif !important;
-  font-weight: bold;
-  font-size: 1vw;
-  color: black!important;
-}
+  .form_head{
+    color:#3f6ad8;
+    text-align: center;
+    margin-bottom: 1vw;
+  }
+  .btn_form{
+    background-color: #2955c8!important;
+    border-color: #2651be!important;
+    color: white;
+    width: 10vw;
+  }
+  .validation_message{
+    color:#ff5252 !important;
+    font-size: 12px;
+  }
 
 
 </style>

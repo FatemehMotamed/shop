@@ -1,5 +1,5 @@
 <template>
-  <div class="main rounded-lg">
+  <div class="main rounded">
     <h1 class="pt-5 form_head" >ثبت دسته بندی</h1>
     <v-container >
       <form >

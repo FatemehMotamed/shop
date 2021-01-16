@@ -1,5 +1,5 @@
 <template>
-  <div class="main rounded-xl">
+  <div class="main rounded">
     <h1 class="pt-5 form_head" >ویرایش شعبه</h1>
 
     <!--{{form_data}}-->
