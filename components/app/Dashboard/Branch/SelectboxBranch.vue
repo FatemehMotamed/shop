@@ -1,10 +1,10 @@
 <template>
 
-
-
       <v-select
+              outlined
+              dense
               v-on:change="fill_branch($event)"
-              color="#0ad3f7"
+              color="#3f6ad8"
               align-center
               :items="branch"
                item-value="id"
@@ -12,7 +12,6 @@
               menu-props="auto"
               label="شعبه"
               hide-details
-              prepend-icon="mdi-account"
               single-line
             ></v-select>
 
@@ -49,7 +48,5 @@
 *{
   font-family: 'Markazi Text', serif !important;
 }
-.v-select{
-  color: #0ad3f7!important;
-}
+
 </style>

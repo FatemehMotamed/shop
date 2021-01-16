@@ -1,6 +1,8 @@
 <template>
   <div class="main rounded-xl">
-<!--{{form_data}}-->
+    <h1 class="pt-5 form_head" >ویرایش شعبه</h1>
+
+    <!--{{form_data}}-->
     <v-container >
       <v-alert :value="alert_success" color="green" type="success" dark border="top" transition="scale-transition" dir="rtl" align="center">
         شعبه با موفقیت ویرایش شد
@@ -11,37 +13,37 @@
       <form>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field  dir="rtl"  label="" placeholder="نام شعبه" v-model="name" :value="name"  :error-messages="nameErrors" @input="$v.name.$touch()" @blur="$v.name.$touch()"  required></v-text-field>
+            <v-text-field color="#3f6ad8" outlined dense label="نام شعبه"  v-model="name" :value="name"  :error-messages="nameErrors" @input="$v.name.$touch()" @blur="$v.name.$touch()"  required></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field  dir="rtl"  label="" placeholder="شماره تلفن" v-model="phones" :value="phones"  :error-messages="phonesErrors" @input="$v.phones.$touch()" @blur="$v.phones.$touch()" ></v-text-field>
+            <v-text-field color="#3f6ad8"  outlined dense  label="شماره تلفن"  v-model="phones" :value="phones"  :error-messages="phonesErrors" @input="$v.phones.$touch()" @blur="$v.phones.$touch()" ></v-text-field>
           </v-col>
         </v-row>
         <custom-select></custom-select>
         <div class="validation_message" :value="city_validation">{{city_validation}}</div>
         <v-row>
           <v-col cols="12" md="12" lg="12" sm="12">
-            <v-textarea rows="3" row-height="25" dir="rtl" label="" placeholder="آدرس" v-model="address" :value="address"   :error-messages="addressErrors" @input="$v.address.$touch()" @blur="$v.address.$touch()"  ></v-textarea>
+            <v-textarea color="#3f6ad8" rows="3" row-height="25" outlined dense label="آدرس"  v-model="address" :value="address"   :error-messages="addressErrors" @input="$v.address.$touch()" @blur="$v.address.$touch()"  ></v-textarea>
           </v-col>
 
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field  dir="rtl"  label="" placeholder="شماره فکس" v-model="fax" :value="fax"  :error-messages="faxErrors" @input="$v.fax.$touch()" @blur="$v.fax.$touch()"></v-text-field>
+            <v-text-field color="#3f6ad8" outlined dense  label="شماره فکس"  v-model="fax" :value="fax"  :error-messages="faxErrors" @input="$v.fax.$touch()" @blur="$v.fax.$touch()"></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field  dir="rtl"  label="" placeholder="کد پستی" v-model="postal_code" :value="postal_code" :error-messages="postalErrors" @input="$v.postal_code.$touch()" @blur="$v.postal_code.$touch()"></v-text-field>
+            <v-text-field color="#3f6ad8"  outlined dense  label="کد پستی"  v-model="postal_code" :value="postal_code" :error-messages="postalErrors" @input="$v.postal_code.$touch()" @blur="$v.postal_code.$touch()"></v-text-field>
           </v-col>
         </v-row>
 
 
         <v-row>
-          <v-col cols="12" md="4" lg="4" sm="4" xs="4"></v-col>
-          <v-col cols="12" md="6" lg="6" sm="6" xs="6">
-            <v-btn class="ml-6">
-              <nuxt-link style="text-decoration: none;color: black" to="/dashboard/branch/list">بازگشت</nuxt-link>
+          <v-col cols="12" md="12" lg="12" xl="12" sm="12" xs="12">
+
+            <v-btn class="btn_form" style="margin-right: 20vw" @click="submit">ویرایش شعبه</v-btn>
+            <v-btn class=" mr-lg-3 mr-xl-3 mr-md-3 mr-sm-1 btn_form">
+              <nuxt-link style="text-decoration: none;color: white" to="/dashboard/branch/list">بازگشت</nuxt-link>
             </v-btn>
-            <v-btn class="ml-2" @click="submit">ویرایش شعبه</v-btn>
           </v-col>
         </v-row>
 
@@ -132,17 +134,17 @@
     created() {
       let self=this;
       this.$axios.get('/branch/search?id='+this.id_branch).then(function(response){
-      // console.log(response.data.data[0]);
-      response.data.data.forEach(item => (
-        self.name=item.name,
-        self.phones=item.phones,
-        self.county=item.county,
-        self.city=item.city,
-        self.address=item.address,
-        self.postal_code=item.postal_code,
-        self.fax=item.fax));
+        // console.log(response.data.data[0]);
+        response.data.data.forEach(item => (
+          self.name=item.name,
+            self.phones=item.phones,
+            self.county=item.county,
+            self.city=item.city,
+            self.address=item.address,
+            self.postal_code=item.postal_code,
+            self.fax=item.fax));
       })
-  },
+    },
     computed: {
       nameErrors () {
         const errors = []
@@ -192,29 +194,40 @@
 </script>
 
 <style scoped>
-.main{
-  width: 60vw;
-  background-color: ghostwhite;
-  margin-right: auto;
-  margin-left: auto;
-}
-*{
-  font-family: 'Markazi Text', serif !important;
-}
+  .main{
+    width: 60vw;
+    background-color: ghostwhite;
+    float:left;
+    margin-left: 10vw;
+    margin-top: 1.5vw!important;
+  }
+  *{
+    font-family: 'Markazi Text', serif !important;
+  }
 
-.v-text-field ::before {
-  border-color: black !important;
-  color: #7F828B !important;
-}
+  .v-text-field ::before {
+    border-color: black !important;
+    color: #7F828B !important;
+  }
 
-.v-text-field ::after {
-  border-color: #0ad3f7 !important;
-  color: black !important;
-}
-.validation_message{
-  color:#ff5252 !important;
-  font-size: 12px;
-}
-
+  .v-text-field ::after {
+    border-color: #0ad3f7 !important;
+    color: black !important;
+  }
+  .validation_message{
+    color:#ff5252 !important;
+    font-size: 12px;
+  }
+  .form_head{
+    color:#3f6ad8;
+    text-align: center;
+    margin-bottom: 1vw;
+  }
+  .btn_form{
+    background-color: #2955c8!important;
+    border-color: #2651be!important;
+    color: white;
+    width: 10vw;
+  }
 
 </style>

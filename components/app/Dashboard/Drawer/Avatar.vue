@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    >
-    <v-row>
+
       <v-menu
         bottom
         rounded
@@ -15,6 +12,7 @@
           >
             <v-avatar
               color="brown"
+              class="avatar_circle"
             >
               <span class="white--text headline">{{ user.initials }}</span>
             </v-avatar>
@@ -54,10 +52,9 @@
           </v-list-item-content>
         </v-card>
       </v-menu>
-    </v-row>
 
-    
-  </v-container>
+
+
 </template>
 
 
@@ -82,5 +79,7 @@ export default {
 </script>
 
 <style scoped>
-
+.avatar_circle{
+  height: 3vw!important;
+}
 </style>

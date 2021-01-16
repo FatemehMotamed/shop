@@ -1,20 +1,24 @@
 <template>
   <div class="main rounded-lg">
+    <h1 class="pt-5 form_head" >ثبت دسته بندی</h1>
     <v-container >
-      <form @submit.prevent="registerCategory">
+      <form >
         <v-row>
+          <v-col cols="12" md="6" lg="6" sm="6">
+            <v-text-field color="#3f6ad8"  outlined dense label="نام دسته بندی" v-model="form_data.name"></v-text-field>
+          </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
             <select-main-category></select-main-category>
           </v-col>
-          <v-col cols="12" md="6" lg="6" sm="6">
-            <custom-textbox txt="نام دسته بندی" v-model="form_data.name"></custom-textbox>
-          </v-col>
+
         </v-row>
 
         <v-row>
-          <v-col cols="12" md="8" lg="8" sm="8" xs="8" offset-md="4" offset-lg="4" offset-sm="4" offset-xs="4">
+          <v-col cols="12" md="12" lg="12" xl="12" sm="12" xs="12">
+
+            <v-btn @click="registerCategory" class="btn_form float-right">ثبت دسته بندی</v-btn>
             <dialog-box :disable="toggle"></dialog-box>
-            <custom-button class="ml-2"  txt="ثبت دسته بندی" bgcolor="#0ad3f7" fontcolor="black" fontsize="1.3" icon="mdi-plus" iconcolor="black" width="10vw" height="3vw"></custom-button>
+
           </v-col>
         </v-row>
 
@@ -75,17 +79,27 @@ export default {
 </script>
 
 <style scoped>
-.main{
-  width: 60vw;
-  background-color: ghostwhite;
-  margin-right: auto;
-  margin-left: auto;
-}
+  .main{
+    width: 60vw;
+    background-color: ghostwhite;
+    float:left;
+    margin-left: 10vw;
+    margin-top: 1.5vw!important;
+  }
 *{
   font-family: 'Markazi Text', serif !important;
 }
-.v-select{
-  color: #0ad3f7!important;
-}
+  .form_head{
+    color:#3f6ad8;
+    text-align: center;
+    margin-bottom: 1vw;
+  }
+  .btn_form{
+    background-color: #2955c8!important;
+    border-color: #2651be!important;
+    color: white;
+    width: 10vw;
+    margin-right: 20vw;
+  }
 
 </style>

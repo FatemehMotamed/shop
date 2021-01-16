@@ -3,12 +3,13 @@
     <v-container >
       <form @submit.prevent="registerAttribute">
         <v-row>
-          <v-col cols="12" md="4" lg="4" xs="4" sm="4">
-            <v-btn  class="mx-2 mt-7 float-right" fab width="2vw" height="2vw" color="success" v-on:click.prevent="addAttribute()"><v-icon>mdi-plus</v-icon></v-btn>
-          </v-col >
           <v-col cols="12" md="8" lg="8" xs="8" sm="8">
             <custom-textbox txt="نام ویژگی" v-model="newAttribute.title"></custom-textbox>
           </v-col>
+          <v-col cols="12" md="4" lg="4" xs="4" sm="4">
+            <v-btn  class="mx-2 mt-7 float-right" fab width="2vw" height="2vw" color="success" v-on:click.prevent="addAttribute()"><v-icon>mdi-plus</v-icon></v-btn>
+          </v-col >
+
         </v-row>
         <v-row dir="rtl" class="attribute_table">
           <v-simple-table  style="width: 75%; float: right">

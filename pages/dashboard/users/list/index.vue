@@ -5,8 +5,8 @@
       <search-form ></search-form>
     </div>
 
-    <custom-table style="box-shadow: 5px 5px 5px #BDBDBD;" table_name="users" :list="table_data" :table_title="headers" ></custom-table>
-
+    <custom-table class="table_box mt-3"  table_name="users" :list="table_data" :table_title="headers" ></custom-table>
+    <br>
   </div>
 </template>
 
@@ -28,19 +28,19 @@
       return{
         table_data: [],
         headers: [
-          { text: 'نام کاربری', value: 'username', align: 'start'},
-          { text: 'نام', value: 'f_name'},
-          { text: 'نام خانوادگی', value: 'l_name' },
-          { text: 'شماره تماس', value: 'mobile' },
-          { text: 'کدملی', value: 'national_code' },
-          { text: 'شهر', value: 'city' },
-          { text: 'کدپستی', value: 'postal_code' },
+          { text: 'نام کاربری', value: 'username', align: 'start',class: 'white--text indigo accent-2--text'},
+          { text: 'نام', value: 'f_name',class: 'white--text indigo accent-2--text'},
+          { text: 'نام خانوادگی', value: 'l_name',class: 'white--text indigo accent-2--text' },
+          { text: 'شماره تماس', value: 'mobile',class: 'white--text indigo accent-2--text' },
+          { text: 'کدملی', value: 'national_code',class: 'white--text indigo accent-2--text' },
+          { text: 'شهر', value: 'city',class: 'white--text indigo accent-2--text' },
+          { text: 'کدپستی', value: 'postal_code',class: 'white--text indigo accent-2--text' },
           // { text: 'عکس', value: 'avatar' },
-          { text: 'ایمیل', value: 'email' },
+          { text: 'ایمیل', value: 'email',class: 'white--text indigo accent-2--text' },
 
 
 
-          { text: 'Actions', value: 'actions', sortable: false },
+          { text: 'Actions', value: 'actions', sortable: false,class: 'white--text indigo accent-2--text' },
 
         ],
       }
@@ -75,14 +75,11 @@
 
 <style scoped>
   .main{
-    width: 80vw;
+    width: 70vw;
     background-color: ghostwhite;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    padding-top: 0.5vw;
-    padding-bottom: 2vw;
+    float:left;
+    margin-left: 5vw;
+    margin-top: 1.5vw!important;
   }
   *{
     font-family: 'Markazi Text', serif !important;
@@ -96,6 +93,13 @@
     margin-right: auto;
     /*background-color: #b8ebe3;*/
     margin-top: 1vw;
+  }
+  .table_box{
+    /*box-shadow: 5px 5px 5px #BDBDBD;*/
+    width: 94%;
+    margin-right: 3%;
+    border: solid #7F828B 1px;
+    box-shadow: 5px 5px 5px #BDBDBD;
   }
 
 

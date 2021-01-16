@@ -1,39 +1,41 @@
 <template>
 
     <form @submit.prevent="searchUser">
+      <h1 class="pt-5 form_head" >لیست کاربران</h1>
     <v-container>
 <!--      {{form_data}}-->
       <v-row>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-            <custom-textbox txt="وضعیت" v-model="form_data.status"></custom-textbox>
+          <v-text-field color="#3f6ad8" outlined dense label="نام خانوادگی" v-model="form_data.l_name"></v-text-field>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-            <custom-textbox txt="نام خانوادگی" v-model="form_data.l_name"></custom-textbox>
+          <v-text-field color="#3f6ad8" outlined dense label="شماره ملی" v-model="form_data.national_code"></v-text-field>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-            <custom-textbox txt="شماره موبایل" v-model="form_data.mobile"></custom-textbox>
+          <v-text-field color="#3f6ad8" outlined dense label="شماره موبایل" v-model="form_data.mobile"></v-text-field>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-            <custom-textbox txt="شماره ملی" v-model="form_data.national_code"></custom-textbox>
+          <v-text-field color="#3f6ad8" outlined dense label="وضعیت" v-model="form_data.status"></v-text-field>
         </v-col>
+
+
+
       </v-row>
       <v-row>
         <v-col cols="12" md="6" sm="6" lg="6" xs="6">
           <custom-select></custom-select>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-          <selectbox-role class="mt-5"></selectbox-role>
+          <selectbox-role class="mt-3"></selectbox-role>
         </v-col>
         <v-col cols="12" md="3" sm="3" lg="3" xs="3">
-          <selectbox-branch class="mt-5"></selectbox-branch>
+          <selectbox-branch class="mt-3"></selectbox-branch>
         </v-col>
 
       </v-row>
       <v-row>
-          <v-col cols="12" md="2" lg="2" sm="2" offset-lg="5">
-            <custom-button txt="جستجو" bgcolor="black" fontcolor="white" fontsize="1.3" icon="mdi-magnify" iconcolor="white" width="10vw" height="3vw"></custom-button>
-          </v-col>
-        </v-row>
+        <v-btn class="btn_form mt-2" style="margin-right: 23vw" @click="searchUser">جستجوی کاربر</v-btn>
+      </v-row>
     </v-container>
   </form>
 
@@ -112,7 +114,19 @@
 </script>
 
 <style scoped>
+  .form_head{
+    color:#3f6ad8;
+    text-align: center;
+    margin-bottom: 1vw;
+  }
+  .btn_form{
+    background-color: #2955c8!important;
+    border-color: #2651be!important;
+    color: white;
+    width: 10vw;
+    font-size: 1vw;
 
+  }
 
 
 </style>

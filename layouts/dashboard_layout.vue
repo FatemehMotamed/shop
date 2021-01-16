@@ -12,11 +12,12 @@
         v-model="drawer"
         right
         fixed
-        width="17vw"
+        width="19vw"
       >
-        <v-list nav dense>
+        <!-- <v-list nav dense> -->
+        <v-list>
           <v-list-item-group active-class="deep-purple--text text--accent-4">
-              <navigation-drawer-page></navigation-drawer-page>
+              <navigation-drawer-page @callTogleDrawer="TogleDrawer"></navigation-drawer-page>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>

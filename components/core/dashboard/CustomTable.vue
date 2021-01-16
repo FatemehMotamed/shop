@@ -1,9 +1,5 @@
 <template>
-  <v-data-table dir="rtl" dark
-                :headers="table_title"
-                :items="list"
-                sort-by="calories"
-                class="text-center">
+  <v-data-table dir="rtl" :headers="table_title" :items="list" class="text-center">
     <template v-slot:top color>
 
       <v-dialog v-model="dialogDelete" max-width="500px">

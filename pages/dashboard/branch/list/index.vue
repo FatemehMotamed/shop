@@ -5,8 +5,8 @@
       <search-form></search-form>
     </div>
 
-    <custom-table style="box-shadow: 5px 5px 5px #BDBDBD;" table_name="branch"  :list="table_data" :table_title="headers" ></custom-table>
-
+    <custom-table class="table_box" table_name="branch"  :list="table_data" :table_title="headers" ></custom-table>
+    <br>
   </div>
 </template>
 
@@ -28,18 +28,18 @@
       return{
         table_data: [],
         headers: [
-          { text: 'نام شعبه', value: 'name', align: 'start'},
-          { text: 'شناسه شعبه', value: 'id'},
-          { text: 'شماره تلفن', value: 'phones'},
-          { text: 'استان', value: 'county' },
-          { text: 'شهر', value: 'city' },
-          { text: 'آدرس', value: 'address' },
-          { text: 'فکس', value: 'fax' },
-          { text: 'کدپستی', value: 'postal_code' },
-          { text: 'وضعیت', value: 'status' },
+          { text: 'نام شعبه', value: 'name', align: 'start',class: 'white--text indigo accent-2--text'},
+          { text: 'شناسه شعبه', value: 'id',class: 'white--text indigo accent-2--text'},
+          { text: 'شماره تلفن', value: 'phones',class: 'white--text indigo accent-2--text'},
+          { text: 'استان', value: 'county',class: 'white--text indigo accent-2--text' },
+          { text: 'شهر', value: 'city',class: 'white--text indigo accent-2--text' },
+          { text: 'آدرس', value: 'address',class: 'white--text indigo accent-2--text' },
+          { text: 'فکس', value: 'fax',class: 'white--text indigo accent-2--text', },
+          { text: 'کدپستی', value: 'postal_code',class: 'white--text indigo accent-2--text' },
+          { text: 'وضعیت', value: 'status',class: 'white--text indigo accent-2--text' },
 
 
-          { text: 'Actions', value: 'actions', sortable: false },
+          { text: 'Actions', value: 'actions', sortable: false,class: 'white--text indigo accent-2--text' },
 
         ],
       }
@@ -105,15 +105,13 @@
 
 <style scoped>
   .main{
-    width: 80vw;
+    width: 70vw;
     background-color: ghostwhite;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    padding-top: 0.5vw;
-    padding-bottom: 2vw;
+    float:left;
+    margin-left: 5vw;
+    margin-top: 1.5vw!important;
   }
+
   *{
     font-family: 'Markazi Text', serif !important;
   }
@@ -127,7 +125,13 @@
     /*background-color: #b8ebe3;*/
     margin-top: 1vw;
   }
-
+  .table_box{
+    /*box-shadow: 5px 5px 5px #BDBDBD;*/
+    width: 94%;
+    margin-right: 3%;
+    border: solid #7F828B 1px;
+    box-shadow: 5px 5px 5px #BDBDBD;
+  }
 
 </style>
 

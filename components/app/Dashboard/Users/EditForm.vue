@@ -1,6 +1,7 @@
 <template>
   <div class="main rounded-xl">
-<!--    {{form_data}}-->
+
+    <h1 class="pt-5 form_head" >ویرایش کاربر</h1>
     <v-container >
       <v-alert :value="alert_success" color="green" type="success" dark border="top" transition="scale-transition" dir="rtl" align="center">
         کاربر با موفقیت ویرایش شد
@@ -11,20 +12,20 @@
       <form>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field dir="rtl" :value="l_name" placeholder="نام خانوادگی" v-model="l_name"  :error-messages="lnameErrors" @input="$v.l_name.$touch()" @blur="$v.l_name.$touch()"></v-text-field>
+            <v-text-field color="#3f6ad8" outlined dense :value="l_name" label="نام خانوادگی" v-model="l_name"  :error-messages="lnameErrors" @input="$v.l_name.$touch()" @blur="$v.l_name.$touch()"></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field dir="rtl" placeholder="نام" v-model="f_name"  :error-messages="fnameErrors" @input="$v.f_name.$touch()" @blur="$v.f_name.$touch()"></v-text-field>
+            <v-text-field color="#3f6ad8" outlined dense label="نام" v-model="f_name"  :error-messages="fnameErrors" @input="$v.f_name.$touch()" @blur="$v.f_name.$touch()"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
             <v-text-field
-              dir="rtl"
+              color="#3f6ad8" outlined dense
               :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
               :type="show ? 'text' : 'password'"
               name="input-10-2"
-              placeholder="رمز عبور"
+              label="رمز عبور"
               class="input-group--focused"
               @click:append="show = !show"
               v-model="password"
@@ -32,22 +33,22 @@
             ></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field dir="rtl" placeholder="نام کاربری" v-model="username"  :error-messages="usernameErrors" @input="$v.username.$touch()" @blur="$v.username.$touch()"></v-text-field>
+            <v-text-field color="#3f6ad8" outlined dense label="نام کاربری" v-model="username"  :error-messages="usernameErrors" @input="$v.username.$touch()" @blur="$v.username.$touch()"></v-text-field>
           </v-col>
         </v-row>
         <custom-select></custom-select>
         <v-row>
           <v-col cols="12" md="12" lg="12" sm="12">
-            <v-text-field dir="rtl" placeholder="آدرس" v-model="address"  :error-messages="addressErrors" @input="$v.address.$touch()" @blur="$v.address.$touch()"></v-text-field>
+            <v-textarea color="#3f6ad8" outlined dense label="آدرس" v-model="address"  :error-messages="addressErrors" @input="$v.address.$touch()" @blur="$v.address.$touch()"></v-textarea>
           </v-col>
 
         </v-row>
         <v-row>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field dir="rtl" placeholder="کد ملی" v-model="national_code"  :error-messages="nationalCodeErrors" @input="$v.national_code.$touch()" @blur="$v.national_code.$touch()"></v-text-field>
+            <v-text-field color="#3f6ad8" outlined dense label="کد ملی" v-model="national_code"  :error-messages="nationalCodeErrors" @input="$v.national_code.$touch()" @blur="$v.national_code.$touch()"></v-text-field>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field dir="rtl" placeholder="کد پستی" v-model="postal_code"  :error-messages="postalCodeErrors" @input="$v.postal_code.$touch()" @blur="$v.postal_code.$touch()"></v-text-field>
+            <v-text-field color="#3f6ad8" outlined dense label="کد پستی" v-model="postal_code"  :error-messages="postalCodeErrors" @input="$v.postal_code.$touch()" @blur="$v.postal_code.$touch()"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -56,7 +57,7 @@
             <div class="validation_message" :value="branch_validation">{{branch_validation}}</div>
           </v-col>
           <v-col cols="12" md="6" lg="6" sm="6">
-            <v-text-field dir="rtl" placeholder="شماره موبایل" v-model="mobile"  :error-messages="mobileErrors" @input="$v.mobile.$touch()" @blur="$v.mobile.$touch()"></v-text-field>
+            <v-text-field color="#3f6ad8" outlined dense label="شماره موبایل" v-model="mobile"  :error-messages="mobileErrors" @input="$v.mobile.$touch()" @blur="$v.mobile.$touch()"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -66,18 +67,18 @@
             <div class="validation_message" :value="role_validation">{{role_validation}}</div>
           </v-col>
           <v-col cols="12" md="6" sm="6" lg="6">
-            <v-text-field dir="rtl" v-model="email" :error-messages="emailErrors" placeholder="ایمیل" @input="$v.email.$touch()" @blur="$v.email.$touch()"></v-text-field>
+            <v-text-field color="#3f6ad8" outlined dense label="ایمیل" v-model="email" :error-messages="emailErrors"  @input="$v.email.$touch()" @blur="$v.email.$touch()"></v-text-field>
           </v-col>
         </v-row>
 
 
         <v-row>
-          <v-col cols="12" md="4" lg="4" sm="4" xs="4"></v-col>
-          <v-col cols="12" md="6" lg="6" sm="6" xs="6">
-            <v-btn class="ml-6">
-              <nuxt-link style="text-decoration: none;color: black" to="/dashboard/users/list">بازگشت</nuxt-link>
+          <v-col cols="12" md="12" lg="12" xl="12" sm="12" xs="12">
+
+            <v-btn class="btn_form" style="margin-right: 20vw" @click="submit">ویرایش کاربر</v-btn>
+            <v-btn class=" mr-lg-3 mr-xl-3 mr-md-3 mr-sm-1 btn_form">
+              <nuxt-link style="text-decoration: none;color: white" to="/dashboard/users/list">بازگشت</nuxt-link>
             </v-btn>
-            <v-btn class="ml-2" @click="submit">ثبت کاربر</v-btn>
           </v-col>
         </v-row>
 
@@ -272,7 +273,7 @@ export default {
   },
   created() {
     let self=this;
-    this.$axios.post('/user/userSearch',{id:this.id_user}).then(function(response){
+    this.$axios.post('/user/userSearch',{id:self.id_user}).then(function(response){
       // console.log(response.data.data[0]);
       response.data.data.forEach(item => (
           self.id=item.id,
@@ -297,27 +298,31 @@ export default {
 </script>
 
 <style scoped>
-.main{
-  width: 60vw;
-  background-color: ghostwhite;
-  margin-right: auto;
-  margin-left: auto;
-}
+  .main{
+    width: 60vw;
+    background-color: ghostwhite;
+    float:left;
+    margin-left: 10vw;
+    margin-top: 1.5vw!important;
+  }
 *{
   font-family: 'Markazi Text', serif !important;
 }
-.v-text-field ::before {
-  border-color: black !important;
-  color: #7F828B !important;
-}
 
-.v-text-field ::after {
-  border-color: #0ad3f7 !important;
-  color: black !important;
-}
 .validation_message{
   color:#ff5252 !important;
   font-size: 12px;
+}
+.form_head{
+  color:#3f6ad8;
+  text-align: center;
+  margin-bottom: 1vw;
+}
+.btn_form{
+  background-color: #2955c8!important;
+  border-color: #2651be!important;
+  color: white;
+  width: 10vw;
 }
 
 </style>

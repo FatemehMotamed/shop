@@ -1,14 +1,14 @@
 <template>
 
-    <form @submit.prevent="searchCategory">
+    <form>
     <v-container>
-<!--      {{form_data}}-->
-      <v-row dir="rtl">
+      <h1 class="pt-5 form_head" >لیست دسته بندی ها</h1>
+      <v-row>
         <v-col cols="12" md="6" sm="6" lg="6" xs="6">
-            <custom-textbox txt="نام دسته بندی" v-model="form_data.name"></custom-textbox>
+          <v-text-field color="#3f6ad8" outlined dense label="نام دسته بندی" v-model="form_data.name"></v-text-field>
         </v-col>
         <v-col cols="12" md="6" lg="6" sm="6">
-          <custom-button class="mt-6 float-right" txt="جستجو" bgcolor="black" fontcolor="white" fontsize="1.3" icon="mdi-magnify" iconcolor="white" width="10vw" height="3vw"></custom-button>
+          <v-btn class="btn_form"  @click="searchCategory">جستجوی کاربر</v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -61,7 +61,19 @@
 </script>
 
 <style scoped>
+  .form_head{
+    color:#3f6ad8;
+    text-align: center;
+    margin-bottom: 1vw;
+  }
+  .btn_form{
+    background-color: #2955c8!important;
+    border-color: #2651be!important;
+    color: white;
+    width: 10vw;
+    font-size: 1vw;
 
+  }
 
 
 </style>

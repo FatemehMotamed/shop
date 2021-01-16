@@ -1,5 +1,5 @@
 <template>
-  <div class="main rounded-lg">
+  <div class="main rounded">
     <h1 class="pt-5 form_head" >ثبت شعبه</h1>
     <v-container >
       <v-alert :value="alert_success" color="green" type="success" dark border="top" transition="scale-transition" dir="rtl" align="center">
@@ -36,13 +36,14 @@
 
 
         <v-row>
-          <v-col cols="12" md="4" lg="4" sm="4" xs="4"></v-col>
-          <v-col cols="12" md="6" lg="6" sm="6" xs="6">
-            <v-btn class="ml-6 btn_form">
+          <v-col cols="12" md="12" lg="12" xl="12" sm="12" xs="12">
+
+            <v-btn class="btn_form" style="margin-right: 20vw" @click="submit">ثبت شعبه</v-btn>
+            <v-btn class=" mr-lg-3 mr-xl-3 mr-md-3 mr-sm-1 btn_form">
               <nuxt-link style="text-decoration: none;color: white" to="/dashboard">بازگشت</nuxt-link>
             </v-btn>
-            <v-btn class="ml-2 btn_form" @click="submit">ثبت شعبه</v-btn>
           </v-col>
+
         </v-row>
 
 
@@ -181,8 +182,9 @@
 .main{
   width: 60vw;
   background-color: ghostwhite;
-  margin-right: auto;
-  margin-left: auto;
+  float:left;
+  margin-left: 10vw;
+  margin-top: 1.5vw!important;
 }
 *{
   font-family: 'Markazi Text', serif !important;
@@ -204,11 +206,13 @@
   .form_head{
     color:#3f6ad8;
     text-align: center;
+    margin-bottom: 1vw;
   }
   .btn_form{
     background-color: #2955c8!important;
     border-color: #2651be!important;
     color: white;
+    width: 10vw;
   }
 
 </style>
