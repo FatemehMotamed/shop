@@ -31,12 +31,12 @@
         <ul>
           <li>
             <a href="#">
-              <v-img src="https://demo.dashboardpack.com/architectui-html-pro/assets/images/avatars/1.jpg"  max-height="40" max-width="40" class="rounded-circle ml-10 mt-1"></v-img>
+              <img src="@/assets/image/1.jpg"  style="max-width: 3.5vw;max-height: 3.5vw" class="rounded-circle ml-10 mt-1"/>
             </a>
 
             <div class="submenu_user">
               <div class="header_user_info">
-                <v-img src="https://demo.dashboardpack.com/architectui-html-pro/assets/images/avatars/1.jpg"  max-height="30" max-width="30" class="rounded-circle mr-3 float-right"></v-img>
+                <img src="@/assets/image/1.jpg"  style="max-width: 2vw;max-height: 2vw" class="rounded-circle ml-10 mt-1"/>
                 <label>{{ loggedInUser }}</label>
                 <v-btn class="mr-3" fab dark color="#322f3e" width="2vw" height="2vw" @click="logoutUser()">
                   <v-icon dark style="font-size: 0.8vw; color: white">
