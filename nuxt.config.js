@@ -3,10 +3,10 @@ import colors from 'vuetify/es5/util/colors'
 export default {
 
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
-  //  server: {
-  //   port: 8000, // default: 3000
-  //   host: '0.0.0.0' // default: localhost
-  // },
+  //server: {
+    //port: 80, // default: 3000,
+    //host: '0.0.0.0' // default: localhost,
+    //},
   ssr: false,
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -99,7 +99,7 @@ export default {
 // },
 
  axios: {
-    baseURL: 'http://127.0.0.1:8000/api',
+    baseURL: 'http://mahankabir.ir/api',
 
   },
 
