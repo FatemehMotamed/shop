@@ -1,7 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-
+  loading: "~/components/loading.vue",
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   //server: {
     //port: 80, // default: 3000,
@@ -14,7 +14,11 @@ export default {
   ** See https://nuxtjs.org/api/configuration-mode
   */
   mode: 'spa',
-
+  /*
+  ** Nuxt target
+  ** See https://nuxtjs.org/api/configuration-target
+  */
+  target: 'server',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - shop',
@@ -35,7 +39,6 @@ export default {
 
   css: [
     "~/assets/scss/app.scss",
-  //   "~/assets/bootsrap/css/bootstrap.css",
     'quill/dist/quill.core.css',
     'quill/dist/quill.snow.css',
     'quill/dist/quill.bubble.css'

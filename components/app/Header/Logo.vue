@@ -12,7 +12,7 @@
                 </a>
 
                 <div class="submenu">
-                  <img src="@/assets/image/bc6a97c7.svg">
+                  <img src="@/assets/images/bc6a97c7.svg">
                   <div class="info_container">
                     <div>
                       <div>

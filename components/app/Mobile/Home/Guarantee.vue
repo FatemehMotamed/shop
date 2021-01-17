@@ -7,7 +7,7 @@
                 lazy-src="https://picsum.photos/id/11/10/6"
                 max-height="75"
                 max-width="75"
-                src="http://localhost:3000/_nuxt/assets/image/7.PNG"
+                src="http://localhost:3000/_nuxt/assets/images/7.PNG"
                 ></v-img>
 
             </div>
@@ -16,7 +16,7 @@
                 lazy-src="https://picsum.photos/id/11/10/6"
                 max-height="75"
                 max-width="75"
-                src="http://localhost:3000/_nuxt/assets/image/8.PNG"
+                src="http://localhost:3000/_nuxt/assets/images/8.PNG"
                 ></v-img>
 
             </div>
@@ -25,7 +25,7 @@
                 lazy-src="https://picsum.photos/id/11/10/6"
                 max-height="75"
                 max-width="75"
-                src="http://localhost:3000/_nuxt/assets/image/9.PNG"
+                src="http://localhost:3000/_nuxt/assets/images/9.PNG"
                 ></v-img>
             </div>
         </v-row>
@@ -35,5 +35,5 @@
                 <subtitle-1>کالای اورجینال</subtitle-1>
         </v-row>
     </div>
-    
+
 </template>

@@ -31,12 +31,12 @@
         <ul>
           <li>
             <a href="#">
-              <img src="@/assets/image/1.jpg"  style="max-width: 3.5vw;max-height: 3.5vw" class="rounded-circle ml-10 mt-1"/>
+              <img src="@/assets/images/1.jpg"  style="max-width: 3.5vw;max-height: 3.5vw" class="rounded-circle ml-10 mt-1"/>
             </a>
 
             <div class="submenu_user">
               <div class="header_user_info">
-                <img src="@/assets/image/1.jpg"  style="max-width: 2vw;max-height: 2vw" class="rounded-circle ml-10 mt-1"/>
+                <img src="@/assets/images/1.jpg"  style="max-width: 2vw;max-height: 2vw" class="rounded-circle ml-10 mt-1"/>
                 <label>{{ loggedInUser }}</label>
                 <v-btn class="mr-3" fab dark color="#322f3e" width="2vw" height="2vw" @click="logoutUser()">
                   <v-icon dark style="font-size: 0.8vw; color: white">
