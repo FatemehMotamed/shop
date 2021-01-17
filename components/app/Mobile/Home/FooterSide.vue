@@ -3,10 +3,9 @@
     <div>
         <v-divider></v-divider>
 
-        <v-row class="justify-center text-center pt-4" style=" color:#424242">
+        <v-row class="justify-center text-center pt-6" style=" color:#424242">
             <div>
                 <v-icon
-                    class="pr-4"
                     large
                     color="grey darken-3"
                     >
@@ -23,9 +22,9 @@
             <div>ما را در شبکه های اجتماعی دنبال کنید</div>
         </v-row>
 
-        <v-divider></v-divider>
+        <v-divider class="mt-4"></v-divider>
 
-        <v-row class="justify-space-around text-center">
+        <v-row class="justify-space-around text-center mt-4">
             <div>
                 <div class="pa-2"><nuxt-link class="link" to="#">پشتیبانی مشتریان</nuxt-link></div>
                 <div class="pa-2"><nuxt-link class="link" to="#">سوالات متداول</nuxt-link></div>
@@ -39,7 +38,7 @@
                 <div class="pa-2"><nuxt-link class="link" to="#">تماس با ما</nuxt-link></div>
             </div>
         </v-row>
-        <v-divider></v-divider>
+        <v-divider class="mt-4"></v-divider>
 
         <div>
 
