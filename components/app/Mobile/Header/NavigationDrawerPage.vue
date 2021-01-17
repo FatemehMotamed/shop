@@ -17,6 +17,8 @@
         <men-menu class="mt-2" v-if="number == 0"></men-menu>
         <women-menu class="mt-2" v-if="number == 1"></women-menu>
         <kids-menu class="mt-2" v-if="number == 2"></kids-menu>
+        <beauty-menu class="mt-2" v-if="number == 3"></beauty-menu>
+
 
     </div>
 </template>
@@ -28,7 +30,9 @@ import EventBus from '@/assets/js/eventBus.js'
 import MainMenu from '@/components/app/Mobile/Header/MainMenu.vue'
 import MenMenu from '@/components/app/Mobile/Header/MenMenu.vue'
 import WomenMenu from '@/components/app/Mobile/Header/WomenMenu.vue'
+import BeautyMenu from '@/components/app/Mobile/Header/BeautyMenu.vue'
 import KidsMenu from '@/components/app/Mobile/Header/KidsMenu.vue'
+
 
 
 
@@ -39,6 +43,7 @@ import KidsMenu from '@/components/app/Mobile/Header/KidsMenu.vue'
             MainMenu,
             MenMenu,
             KidsMenu,
+            BeautyMenu,
         },
 
         data(){
