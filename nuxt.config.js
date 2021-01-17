@@ -1,7 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  loading: "~/components/loading.vue",
+  loading: "@/components/loading.vue",
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   //server: {
     //port: 80, // default: 3000,

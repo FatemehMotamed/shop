@@ -17,6 +17,7 @@
     "@nuxtjs/firebase": "^7.3.2",
     "apexcharts": "^3.23.1",
     "bootstrap-vue": "^2.21.2",
+    "c3": "^0.7.20",
     "cookie-universal-nuxt": "^2.1.4",
     "cookieparser": "^0.1.0",
     "core-js": "^3.6.5",
@@ -42,6 +43,7 @@
     "vue-smooth-scroll": "^1.0.13",
     "vue-string-filter": "^2.1.0",
     "vue-tour": "^1.5.0",
+    "vue2-datepicker": "^3.8.2",
     "vue2-dropzone": "^3.6.0",
     "vue2-google-maps": "^0.10.7",
     "vuelidate": "^0.7.6"

@@ -190,7 +190,7 @@ export default {
                         </div>
                         <div class="col">
                             <a class="dropdown-icon-item" href="#">
-                                <img src="~/assets/images/brands/bitbucket.png" alt="bitbucket" />
+                                <img src="@/assets/images/brands/bitbucket.png" alt="bitbucket" />
                                 <span>{{ $t('navbar.dropdown.site.list.bitbucket') }}</span>
                             </a>
                         </div>
