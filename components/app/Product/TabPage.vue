@@ -26,14 +26,14 @@
     <v-tabs-items v-model="tabs" style="font-family: 'Vazir', sans-serif; !important"
       light
       class="grey lighten-5">
+      <v-tab-item style="font-family: 'Vazir', sans-serif; !important"
+          light>
+      <sub-property></sub-property>
+      </v-tab-item>
       <v-tab-item v-for="(l, i) in product.comment" :key="i"> 
         <comment :comment="l"></comment>
       </v-tab-item>
-      <v-tab-item style="font-family: 'Vazir', sans-serif; !important"
-          light
->
-      <sub-property></sub-property>
-      </v-tab-item>
+
     </v-tabs-items>
   </v-card>
 </template>
