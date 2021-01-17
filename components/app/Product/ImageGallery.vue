@@ -59,21 +59,25 @@
 </template>
 <script>
 export default {
-    el: '#app',
 
-    data: () => ({
-      image: 'https://dkstatics-public.digikala.com/digikala-products/117602485.jpg?x-oss-process=image/resize,m_fill,h_2625,w_2000/quality,q_90',
-      list: [
-          "https://dkstatics-public.digikala.com/digikala-products/117602485.jpg?x-oss-process=image/resize,m_fill,h_2625,w_2000/quality,q_90",
-          "https://dkstatics-public.digikala.com/digikala-products/117602487.jpg?x-oss-process=image/resize,m_fill,h_2625,w_2000/quality,q_90",
-          "https://dkstatics-public.digikala.com/digikala-products/117602491.jpg?x-oss-process=image/resize,m_fill,h_2625,w_2000/quality,q_90",
-      ],
-      model: null,
-        dialog: false,
-        notifications: false,
-        sound: true,
-        widgets: false,
-    }),
+    props:{
+        product:{
+            type: Array,
+            default: '',
+        }
+    },
+
+    data(){
+        return{
+            image: this.product[0],
+            list: this.product,
+            model: null,
+            dialog: false,
+            notifications: false,
+            sound: true,
+            widgets: false,
+        }
+    },
     methods: {
       set_img(l){
           this.image = l

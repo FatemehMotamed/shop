@@ -2,23 +2,23 @@
 <div>
         <div class="sider mr-16">
             <div class="row justify-space-between">
+                <h1><span>{{ product.title }}</span></h1>
                 <v-icon color="black" style="float: left;">fa-share-alt</v-icon>
-                <h1><span>باینت</span></h1>
             </div>
             <br>
             <div class="float-right">
-                <h3>هودی مردانه باینت</h3>
+                <h3>{{ product.name }}</h3>
             </div>
             <br>
             <br>
 
             <div>
                 <div class="off" dir="rtl">
-                    <span>۲۷۸۰۰۰</span>
+                    <span>{{ product.off }}</span>
                     <span>تومان</span>
                 </div>
                 <div class="price" dir="rtl">
-                    <span>۲۷۸۰۰۰</span>
+                    <span>{{ product.price }}</span>
                     <span>تومان</span>
                 </div>
             </div>
@@ -36,13 +36,6 @@
             </div>
             <br>
             <div>
-            <v-btn
-                class="ma-2 pa-6"
-                outlined
-                color="black"
-                >
-                بعدا میخرم
-            </v-btn>
 
             <v-btn
                 class="ma-2 pa-6"
@@ -50,16 +43,24 @@
                 width="15vw"
                 style="position: relative;"
                 >
-            <span class="text-white">  میخرم </span>
-            <v-icon style="position: absolute;top:0;left:9vw;">fa-shopping-bag</v-icon>
+                <span class="text-white">  میخرم </span>
+                <v-icon style="position: absolute;top:0;left:9vw;">fa-shopping-bag</v-icon>
 
+            </v-btn>
+
+            <v-btn
+                class="ma-2 pa-6"
+                outlined
+                color="black"
+                >
+                بعدا میخرم
             </v-btn>
             </div>
 
             <br>
             <br>
 
-          <v-row dir="rtl" class="mr-2">
+          <v-row>
                 <v-icon color="grey lighten-1" style="font-size:2.5vw">fa-shopping-bag</v-icon>
               <div style="margin-right:10px;">
                 <span style="font-size:0.9vw">ضمانت هفت روز</span>
@@ -83,11 +84,10 @@
           </v-row>
 <br>
 <br>
-<br>
-<br>
-          <p>فروش توسط <a>باینت</a>
+
+          <p>فروش توسط <a>{{ product.seller }}</a>
               <v-icon color="blue">fa-check-circle</v-icon>
-              <span style="color:blue">فروشنده رسمی برند</span>
+              <span v-if="product.is_official == true" style="color:blue">فروشنده رسمی برند</span>
           </p>
         <hr>
         <br>
@@ -111,6 +111,12 @@
 
 <script>
 export default {
+    props:{
+        product:{
+            type:Object,
+            default: {},
+        }
+    },
     data(){
         return {
             items: ['M', 'L', 'XL', 'XXL'],
