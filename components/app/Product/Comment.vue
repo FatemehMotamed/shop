@@ -2,20 +2,32 @@
             <v-card flat>
           <v-card-text>
 
-        <h2 style="float:right">خوب</h2>
+        <h2 style="float:right">{{ comment.title }}</h2>
         <br>
         <br>
-        <span style="float:right">نوشته شده توسط ماهان کبیر، خریدار سایز xl</span>
-        <span style="float:left"> خریداری شده از <a>آدیوس</a></span>
+        <div class="row justify-space-between">
+            <div>
+                <span>نوشته شده توسط </span>
+                <span>{{ comment.name }}</span>
+                <span>خریدار سایز</span>
+                <span>{{ comment.buing_size }}</span>
+            </div>
+            <div>
+                <span> خریداری شده از <a>{{ comment.buing_from }}</a></span>
+            </div>
+        </div>
         <br>
         <br>
 
-        <h3 style="float:right">اندازه خودتون بگیرید نه کوچیکتر و نه بزرگتر </h3>
+        <h3 style="float:right">{{ comment.body }}</h3>
         <br>
         <br>
         <div style="float:right">
-          <span>خرید این محصول را حتماً پیشنهاد می کنم. </span>
-          <v-icon color="blue">fa-thumbs-up</v-icon> 
+          <span v-if="comment.suggest == '1'">خرید این محصول را حتماً پیشنهاد می کنم. </span>
+          <span v-if="comment.suggest == '2'">خرید این محصول را حتماً پیشنهاد نمی کنم. </span>
+
+          <v-icon v-if="comment.suggest == '1'" color="blue">fa-thumbs-up</v-icon> 
+          <v-icon v-if="comment.suggest == '2'" color="red">fa-thumbs-down</v-icon>
         </div>
         <br>
         <br>
@@ -45,6 +57,12 @@
 
 <script>
 export default {
+    props: {
+        comment: {
+            type: Object,
+            default: {},
+        },
+    },
     
 }
 </script>
