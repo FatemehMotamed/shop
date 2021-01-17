@@ -37,7 +37,7 @@
             <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
             <div>از پرطرفدارترین برندها: باینت</div>
         </v-row>
-        
+
         <tile-group></tile-group>
 
         <v-row class="justify-space-between text-center pt-10">
@@ -101,7 +101,7 @@
             FooterSide,
             Avatar,
         },
-          
+
         data(){
             return{
                 drawer: false,

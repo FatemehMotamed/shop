@@ -9,6 +9,12 @@ export default {
     //},
   ssr: false,
 
+  /*
+  ** Nuxt rendering mode
+  ** See https://nuxtjs.org/api/configuration-mode
+  */
+  mode: 'spa',
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - shop',
@@ -27,12 +33,30 @@ export default {
     ]
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    "~/assets/scss/app.scss",
+  //   "~/assets/bootsrap/css/bootstrap.css",
+    'quill/dist/quill.core.css',
+    'quill/dist/quill.snow.css',
+    'quill/dist/quill.bubble.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    "~/plugins/fireauth.js",
+    "~/plugins/fakeauth.js",
+    "~/plugins/simplebar.js",
+    "~/plugins/vue-click-outside.js",
+    "~/plugins/vuelidate.js",
+    "~/plugins/draggable.js",
+    "~/plugins/vue-slidebar.js",
+    "~/plugins/tour.js",
+    "~/plugins/vue-lightbox.js",
+    "~/plugins/mask.js",
+    "~/plugins/quill-editor.js",
+    "~/plugins/chartist.js",
+    "~/plugins/vue-googlemap.js",
+    "~/plugins/string-filter"
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -57,6 +81,9 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    // Doc: https://bootstrap-vue.js.org
+    'bootstrap-vue/nuxt',
+    'nuxt-i18n',
     // ['nuxt-vuex-localstorage', {
       // localStorage: ['username','token', 'expire'],
       // sessionStorage: ['sfoo']
@@ -64,6 +91,17 @@ export default {
 
     // 'cookie-universal-nuxt',
   ],
+
+  i18n: {
+    locales: ['fa'],
+    defaultLocale: 'fa',
+    vueI18n: {
+      fallbackLocale: 'fa',
+      messages: {
+        fa: require('./locales/fa.json')
+      }
+    }
+  },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
