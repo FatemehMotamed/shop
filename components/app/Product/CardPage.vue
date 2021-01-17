@@ -1,23 +1,25 @@
 <template>
-  <div dir="rtl">
-        <v-card
+  <div>
+    <v-card
     class="mx-auto"
     light
-    max-width="344"
-
-  >
+    max-width="344">
+    
     <v-img
-      src="https://dkstatics-public.digikala.com/digikala-products/117289581.jpg?x-oss-process=image/resize,m_fill,h_2625,w_2000/quality,q_90"
+      :src="tile_data.image"
       height="250px"
       width="200px"
     ></v-img>
 
     <v-card-title style="text-align: right">
-      باینت
+      {{ tile_data.title }}
     </v-card-title>
 
     <v-card-subtitle>
-      <span style="color: gray; !important">هودی مردانه باینت کد 352-2</span>
+      <div class="row justify-space-between">
+        <div><span style="color: gray; font-size: 0.8em !important">{{ tile_data.name }}</span></div>
+        <div><span style="color: gray; font-size: 0.9em !important">{{ tile_data.price }}</span></div>
+      </div>
     </v-card-subtitle>
 
   </v-card>
@@ -26,6 +28,13 @@
 
 <script>
   export default {
+
+    props:{
+      tile_data:{
+        type: Object,
+        default: {},
+      },
+    },
     data: () => ({
       show: false,
     }),
