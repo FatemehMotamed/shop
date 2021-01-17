@@ -26,11 +26,10 @@
     <v-tabs-items v-model="tabs" style="font-family: 'Vazir', sans-serif; !important"
       light
       class="grey lighten-5">
-      <v-tab-item>
-        <comment></comment>
+      <v-tab-item v-for="(l, i) in product.comment" :key="i"> 
+        <comment :comment="l"></comment>
       </v-tab-item>
       <v-tab-item style="font-family: 'Vazir', sans-serif; !important"
-          dir="rtl"
           light
 >
       <sub-property></sub-property>
@@ -44,6 +43,12 @@ import SubProperty from '@/components/app/Product/SubProperty.vue'
 import Comment from '@/components/app/Product/Comment.vue'
 
   export default {
+    props: {
+      product:{
+        type: Array,
+        default: [],
+      },
+    },
     components:{
       SubProperty,
       Comment,

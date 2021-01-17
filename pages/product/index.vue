@@ -19,7 +19,7 @@
   <v-layout>
     <v-flex xs12 sm8 offset-sm2>
       <v-layout class="ma-10">
-          <tab-page></tab-page>
+          <tab-page :product="properties.other_properties"></tab-page>
       </v-layout>
     </v-flex>
   </v-layout>
@@ -102,6 +102,26 @@ export default {
                 image: "https://dkstatics-public.digikala.com/digikala-products/684ca75ecb9ad2318647b5693861c9e3371bba50_1605519038.jpg?x-oss-process=image/resize,m_lfit,h_350,w_350/quality,q_60",
               },
           ],
+          other_properties:{
+            commnet:[
+              {
+              title: 'خوب',
+              name: 'ماهان کبیر',
+              buing_size: 'xl',
+              buing_from: 'آدیوس',
+              body: 'اندازه خودتون بگیرید نه کوچیکتر و نه بزرگتر',
+              suggest: '1',
+              },
+              {
+              title: 'خوب',
+              name: 'ماهان کبیر',
+              buing_size: 'xl',
+              buing_from: 'آدیوس',
+              body: 'اندازه خودتون بگیرید نه کوچیکتر و نه بزرگتر',
+              suggest: '1',
+              },
+            ],
+          }
         }
       }
     }
