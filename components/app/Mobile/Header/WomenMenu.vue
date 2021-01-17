@@ -2,6 +2,8 @@
   <v-card
     class="mx-auto"
     max-width="500"
+    elevation="0"
+
   >
     <v-list>
       <v-list-item-group v-model="model">
