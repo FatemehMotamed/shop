@@ -57,16 +57,17 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
-    ['nuxt-vuex-localstorage', {
-      localStorage: ['username','token', 'expire'],
-      sessionStorage: ['sfoo']
-    }]
+    // ['nuxt-vuex-localstorage', {
+      // localStorage: ['username','token', 'expire'],
+      // sessionStorage: ['sfoo']
+    // }]
 
     // 'cookie-universal-nuxt',
   ],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
+    rtl:true,
     customVariables: ['~/assets/variables.scss'],
     theme: {
       // dark: true,
@@ -125,7 +126,7 @@ auth: {
     prefix: 'auth.',
     options: {
       path: '/',
-      expires: 1,
+      // expires: 1,
     }
   }
   }

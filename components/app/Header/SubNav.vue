@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div dir="ltr">
     <v-container>
       <v-row >
 

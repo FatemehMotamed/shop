@@ -2,7 +2,6 @@
   <v-card>
 <!--    <v-card-title></v-card-title>-->
     <v-data-table
-      dark
       dir="rtl"
       class="text-center"
       :headers="table_title"

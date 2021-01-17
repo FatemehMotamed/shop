@@ -1,17 +1,18 @@
 <template>
 
-    <form @submit.prevent="searchBranch">
+    <form >
     <v-container>
 <!--      {{form_data}}-->
+      <h1 class="pt-5 form_head" >لیست شعب</h1>
       <v-row>
-        <v-col cols="12" md="4" sm="4" lg="4" xs="3">
-            <custom-textbox txt="وضعیت" v-model="form_data.status"></custom-textbox>
+        <v-col  cols="12" md="4" sm="4" lg="4" xs="3">
+          <v-text-field color="#3f6ad8" outlined dense label="وضعیت" v-model="form_data.status"></v-text-field>
         </v-col>
         <v-col cols="12" md="4" sm="4" lg="4" xs="3">
-            <custom-textbox txt="نام شعبه" v-model="form_data.name"></custom-textbox>
+          <v-text-field color="#3f6ad8" outlined dense label="نام شعبه" v-model="form_data.name"></v-text-field>
         </v-col>
         <v-col cols="12" md="4" sm="4" lg="4" xs="3">
-            <custom-textbox txt="شناسه شعبه" v-model="form_data.id"></custom-textbox>
+          <v-text-field color="#3f6ad8" outlined dense label="شناسه شعبه" v-model="form_data.id"></v-text-field>
         </v-col>
       </v-row>
       <v-row>
@@ -20,8 +21,8 @@
         </v-col>
       </v-row>
       <v-row>
-          <v-col cols="12" md="2" lg="2" sm="2" offset-lg="5">
-            <custom-button txt="جستجو" bgcolor="black" fontcolor="white" fontsize="1.3" icon="mdi-magnify" iconcolor="white" width="10vw" height="3vw"></custom-button>
+        <v-col cols="12" md="12" lg="12" xl="12" sm="12" xs="12">
+            <v-btn class="btn_form" style="margin-right: 20vw" @click="searchBranch">جستجوی شعبه</v-btn>
           </v-col>
         </v-row>
     </v-container>
@@ -32,7 +33,6 @@
 
 <script>
     import CustomButton from '@/components/core/dashboard/CustomButton'
-    import CustomTextbox from '@/components/core/dashboard/CustomTextbox'
     import CustomSelect from '@/components/core/dashboard/CustomSelect'
     import SelectboxBranch from '@/components/app/Dashboard/Branch/SelectboxBranch'
     import SelectboxRole from '@/components/app/Dashboard/Users/SelectboxRole'
@@ -41,7 +41,6 @@
         name: "SearchForm",
         components:{
           CustomButton:CustomButton,
-          CustomTextbox:CustomTextbox,
           CustomSelect:CustomSelect,
           SelectboxBranch:SelectboxBranch,
           SelectboxRole:SelectboxRole,
@@ -65,7 +64,7 @@
         methods:{
           async searchBranch(){
             let self=this;
-            this.$axios.get('/branch/search/',{
+            this.$axios.get('/branch/search',{
               params:{
                 id:self.form_data.id,
                 name:self.form_data.name,
@@ -106,7 +105,18 @@
 </script>
 
 <style scoped>
+  .form_head{
+    color:#3f6ad8;
+    text-align: center;
+    margin-bottom: 1vw;
+  }
+  .btn_form{
+    background-color: #2955c8!important;
+    border-color: #2651be!important;
+    color: white;
+    width: 10vw;
+    font-size: 1vw;
 
-
+  }
 
 </style>

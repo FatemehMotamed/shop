@@ -43,16 +43,16 @@
   }
 
 
-  .brand_boxul{
+  .brand_box ul{
     list-style-type: none;
     font-family: 'Markazi Text', serif !important;
   }
   .brand_box li{
     display: inline;
-    margin-right: 1.8vw;
+    margin-right: 1.5vw;
   }
   .brand_box a{
-    font-size: 1.5vw;
+    font-size: 1.2vw;
 
     text-decoration: none;
     color: #47494e!important;

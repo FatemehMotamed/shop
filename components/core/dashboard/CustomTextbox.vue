@@ -36,7 +36,7 @@
   }
 
   .v-text-field ::after {
-    border-color: #0ad3f7 !important;
+    border-color: #3f6ad8 !important;
     color: black !important;
   }
 

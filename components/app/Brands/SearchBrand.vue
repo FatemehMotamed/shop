@@ -1,5 +1,5 @@
 <template>
-    <v-row class="box">
+    <v-row class="box" dir="ltr">
         <v-col cols="12" md="2" sm="2">
           <v-text-field
           label=""
@@ -54,7 +54,7 @@ font-family: 'Markazi Text', serif !important;
   }
 
   .v-text-field ::after {
-    border-color: blueviolet !important;
+    border-color: #19424e !important;
     width: 20vw !important;
   }
 

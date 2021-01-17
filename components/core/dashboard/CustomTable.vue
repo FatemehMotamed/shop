@@ -1,10 +1,6 @@
 <template>
-  <v-data-table dir="rtl" dark
-                :headers="table_title"
-                :items="list"
-                sort-by="calories"
-                class="text-center">
-    <template v-slot:top>
+  <v-data-table dir="rtl" :headers="table_title" :items="list" class="text-center">
+    <template v-slot:top color>
 
       <v-dialog v-model="dialogDelete" max-width="500px">
         <v-card>
@@ -28,7 +24,7 @@
       <!--       <v-icon small v-if="item.status=='inactive'" @click="toggle_status(item)" v-model="item.status">mdi-eye-off</v-icon>-->
       {{item.status_bool}}
       <v-icon @click="toggle_status(item)" small :class="[ item.status_bool ? 'is-on' : 'is-off' ]" >mdi-eye</v-icon>
-<!--      <v-icon small  @click="toggle_status(item)"  :class="{t:item.status_bool}">{{item.icon}}</v-icon>-->
+      <!--      <v-icon small  @click="toggle_status(item)"  :class="{t:item.status_bool}">{{item.icon}}</v-icon>-->
     </template>
     <template v-slot:no-data>
       <v-btn color="primary" >

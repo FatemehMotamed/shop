@@ -2,16 +2,14 @@
 
     <v-dialog v-model="dialog" width="600px">
       <template v-slot:activator="{ on, attrs }">
-        <div class="float-left" v-if="disable">
-          <v-btn disabled height="3vw" width="10vw">
+        <div class="float-right" v-if="disable">
+          <v-btn disabled  width="10vw" class="custom_btn mr-3">
           ثبت ویژگی
-          <v-icon>mdi-format-list-bulleted</v-icon>
         </v-btn>
         </div>
-        <div  class="float-left" v-else>
-          <v-btn color="#FA950B" v-bind="attrs" v-on="on" width="10vw" height="3vw" class="custom_btn">
+        <div  class="float-right" v-else>
+          <v-btn color="#3f6ad8" v-bind="attrs" v-on="on" width="10vw"  class="custom_btn mr-3">
             ثبت ویژگی
-            <v-icon>mdi-format-list-bulleted</v-icon>
           </v-btn>
         </div>
 
@@ -65,7 +63,7 @@ export default {
     saveAttributes(){
 
       let self=this
-      this.$axios.post('/category/addProperties/',self.form_data)
+      this.$axios.post('/category/addProperties',self.form_data)
       self.dialog = false
       // this.$router.push('/dashboard/category/create')
     }
@@ -81,10 +79,10 @@ export default {
 <style scoped>
 
   .custom_btn{
-    font-family: 'Markazi Text', serif !important;
-    font-weight: bold;
-    font-size: 1vw;
-    color: black!important;
+    background-color: #2955c8!important;
+    border-color: #2651be!important;
+    color: white;
+    width: 10vw;
   }
   *{
     font-family: 'Markazi Text', serif !important;

@@ -1,26 +1,20 @@
 <template>
-<div><a @click="set()">AllUSER</a></div>
+  <home-page></home-page>
+
 </template>
 
 <script>
    import{ mapGetters } from 'vuex'
+   import HomePage from '@/components/app/Dashboard/Home/HomePage'
     export default {
         middleware: 'authDashboard',
         name: "index",
         layout: "dashboard_layout",
-        methods:{
-          set(){
-            let self=this;
-              this.$axios.post('/user/usersList').then(function(response){
-              console.log(response);
-        })
-          }
-        },
-        computed: {
-              ...mapGetters(['getToken'])
-              }
-
+        components:{
+          HomePage:HomePage
+        }
     }
+
 </script>
 
 <style scoped>

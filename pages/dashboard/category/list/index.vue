@@ -1,13 +1,13 @@
 <template>
-  <div class="main rounded-xl">
-    <div class="form_box rounded-lg">
+  <div class="mt-10 main rounded" style="box-shadow: 5px 5px 5px #BDBDBD; float:left">
+    <div class="form_box rounded">
 
-      <search-form ></search-form>
+      <search-form></search-form>
     </div>
 
 <!--    <custom-table table_name="branch"  :list="table_data" :table_title="headers" ></custom-table>-->
-    <expandable-table table_name="branch"  :list="table_data" :table_title="headers"></expandable-table>
-
+    <expandable-table class="table_box" table_name="branch"  :list="table_data" :table_title="headers"></expandable-table>
+  <br>
   </div>
 </template>
 
@@ -29,10 +29,10 @@
       return{
         table_data: [],
         headers: [
-          { text: 'نام دسته بندی', value: 'name', align: 'start'},
-          { text: 'دسته بندی مادر', value: 'parent'},
+          { text: 'نام دسته بندی', value: 'name', align: 'start',class: 'white--text indigo accent-2--text'},
+          { text: 'دسته بندی مادر', value: 'parent',class: 'white--text indigo accent-2--text'},
 
-          { text: 'Actions', value: 'actions', sortable: false },
+          { text: 'Actions', value: 'actions', sortable: false,class: 'white--text indigo accent-2--text' },
 
         ],
       }
@@ -62,7 +62,7 @@
         let self = this;
 
 
-        this.$axios.post('/category/search/').then(function(response) {
+        this.$axios.post('/category/search').then(function(response) {
 
           // self.table_data=response.data.data
           response.data.data.forEach(item => {
@@ -105,14 +105,11 @@
 
 <style scoped>
   .main{
-    width: 80vw;
+    width: 60vw;
     background-color: ghostwhite;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    padding-top: 0.5vw;
-    padding-bottom: 2vw;
+    float:left;
+    margin-left: 10vw;
+    margin-top: 1.5vw!important;
   }
   *{
     font-family: 'Markazi Text', serif !important;
@@ -127,7 +124,13 @@
     /*background-color: #b8ebe3;*/
     margin-top: 1vw;
   }
-
+  .table_box{
+    /*box-shadow: 5px 5px 5px #BDBDBD;*/
+    width: 94%;
+    margin-right: 3%;
+    border: solid #7F828B 1px;
+    box-shadow: 5px 5px 5px #BDBDBD;
+  }
 
 </style>
 

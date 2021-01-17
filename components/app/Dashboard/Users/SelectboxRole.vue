@@ -1,9 +1,10 @@
 <template>
-    <v-row>
-        <v-col cols="12" md="12" sm="12" lg="12">
+
           <v-select
+              outlined
+              dense
               v-on:change="fill_role($event)"
-              color="#0ad3f7"
+              color="#3f6ad8"
               align-center
               :items="role"
                item-value="id"
@@ -11,11 +12,9 @@
               menu-props="auto"
               label="نقش کاربر"
               hide-details
-              prepend-icon="mdi-account"
               single-line
             ></v-select>
-        </v-col>
-    </v-row>
+
 </template>
 
 <script>
@@ -47,7 +46,5 @@
 *{
   font-family: 'Markazi Text', serif !important;
 }
-.v-select{
-  color: #0ad3f7!important;
-}
+
 </style>
