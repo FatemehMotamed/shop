@@ -32,15 +32,20 @@
               <form>
                 <category-select></category-select>
                 <v-row>
-                  <v-col cols="12" md="4" lg="4" sm="4" xs="4" >
+                  <v-col cols="12" md="6" lg="6" sm="6" xs="6" >
                     <selectbox-branch v-if="show"></selectbox-branch>
                     <div class="validation_message" :value="branch_validation">{{branch_validation}}</div>
                   </v-col>
-                  <v-col cols="12" md="4" lg="4" sm="4" xs="4">
+                  <v-col cols="12" md="6" lg="6" sm="6" xs="6">
                     <v-text-field color="#3f6ad8"  outlined dense label="قیمت" v-if="show" v-model="price" :error-messages="priceErrors" @input="$v.price.$touch()" @blur="$v.price.$touch()"  required></v-text-field>
                   </v-col>
-                  <v-col cols="12" md="4" lg="4" sm="4" xs="4">
+                </v-row>
+                <v-row>
+                  <v-col cols="12" md="6" lg="6" sm="6" xs="6">
                     <v-text-field color="#3f6ad8"  outlined dense label="عنوان محصول" v-if="show" v-model="title" :error-messages="titleErrors" @input="$v.title.$touch()" @blur="$v.title.$touch()"  required></v-text-field>
+                  </v-col>
+                  <v-col cols="12" md="6" lg="6" sm="6" xs="6">
+                    <v-text-field color="#3f6ad8"  outlined dense label="موجودی" v-if="show" v-model="count" ></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
@@ -51,7 +56,7 @@
                 <v-row>
                   <v-col v-for="(item, key) in fields" cols="12" md="6" lg="6" sm="6" xs="6">
 
-                    <v-text-field  color="#3f6ad8"  outlined dense :label="item.value" v-model="fields[key].value" ></v-text-field>
+                    <v-text-field  color="#3f6ad8"  outlined dense :label="item.label" v-model="fields[key].value" ></v-text-field>
                   </v-col>
                 </v-row>
 
@@ -59,10 +64,10 @@
                   <v-col cols="12" md="12" lg="12" xl="12" sm="12" xs="12">
                     <v-btn class="btn_form float-right" style="margin-right: 20vw"  @click="submit">{{btn_txt}}</v-btn>
                     <div class="float-right" v-if="btn_continue">
-                      <v-btn class="btn_form"  @click.native="e1=2">ادامه</v-btn>
+                      <v-btn class="btn_form mr-2"  @click.native="e1=2">ادامه</v-btn>
                     </div>
                     <div v-else>
-                      <v-btn c disabled class="btn_form float-right" >ادامه</v-btn>
+                      <v-btn c disabled class="btn_form float-right mr-2" >ادامه</v-btn>
                     </div>
 
                   </v-col>
@@ -72,17 +77,17 @@
           </v-stepper-content>
 
           <v-stepper-content step="2">
-            <v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
+            <v-card class="pa-md-4 mx-lg-auto" >
+              <upload-image :product_id="product_registered_id" ></upload-image>
+            </v-card>
+
             <v-row>
-              <v-col cols="12" md="6" lg="6" sm="6" xs="6" >
-                <custom-button class="float-right" v-on:click.native="e1=1" txt="بازگشت" bgcolor="lightblue" fontcolor="black" fontsize="1.3" icon="mdi-keyboard-return" iconcolor="black" width="10vw" height="3vw"></custom-button>
-              </v-col>
-              <v-col cols="12" md="6" lg="6" sm="6" xs="6" >
-                <custom-button   txt="ثبت تصاویر" bgcolor="green" fontcolor="black" fontsize="1.3" icon="mdi-file-image" iconcolor="black" width="10vw" height="3vw"></custom-button>
+              <v-col cols="12" md="12" lg="12" xl="12" sm="12" xs="12">
 
+                <v-btn v-on:click.native="e1=1" style="margin-right: 40%!important;" class=" mr-lg-3 mr-xl-3 mr-md-3 mr-sm-1 btn_form">بازگشت</v-btn></v-col>
 
-              </v-col>
             </v-row>
+
 
           </v-stepper-content>
         </v-stepper-items>
@@ -98,6 +103,7 @@
 import CustomButton from '@/components/core/dashboard/CustomButton'
 import CustomTextbox from '@/components/core/dashboard/CustomTextbox'
 import CategorySelect from '@/components/app/Dashboard/Products/CategorySelect'
+import UploadImage from '@/components/app/Dashboard/Products/UploadImage'
 import SelectboxBranch from '@/components/app/Dashboard/Branch/SelectboxBranch'
 import EventBuss from '@/assets/js/eventBus'
 import { validationMixin } from 'vuelidate'
@@ -109,6 +115,7 @@ export default {
     CustomTextbox: CustomTextbox,
     CategorySelect: CategorySelect,
     SelectboxBranch: SelectboxBranch,
+    UploadImage:UploadImage
   },
   mixins: [validationMixin],
 
@@ -135,12 +142,12 @@ export default {
         description: '',
         category_id: '',
         branch_id: '',
-
+        count:0,
         fields: [],
         properties : [],
         show: false,
-        dic: {}
-
+        dic: {},
+        product_registered_id:''
 
       }
     },
@@ -167,6 +174,7 @@ export default {
           description: this.description,
           category_id: this.category_id,
           branch_id: this.branch_id,
+          count:this.count
         }]
 
         let form_data = {
@@ -179,7 +187,8 @@ export default {
         form_data.properties = this.properties
 
         this.$axios.post('/product', form_data).then(function (response) {
-          console.log(response.data.data)
+          // console.log(response.data.product.id)
+
         })
         // console.log(this.form_data)
         this.btn_txt = 'ویرایش محصول'
@@ -198,7 +207,7 @@ export default {
         let self = this
         this.$axios.get('/category/' + this.sub_category + '/getProperties').then(function (response) {
           // console.log(response.data.data)
-          self.fields = response.data.data
+          response.data.data.forEach(item => self.fields.push({ id:item.id, value:item.value, label:item.value }));
 
         })
         this.show = true
@@ -263,7 +272,7 @@ export default {
     width: 60vw;
     background-color: ghostwhite;
     float:left;
-    margin-left: 10vw;
+    margin-left: 5vw;
     margin-top: 1.5vw!important;
   }
 *{
@@ -280,6 +289,7 @@ export default {
     border-color: #2651be!important;
     color: white;
     width: 10vw;
+
   }
   .validation_message{
     color:#ff5252 !important;

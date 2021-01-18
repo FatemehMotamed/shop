@@ -1,6 +1,6 @@
 <template>
     <v-app-bar
-        height="50vw"
+        height="60vw"
         color="white"
         prominent
         fixed
@@ -38,11 +38,7 @@
               <div class="header_user_info">
                 <img src="@/assets/image/1.jpg"  style="max-width: 2vw;max-height: 2vw" class="rounded-circle ml-10 mt-1"/>
                 <label>{{ loggedInUser }}</label>
-                <v-btn class="mr-3" fab dark color="#322f3e" width="2vw" height="2vw" @click="logoutUser()">
-                  <v-icon dark style="font-size: 0.8vw; color: white">
-                    mdi-exit-to-app
-                  </v-icon>
-                </v-btn>
+
               </div>
               <div class="info_container_user">
 
@@ -57,6 +53,10 @@
                 <div>
                   <font-awesome-icon :icon="['fas', 'code-branch']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
                   <label class="float-right mr-2">اطلاعات  شعبه</label>
+                </div>
+                <div>
+                  <font-awesome-icon :icon="['fas', 'sign-out-alt']" slot="prepend" style="color:#696969;" class="float-right mr-8 mt-1" />
+                  <label class="float-right mr-2"><a @click="logoutUser()">خروج از حساب کاربری</a></label>
                 </div>
 
               </div>
@@ -149,8 +149,8 @@
     /*background: white;*/
     border-radius: 5px;
     position: absolute;
-    top:3.9vw;
-    left: 12%;
+    top:4.8vw;
+    left: 2vw;
     transform: translateX(2%);
     display: none;
     background-color: white;
@@ -202,6 +202,9 @@
 }
   .header_user_info label{
     color: white!important;
+  }
+  .info_container_user a{
+    color: rgba(0, 0, 0, 0.87) !important;
   }
 
 

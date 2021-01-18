@@ -1,6 +1,6 @@
 <template>
 
-  <create-form class="mt-10" style="box-shadow: 5px 5px 5px #BDBDBD;"></create-form>
+  <create-form ></create-form>
 </template>
 
 <script>
