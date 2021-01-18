@@ -29,9 +29,7 @@ import EventBus from '@/assets/js/eventBus.js'
     methods:{
       send_number_to_main(i){
         if(i == 0){
-          EventBus.$emit('number', -1)
-        }else if(i == 2){
-          EventBus.$emit('number', 4)
+          EventBus.$emit('number', 0)
         }
       },
     },
@@ -39,31 +37,58 @@ import EventBus from '@/assets/js/eventBus.js'
       items: [
         {
           icon: 'mdi-forward',
-          text: 'مردانه',
+          text: 'لباس مردانه',
         },
         {
-          text: 'همه کالاهای مردانه',
+          text: 'همه لباس‌های مردانه',
         },
         {
-          icon: 'mdi-tshirt-v',
-          text: 'لباس',
+          text: 'فروش ویژه',
         },
         {
-          icon: 'mdi-bag-personal',
-          text: 'کیف',
+          text: 'جدیدترین‌ها',
         },
         {
-          icon: 'mdi-shoe-formal',
-          text: 'کفش',
+          text: 'کت پاییزه و زمستانی',
         },
         {
-          icon: 'mdi-glasses',
-          text: 'اکسسوری',
+          text: 'پالتو',
         },
         {
-          icon: 'mdi-run',
-          text: 'ورزشی',
+          text: 'کاپشن',
         },
+        {
+          text: 'کت‌جلیقه و ست رسمی',
+        },
+        {
+          text: 'ژاکت و پلیور',
+        },
+        {
+          text: 'سویشرت و هودی',
+        },
+        {
+          text: 'جین',
+        },
+        {
+          text: 'پیراهن',
+        },
+
+        {
+          text: 'تی‌شرت و پولو‌شرت',
+        },
+        {
+          text: 'شلوار و شلوارک راحتی',
+        },
+        {
+          text: 'جوراب و ساق',
+        },
+        {
+          text: 'لباس راحتی',
+        },
+        {
+          text: 'لباس زیر',
+        },
+
       ],
       model: 1,
     }),

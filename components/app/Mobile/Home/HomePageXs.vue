@@ -1,13 +1,67 @@
 <template >
-     <v-app>
-    <v-card
-      class="mx-auto overflow-hidden"
-      height="100%"
-      width="100%"
+<div>
+  <v-system-bar color="deep-purple darken-3"></v-system-bar>
+
+  <v-app-bar
+    color="red accent-4"
+    fixed
+    clipped-right>
+    <v-app-bar-nav-icon class="white--text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+    <v-toolbar-title class="white--text">Brand Name</v-toolbar-title>
+
+    <v-spacer></v-spacer>
+
+    <v-btn icon>
+      <v-icon class="white--text">mdi-magnify</v-icon>
+    </v-btn>
+
+    <v-btn icon>
+      <v-icon class="white--text">mdi-shopping</v-icon>
+    </v-btn>
+
+  </v-app-bar>
+
+  <v-navigation-drawer
+    v-model="drawer"
+    fixed
+    right
+    temporary
+  >
+    <v-list
+      nav
+      dense
     >
-      <avatar class="pt-10"></avatar>
-      <v-card-text>
-        <banner :banner="main_data.banner_images"></banner>
+      <v-list-item-group
+        v-model="group"
+        active-class="deep-purple--text text--accent-4"
+      >
+      <div class="row justify-space-around">
+
+          <div><v-icon class="ma-2">mdi-close</v-icon></div>
+          <div>
+              <v-btn
+                  class="ma-2"
+                  outlined
+                  color="dark">
+                  ورود و ثبت نام
+              </v-btn>
+          </div>
+
+      </div>
+      <main-menu class="mt-2" v-if="number == -1"></main-menu>
+      <men-menu class="mt-2" v-if="number == 0"></men-menu>
+      <women-menu class="mt-2" v-if="number == 1"></women-menu>
+      <kids-menu class="mt-2" v-if="number == 2"></kids-menu>
+      <beauty-menu class="mt-2" v-if="number == 3"></beauty-menu>
+      <sub-men-menu class="mt-2" v-if="number == 4"></sub-men-menu>
+
+
+      </v-list-item-group>
+    </v-list>
+  </v-navigation-drawer>
+  <v-main>
+<banner class="mt-16" :banner="main_data.banner_images"></banner>
 
         <div class="row justify-space-between pt-8">
             <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
@@ -58,15 +112,24 @@
         <brands class="mt-4"></brands>
 
         <footer-side class="mt-4"></footer-side>
-
-      </v-card-text>
-    </v-card>
-  </v-app>
+  </v-main>
+</div>
 </template>
 
 <script>
+
+  import EventBus from '@/assets/js/eventBus.js'
+
+  import MainMenu from '@/components/app/Mobile/Header/MainMenu.vue'
+  import MenMenu from '@/components/app/Mobile/Header/MenMenu.vue'
+  import WomenMenu from '@/components/app/Mobile/Header/WomenMenu.vue'
+  import BeautyMenu from '@/components/app/Mobile/Header/BeautyMenu.vue'
+  import KidsMenu from '@/components/app/Mobile/Header/KidsMenu.vue'
+
+  import SubMenMenu from '@/components/app/Mobile/Header/SubMenu/SubMenMenu.vue'
+
+
   import AppBarPage from "@/components/app/Mobile/Header/AppBarPage";
-  import NavigationDrawerPage from "@/components/app/Mobile/Header/NavigationDrawerPage";
   import GroupCard from "@/components/app/Mobile/Home/GroupCard.vue";
   import Banner from "@/components/app/Mobile/Home/Banner.vue";
   import Guarantee from "@/components/app/Mobile/Home/Guarantee.vue";
@@ -78,8 +141,15 @@
     export default {
         name: "HomePage",
         components:{
+
+            MainMenu,
+            MenMenu,
+            KidsMenu,
+            BeautyMenu,
+
+            SubMenMenu,
+
             AppBarPage:AppBarPage,
-            NavigationDrawerPage:NavigationDrawerPage,
             GroupCard: GroupCard,
             Banner,
             Guarantee,
@@ -95,8 +165,10 @@
     },
         data(){
             return{
-                    drawer: false,
-      group: null,
+                number: -1,
+
+                drawer: false,
+                group: null,
                 drawer: false,
                 menu:['مردانه','woman','child'],
                 menu2:['tshirt','shoe','kif'],
@@ -115,7 +187,16 @@
                 }
             }
         },
-
+        watch: {
+          group () {
+            this.drawer = false
+          },
+        },
+        mounted(){
+            EventBus.$on('number', (i) => {
+                this.number = i;
+            })
+        },
         methods:{
             TogleDrawer(){
                 this.drawer=!this.drawer
