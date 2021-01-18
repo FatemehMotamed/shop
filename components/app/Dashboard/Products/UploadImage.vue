@@ -1,7 +1,9 @@
 <template>
+
   <div>
+    {{ product_id}}
     <el-upload
-      :action="'http://localhost:8000/api/product/image/upload?product_id='+product_id"
+      :action="address"
       list-type="picture-card"
       :on-success="handleSuccess"
       :on-preview="handlePictureCardPreview"
@@ -26,7 +28,12 @@
   Vue.use(ElementUI);
 
   export default {
-    props:['product_id'],
+    props:{
+     product_id:{
+                type: String,
+                required: true,
+            },
+    },
     data() {
       return {
         dialogImageUrl: '',
@@ -34,6 +41,8 @@
         disabled: false,
         file: '',
         fileList: [],
+        address:'http://localhost:8000/api/product/image/upload?product_id='+parseInt(this.product_id)
+
       };
     },
     methods: {
@@ -55,7 +64,8 @@
         this.dialogImageUrl = file.url;
         this.dialogVisible = true;
       },
-    }
+    },
+
   }
 </script>
 

@@ -1,9 +1,5 @@
 <template>
-
-
-  <create-form ></create-form>
-
-
+  <create-form class="mt-10"></create-form>
 </template>
 
 <script>
