@@ -100,8 +100,6 @@
 </template>
 
 <script>
-import CustomButton from '@/components/core/dashboard/CustomButton'
-import CustomTextbox from '@/components/core/dashboard/CustomTextbox'
 import CategorySelect from '@/components/app/Dashboard/Products/CategorySelect'
 import UploadImage from '@/components/app/Dashboard/Products/UploadImage'
 import SelectboxBranch from '@/components/app/Dashboard/Branch/SelectboxBranch'
@@ -111,8 +109,6 @@ import { required, maxLength, email, minLength, numeric } from 'vuelidate/lib/va
 export default {
   name: "CreateForm",
   components: {
-    CustomButton: CustomButton,
-    CustomTextbox: CustomTextbox,
     CategorySelect: CategorySelect,
     SelectboxBranch: SelectboxBranch,
     UploadImage:UploadImage

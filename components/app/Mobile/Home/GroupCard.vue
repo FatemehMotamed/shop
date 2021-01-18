@@ -28,7 +28,7 @@
 
 <script>
 
-    import ProductCard from '@/components/core/ProductCard.vue';
+    import ProductCard from '@/components/app/Mobile/Home/ProductCard.vue';
 
     export default {
 

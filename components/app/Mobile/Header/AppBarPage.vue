@@ -3,9 +3,10 @@
         color="accent-4"
         prominent
         fixed
-        height="50vw"
-      >
-        <label><font-awesome-icon :icon="['fas', 'shopping-bag']" slot="prepend" style="color:dimgrey;" /></label>
+        height="50vw">
+
+        <v-btn icon><v-icon>mdi-shopping</v-icon></v-btn>
+
         <v-btn icon><v-icon>mdi-magnify</v-icon></v-btn>
         <v-spacer></v-spacer>
         <v-app-bar-nav-icon @click.stop="togleDrawer" ></v-app-bar-nav-icon>

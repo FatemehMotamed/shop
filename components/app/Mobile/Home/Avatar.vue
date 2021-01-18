@@ -5,8 +5,8 @@
         <div>
             <v-avatar>
             <img
-                src="https://cdn.vuetifyjs.com/images/john.jpg"
-                alt="John"
+                src="~/assets/image/beauty.jpeg"
+                alt="Beauty"
             >
             </v-avatar>
         </div>
@@ -20,8 +20,8 @@
         <div>
             <v-avatar>
             <img
-                src="https://cdn.vuetifyjs.com/images/john.jpg"
-                alt="John"
+                src="~/assets/image/kids.jpeg"
+                alt="Kids"
             >
             </v-avatar>
         </div>
@@ -35,8 +35,8 @@
         <div>
             <v-avatar>
             <img
-                src="https://cdn.vuetifyjs.com/images/john.jpg"
-                alt="John"
+                src="~/assets/image/women.jpeg"
+                alt="Women"
             >
             </v-avatar>
         </div>
@@ -50,8 +50,8 @@
         <div>
             <v-avatar>
             <img
-                src="https://cdn.vuetifyjs.com/images/john.jpg"
-                alt="John"
+                src="~/assets/image/men.jpeg"
+                alt="Men"
             >
             </v-avatar>
         </div>

@@ -2,7 +2,7 @@
 
 <div>
     <div v-for="(l, index) in tile_lists_01" :key="index">
-        <v-row class="justify-space-between text-center pa-6">
+        <v-row class="justify-space-around text-center mt-4">
             <product-tile :product="l"></product-tile>
             <product-tile :product="l"></product-tile>
         </v-row>
@@ -14,7 +14,7 @@
 
 <script>
 
-import ProductTile from "@/components/core/ProductTile.vue";
+import ProductTile from "@/components/app/Mobile/Home/ProductTile.vue";
 export default {
     components:{
         ProductTile,

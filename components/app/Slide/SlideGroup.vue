@@ -11,7 +11,7 @@
       show-arrows
     >
       <v-slide-item
-        v-for="item in items"
+        v-for="(item, i) in items" :key="i"
       >
         <v-card
           class="ma-4 slide_card"
