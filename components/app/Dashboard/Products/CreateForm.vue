@@ -185,10 +185,10 @@ export default {
         this.fill_properties()
         form_data.product = product
         form_data.properties = this.properties
-
+        let self=this
         this.$axios.post('/product', form_data).then(function (response) {
           // console.log(response.data.product.id)
-
+          self.product_registered_id=response.data.product.id
         })
         // console.log(this.form_data)
         this.btn_txt = 'ویرایش محصول'
