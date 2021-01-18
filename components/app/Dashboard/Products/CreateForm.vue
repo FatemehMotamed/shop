@@ -100,8 +100,6 @@
 </template>
 
 <script>
-import CustomButton from '@/components/core/dashboard/CustomButton'
-import CustomTextbox from '@/components/core/dashboard/CustomTextbox'
 import CategorySelect from '@/components/app/Dashboard/Products/CategorySelect'
 import UploadImage from '@/components/app/Dashboard/Products/UploadImage'
 import SelectboxBranch from '@/components/app/Dashboard/Branch/SelectboxBranch'
@@ -111,8 +109,6 @@ import { required, maxLength, email, minLength, numeric } from 'vuelidate/lib/va
 export default {
   name: "CreateForm",
   components: {
-    CustomButton: CustomButton,
-    CustomTextbox: CustomTextbox,
     CategorySelect: CategorySelect,
     SelectboxBranch: SelectboxBranch,
     UploadImage:UploadImage
@@ -161,12 +157,11 @@ export default {
         }
 
         if (this.$v.$pendding || this.$v.$error || this.branch_id == '') {
-          this.alert_error = !this.alert_error;
+          this.alert_error = true;
           return
         }
-        this.alert_error = !this.alert_error
-        this.alert_success = !this.alert_success
-        this.$v.$reset();
+        this.alert_error = false
+        this.alert_success = true
 
         let product = [{
           title: this.title,
@@ -188,7 +183,7 @@ export default {
         let self=this
         this.$axios.post('/product', form_data).then(function (response) {
           // console.log(response.data.product.id)
-          self.product_registered_id=response.data.product.id
+          self.product_registered_id=String(response.data.product.id)
         })
         // console.log(this.form_data)
         this.btn_txt = 'ویرایش محصول'

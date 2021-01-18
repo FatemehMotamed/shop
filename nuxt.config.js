@@ -99,7 +99,7 @@ export default {
 // },
 
  axios: {
-    baseURL: 'http://mahankabir.ir/api',
+    baseURL: 'http://127.0.0.1:8000/api',
 
   },
 
