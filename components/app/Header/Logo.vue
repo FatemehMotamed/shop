@@ -340,7 +340,9 @@ text-align: center;
       width: 18vw;
       height: 3vw;
     }
-
+    .info_container_user a{
+    color: rgba(0, 0, 0, 0.87) !important;
+    }
 
 
 
