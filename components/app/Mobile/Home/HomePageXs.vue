@@ -5,22 +5,6 @@
       height="100%"
       width="100%"
     >
-      <app-bar-page @callTogleDrawer="TogleDrawer"></app-bar-page>
-
-      <v-navigation-drawer
-        v-model="drawer"
-        absolute
-        right
-        temporary
-      >
-        <v-list nav dense>
-          <v-list-item-group active-class="deep-purple--text text--accent-4">
-              <navigation-drawer-page :menu="menu" @update-menu="updateMenu"></navigation-drawer-page>
-          </v-list-item-group>
-        </v-list>
-      </v-navigation-drawer>
-
-
       <avatar class="pt-10"></avatar>
       <v-card-text>
         <banner :banner="main_data.banner_images"></banner>
@@ -104,9 +88,15 @@
             FooterSide,
             Avatar,
         },
-          
+              watch: {
+      group () {
+        this.drawer = false
+      },
+    },
         data(){
             return{
+                    drawer: false,
+      group: null,
                 drawer: false,
                 menu:['مردانه','woman','child'],
                 menu2:['tshirt','shoe','kif'],

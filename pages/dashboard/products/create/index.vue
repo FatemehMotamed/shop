@@ -1,10 +1,9 @@
 <template>
 
-<<<<<<< HEAD
+<div>
   <create-form class="mt-10"></create-form>
-=======
   <create-form ></create-form>
->>>>>>> 4ebe5007cfe4dbd433b49c642e64689f670c795c
+</div>
 </template>
 
 <script>
