@@ -1,9 +1,9 @@
 <template>
 
   <div>
-    {{ product_id}}
+<!--    {{ product_id}}-->
     <el-upload
-      :action="address"
+      :action="'http://localhost:8000/api/product/image/upload?product_id='+parseInt(this.product_id)"
       list-type="picture-card"
       :on-success="handleSuccess"
       :on-preview="handlePictureCardPreview"
@@ -41,9 +41,9 @@
         disabled: false,
         file: '',
         fileList: [],
-        address:'http://localhost:8000/api/product/image/upload?product_id='+parseInt(this.product_id)
 
-      };
+
+      }
     },
     methods: {
       handleSuccess(response, file, fileList) {

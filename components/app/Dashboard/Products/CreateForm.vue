@@ -157,12 +157,11 @@ export default {
         }
 
         if (this.$v.$pendding || this.$v.$error || this.branch_id == '') {
-          this.alert_error = !this.alert_error;
+          this.alert_error = true;
           return
         }
-        this.alert_error = !this.alert_error
-        this.alert_success = !this.alert_success
-        this.$v.$reset();
+        this.alert_error = false
+        this.alert_success = true
 
         let product = [{
           title: this.title,
@@ -184,7 +183,7 @@ export default {
         let self=this
         this.$axios.post('/product', form_data).then(function (response) {
           // console.log(response.data.product.id)
-          self.product_registered_id=response.data.product.id
+          self.product_registered_id=String(response.data.product.id)
         })
         // console.log(this.form_data)
         this.btn_txt = 'ویرایش محصول'
