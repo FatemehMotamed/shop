@@ -1,26 +1,24 @@
 <template>
 
   <div>
-        <v-row class="justify-space-between text-center">
-            <div class="pa-4">
+        <v-row class="justify-space-around text-center">
+            <div>
             <img
                 width="75px"
                 heigth="75px"
                 src="~/assets/image/7.PNG"
                 alt="Beauty"
             >
-
             </div>
-            <div class="pa-4">
+            <div>
             <img
                 width="75px"
                 heigth="75px"
                 src="~/assets/image/8.PNG"
                 alt="Beauty"
             >
-
             </div>
-            <div class="pa-4">
+            <div>
             <img
                 width="75px"
                 heigth="75px"
@@ -29,9 +27,9 @@
             >
             </div>
         </v-row>
-        <v-row class="justify-space-between text-center">
+        <v-row class="justify-space-around text-center">
                 <subtitle-1>ضمانت بازگشت کالا</subtitle-1>
-                <subtitle-1 class="ma-t-5">تحویل سریع و آسان</subtitle-1>
+                <subtitle-1>تحویل سریع و آسان</subtitle-1>
                 <subtitle-1>کالای اورجینال</subtitle-1>
         </v-row>
     </div>

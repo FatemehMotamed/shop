@@ -58,9 +58,7 @@
         <div>
             <label>مردانه</label> 
         </div>
-
     </div>
-
        
 </v-row>    
 </template>

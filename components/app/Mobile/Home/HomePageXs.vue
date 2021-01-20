@@ -4,8 +4,7 @@
 
   <v-app-bar
     color="red accent-4"
-    fixed
-    clipped-right>
+    fixed>
     <v-app-bar-nav-icon class="white--text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
     <v-toolbar-title class="white--text">Brand Name</v-toolbar-title>
@@ -55,63 +54,64 @@
       <kids-menu class="mt-2" v-if="number == 2"></kids-menu>
       <beauty-menu class="mt-2" v-if="number == 3"></beauty-menu>
       <sub-men-menu class="mt-2" v-if="number == 4"></sub-men-menu>
-
+      <sub-women-menu class="mt-2" v-if="number == 5"></sub-women-menu>
 
       </v-list-item-group>
     </v-list>
   </v-navigation-drawer>
   <v-main>
-<banner class="mt-16" :banner="main_data.banner_images"></banner>
+    <avatar class="mt-16 ml-5"></avatar>
+    <banner :banner="main_data.banner_images"></banner>
 
-        <div class="row justify-space-between pt-8">
-            <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
-            <div>محصولات پربازدید اخیر</div>
-        </div>
-        <group-card class="mt-4"></group-card>
+    <div class="row justify-space-between pt-8 ml-5">
+        <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
+        <div>محصولات پربازدید اخیر</div>
+    </div>
+    <group-card class="mt-4 ml-5"></group-card>
 
-        <guarantee></guarantee>
+    <guarantee class="mt-5 ml-5"></guarantee>
 
-        <div class="row justify-space-between pt-8">
-            <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
-            <div>از پرطرفدارترین برندها: باینت</div>
-        </div>
-        
-        <tile-group class="mt-4"></tile-group>
+    <div class="row justify-space-between pt-8 ml-5">
+        <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
+        <div>از پرطرفدارترین برندها: باینت</div>
+    </div>
+    
+    <tile-group class="mt-4 ml-5"></tile-group>
 
-        <div class="row justify-space-between pt-8">
-            <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
-            <div>از پرطرفدارترین برندها: آر اِن اِس</div>
-        </div>
-        <tile-group class="mt-4"></tile-group>
+    <div class="row justify-space-between pt-8 ml-5">
+        <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
+        <div>از پرطرفدارترین برندها: آر اِن اِس</div>
+    </div>
+    <tile-group class="mt-4 ml-5"></tile-group>
 
-        <div class="row justify-space-between pt-8">
-            <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
-            <div>از پرطرفدارترین برندها: زی</div>
-        </div>
+    <div class="row justify-space-between pt-8 ml-5">
+        <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
+        <div>از پرطرفدارترین برندها: زی</div>
+    </div>
 
-        <tile-group class="mt-4"></tile-group>
+    <tile-group class="mt-4 ml-5"></tile-group>
 
-        <div class="row justify-space-between pt-8">
-            <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
-            <div>برندهای برتر</div>
-        </div>
+    <div class="row justify-space-between pt-8 ml-5">
+        <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
+        <div>برندهای برتر</div>
+    </div>
 
-        <brands class="mt-4"></brands>
+    <brands class="mt-4 ml-5"></brands>
 
-        <div class="row justify-space-between pt-8">
-            <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
-            <div>منتخب جدیدترین محصولات</div>
-        </div>
+    <div class="row justify-space-between pt-8 ml-5">
+        <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
+        <div>منتخب جدیدترین محصولات</div>
+    </div>
 
-        <group-card class="mt-4"></group-card>
+    <group-card class="mt-4 ml-5"></group-card>
 
-        <v-row class="justify-space-between text-center pt-10">
-            <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
-            <div>خانه طراحان ایرانی</div>
-        </v-row>
-        <brands class="mt-4"></brands>
+    <v-row class="justify-space-between text-center pt-10 ml-5">
+        <div><nuxt-link to="#">مشاهده همه</nuxt-link></div>
+        <div>خانه طراحان ایرانی</div>
+    </v-row>
+    <brands class="mt-4 ml-5"></brands>
 
-        <footer-side class="mt-4"></footer-side>
+    <footer-side class="mt-4 ml-5"></footer-side>
   </v-main>
 </div>
 </template>
@@ -127,7 +127,7 @@
   import KidsMenu from '@/components/app/Mobile/Header/KidsMenu.vue'
 
   import SubMenMenu from '@/components/app/Mobile/Header/SubMenu/SubMenMenu.vue'
-
+  import SubWomenMenu from '@/components/app/Mobile/Header/SubMenu/SubWomenMenu.vue'
 
   import AppBarPage from "@/components/app/Mobile/Header/AppBarPage";
   import GroupCard from "@/components/app/Mobile/Home/GroupCard.vue";
@@ -148,6 +148,7 @@
             BeautyMenu,
 
             SubMenMenu,
+            SubWomenMenu,
 
             AppBarPage:AppBarPage,
             GroupCard: GroupCard,
@@ -158,11 +159,11 @@
             FooterSide,
             Avatar,
         },
-              watch: {
-      group () {
-        this.drawer = false
-      },
-    },
+        watch: {
+          group () {
+          this.drawer = false
+          },
+        },
         data(){
             return{
                 number: -1,
