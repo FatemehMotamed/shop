@@ -8,9 +8,6 @@
       <footer-page class="d-none d-sm-flex"></footer-page>
     </v-app>
 
-
-
-
   </div>
 </template>
 
