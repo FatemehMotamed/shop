@@ -128,6 +128,26 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extend(config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.module.rules.push({
+          test: /\.s[ac]ss$/i,
+          use: [
+            "style-loader",
+            "css-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                implementation: require("sass"),
+                sassOptions: {
+                  fiber: require("fibers"),
+                },
+              },
+            },
+          ],
+        })
+      }
+    }
   },
 
 
