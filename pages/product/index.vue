@@ -1,5 +1,5 @@
 <template>
-<v-app class="white">
+<!-- <v-app class="white">
 
      <v-layout >
     <v-flex xs12 sm8 offset-sm2>
@@ -25,11 +25,17 @@
   </v-layout>
 
 
-</v-app>
+</v-app> -->
+
+<div>
+  <product-page-xs class="d-flex d-sm-none"></product-page-xs>
+
+</div>
 </template>
 
 <script>
 import '@fortawesome/fontawesome-free/css/all.css' // Ensure you are using css-loader
+import ProductPageXs from '@/components/app/Mobile/Product/ProductPageXs.vue'
 
 import ImageGallery from '@/components/app/Product/ImageGallery.vue' 
 import LeftSide from '@/components/app/Product/LeftSide.vue'
@@ -42,6 +48,7 @@ export default {
       ImageGallery,
       LeftSide,
       OtherSuggest,
+      ProductPageXs,
     },
     data(){
       return{
