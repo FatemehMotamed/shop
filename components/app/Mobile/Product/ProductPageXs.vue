@@ -61,7 +61,7 @@
     </v-list>
   </v-navigation-drawer>
   <v-main>
-    <properties-product class="mt-16" 
+    <properties-product class="mt-16 ml-8" 
     :properties_data_1="properties_data_1"
     :comments_product="comments_product"
     ></properties-product>
